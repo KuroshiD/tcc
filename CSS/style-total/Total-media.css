@@ -1,0 +1,20 @@
+@media screen and (min-width: 935px){
+
+    .interface{
+        position: relative;
+        width: 935px;
+        margin: auto;
+        background-color: rgb(0, 0, 0);
+    }
+
+    .interface .container-main{
+        position: relative;
+        padding-bottom: 10px;
+        background-color: rgb(10, 10, 10);
+    }
+
+    .interface .container-footer{
+        background-color: rgb(10, 10, 10);
+    }
+
+}

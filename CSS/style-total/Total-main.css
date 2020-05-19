@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+}
+
+.interface{
+    width: 100%;
+    height: 100%;
+    background-color: lightcoral;
+}
+
+.container-main{
+    position: relative;
+    top: 70px;
+    padding-bottom: 10px;
+    width: 100%;
+    background-color: rgb(10, 10, 10);
+}
+
+/*Inicio form do pesquisa */
+
+.container-main .main-form{
+    position: relative;
+    width: 100%;
+    height: 120px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* background-color: rgba(0, 0, 0, 0.7);
+    background-blend-mode: color-dodge;
+    background-image: url('/home/jefferson/Documents/Anime Match v1.2/Imagens/img-da-pesquisa.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; */
+}
+
+.main-form .content-form{
+    position: relative;
+}
+
+.content-form .txt-pes{
+    font-size: 11pt;
+    padding-left: 2px;
+    padding-right: 33px;
+    outline: none;
+}
+
+.content-form .btn-pes{
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    width: 35px;
+    background-color: #ffffff;
+    color: grey;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/*Fim form de pesquisa*/

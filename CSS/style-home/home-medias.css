@@ -1,0 +1,63 @@
+@media screen and (min-width: 400px){
+
+    .container-main .main-form{
+        height: 150px;
+    }
+
+    .main-form .content-form{
+        width: 80%;
+    }
+
+    .content-form .txt-pes{
+        width: 100%;
+        font-size: 12pt;
+    }
+
+}
+
+@media screen and (min-width: 590px){
+    .main-form .content-form{
+        width: 472px;
+    }
+}
+
+
+@media screen and (min-width: 668px){
+    
+}
+
+@media screen and (min-width: 935px){
+    
+    .interface{
+        width: 935px;
+        margin: auto;
+    }
+    .main-pesquisa{
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .txtPqs{
+        width: 500px;
+    }
+
+    .main-animes{
+        width: 935px;
+    }
+
+    .animes-content{
+        position: relative;
+        width: 850px;
+        margin: auto;
+        grid-template-columns: repeat(3, 33.33%);
+        grid-template-areas: "anime1 anime2 anime3"; 
+        grid-gap: 15px;
+    }
+
+    .animes-container{
+        width: 250px;
+    }
+    .btns-N-P{
+        display: flex;
+    }
+}

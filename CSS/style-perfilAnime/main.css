@@ -1,0 +1,173 @@
+.content-main{
+    position: relative;
+    width: 100%; 
+}
+
+.content-main .main-flex{
+    position: relative;
+    display: grid;
+    width: 100%;
+}
+
+.content-main .container-img-anime{
+    margin-top: 20px;
+    justify-self: center;
+    width: 200px;
+}
+
+.container-img-anime img{
+    max-width: 100%;
+}
+
+.content-main .container-img-anime .feedback{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.content-main .container-img-anime .feedback span{
+    font-size: 17pt;
+    color: #ab02b1;
+}
+
+.content-main .descricao-anime{
+    width: 95%;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.content-main .descricao-anime .anime-name{
+    background-color: rgb(46, 46, 46);
+    font-size: 14pt;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    padding: 7px 5px;
+}
+.content-main .descricao-anime .descri-topicos{
+    width: 100%;
+    background-color: rgb(26, 26, 26);
+}
+
+.content-main .descricao-anime .descri-topicos .topicos-list{
+    list-style: none;
+}
+
+.content-main .descricao-anime .descri-topicos .topicos-items{
+    padding: 8px 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+    color: #ab02b1;
+    border-bottom: dashed 1px grey;
+}
+
+.content-main .descricao-anime .descri-topicos b{
+    color: rgb(177, 177, 177);
+}
+
+.content-main .sinopse{
+    position: relative;
+    width: 95%;
+    margin: auto;
+    border-bottom: 1px solid #333;
+}
+
+.content-main .sinopse .descri-sinopse{
+    color: #fff;
+    font-size: 13pt;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 7px 5px;
+    background-color: rgb(46, 46, 46);
+}
+
+.content-main .sinopse .sinopse-do-anime{
+    color: #fff;
+    font-size: 11pt;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    padding: 5px;
+    margin-bottom: 30px;
+    background-color: rgb(26, 26, 26);
+}
+
+.content-main .sec-main-comentarios{
+    margin-top: 15px;
+}
+
+.sec-main-comentarios .coment-titulo{
+    width: 95%;
+    margin: auto;
+}
+
+.sec-main-comentarios .coment-titulo .titulo-do-sec{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+
+.coment-user{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    margin-top: 15px;
+}
+
+.coment-img-user{
+    position: relative;
+    width: 40px;
+}
+
+.coment-img-user img{
+    max-width: 100%;
+    border-radius: 50%;
+}
+#coment-txta{
+    width: 75%;
+    height: 40px;
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    resize: none;
+    margin-left: 15px;
+    font-size: 12pt;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+}
+.coment-user-name{
+    color: #fff;
+
+}
+
+/*inicio do footer*/
+.container-footer{
+    position: relative;
+    top:50px;
+    height: 120px;
+    background-color: rgb(5, 5, 5);
+}
+
+.container-rede-social{
+    position: relative;
+    margin-left: 10px;
+    width: 100%;
+}
+
+.rede-social-list{
+    position: relative;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+.icons-social{
+    font-size: 16pt;
+    color: #fff;
+}
+
+.icons-social span{
+    margin-left: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+}
+

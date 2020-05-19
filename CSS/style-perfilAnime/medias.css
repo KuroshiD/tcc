@@ -1,0 +1,26 @@
+@media screen and (min-width: 668px){
+
+    .content-main .main-flex{
+        position: relative;
+        width: 95%;
+        margin: auto;
+        display: flex;
+    }
+
+    .content-main .main-flex .container-img-anime{
+        width: 247.833px;
+        margin-top: 15px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .content-main .main-flex .container-img-anime img{
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .content-main .main-flex .descricao-anime{
+        width: 60%;
+    }
+}
+

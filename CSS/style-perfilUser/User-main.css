@@ -1,0 +1,170 @@
+/*Inicio da seção de imagem de capa e perfil*/
+.container-main .main-capa-peril{
+    position: relative;
+    width: 100%
+}
+
+.main-capa-peril .container-capa{
+    position: relative;
+    width: 100%;
+}
+
+.main-capa-peril .container-capa img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.main-capa-peril .container-perfil{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 20%;
+}
+
+.main-capa-peril .container-perfil img{
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+/*Fim da seção de imagem de capa e perfil*/
+
+/*Inicio da seção de descrições, contendo caracteristicas e nome do user*/
+
+.container-main .main-descricao{
+    width: 100%;
+    padding-top: .5rem;
+}
+
+.main-descricao .content-nome-btn{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: .5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.content-nome-btn .name-do-user{
+    color: #fff;
+}
+
+.container-btn .btn-editar{
+    width: 80px;
+    height: 30px;
+    font-size: 12pt;
+    letter-spacing: .5px;
+    background-color: indigo;
+    border: 1px solid indigo;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.main-descricao .container-descricao{
+    width: 100%;
+    padding-bottom: .5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.main-descricao .container-descricao p{
+    color: #fff;
+    font-size: 11pt;
+    margin-bottom: 5px;
+}
+/*Fim da seção de descrições, contendo caracteristicas e nome do user*/
+
+/*Inicio da stylização do btns de interações*/
+
+.container-main .main-btns-interacoes{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    border-bottom: 1px solid grey; 
+}
+
+.main-btns-interacoes .btns-interacoes{
+    width: 20vw;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 60%;
+    color: #ffffff;
+    background-color: rgb(10, 10, 10);
+    border: none;
+    cursor: pointer;
+    outline: hidden;
+}
+
+.main-btns-interacoes .active{
+    border-bottom: 2px solid indigo; 
+}
+
+/*Fim da stylização do btns de interações*/
+
+/*Inicio da stylização da seção de atividades*/
+
+.container-avd-recentes{
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+
+.titulo-recentes{
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+.titulo-recentes .ttl-rec{
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+}
+
+.container-avd-recentes .container-coment{
+    position: relative;
+    width: 90%;
+    height: 80px;
+    margin: auto;
+    border-radius: 10px;
+    background-color: rgb(20, 20, 20);
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.container-coment .container-img-rec-anime{
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 200px;
+    height: 70px;
+}
+
+.container-coment .container-img-rec-anime img{
+    width: 100%;
+    height: 70px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+}
+
+.content-coment-name{
+    height: 70px;
+}
+
+.name-coment{
+    color: #fff;
+    font-size: 10pt;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 2px;
+}
+
+.coment{
+    position: relative;
+    width: 95%;
+    color: #fff;
+    text-align: justify;
+    font-size: 7pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
