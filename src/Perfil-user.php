@@ -62,7 +62,7 @@ $x = rand(0, 99);
                     </div>
 
                     <div class="content-nome-classe">
-                        <h3>Kpop</h3>
+                        <h3>Petista</h3>
                         <legend>humano/Guerreiro</legend>
                     </div>
 
