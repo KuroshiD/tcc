@@ -325,19 +325,21 @@ $x = rand(0, 99);
             })
             // bind 'myForm' and provide a simple callback function 
             $("#up_foto").change(function() {
-                $('#form-foto').ajaxForm({
-                    url: './processos/img_perfil.php',
-                    type: 'POST',
-                    success: function(data) {
-                        if (data == 'Não suportado') {
-                            alert('Formato de arquivo não suportado');
-                        } else {
-                            $(".img_perfil").attr("src", '../' + data);
-                            $(".verificacao").attr("src", '../' + data);
-                        }
+                if ($(this).val() != '') {
+                    $('#form-foto').ajaxForm({
+                        url: './processos/img_perfil.php',
+                        type: 'POST',
+                        success: function(data) {
+                            if (data == 'Não suportado') {
+                                alert('Formato de arquivo não suportado');
+                            } else {
+                                $(".img_perfil").attr("src", '../' + data);
+                                $(".verificacao").attr("src", '../' + data);
+                            }
 
-                    }
-                }).submit();
+                        }
+                    }).submit();
+                }
             })
         });
     </script>
