@@ -32,6 +32,7 @@ $x = rand(0, 99);
     <link rel="stylesheet" href="../CSS/style-perfilUser/menu-editar.css">
     <link rel="stylesheet" href="../CSS/style-perfilUser/User-medias.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
 
     <title>Perfil</title>
 
@@ -58,7 +59,7 @@ $x = rand(0, 99);
                 <div class="content-profile">
 
                     <div class="container-profile-img">
-                        <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>">
+                        <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" id="foto_perfil">
                     </div>
 
                     <div class="content-nome-classe">
@@ -187,11 +188,10 @@ $x = rand(0, 99);
                 </div>
 
                 <div class="container-perfil">
-                    <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="Sua imagem de perfil" id="img_perfil" height="150" width="200">
+                    <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="Sua imagem de perfil" class="img_perfil" height="150" width="200">
                     <form action="processos/img_perfil.php" method="post" enctype="multipart/form-data" id="form-foto">
                         <input id="up_foto" type="file" name="arquivo" hidden />
                         <input type="text" name="id" value="<?php echo $id; ?>" hidden />
-                        <input type="submit" name="upload" id="btnSub" value="Salvar imagem" />
                     </form>
                 </div>
 
@@ -320,19 +320,28 @@ $x = rand(0, 99);
 
     <script>
         $(document).ready(function() {
-            $("#btnSub").css("display", "none");
-            $("#img_perfil").click(function() {
-                self.executar();
-            });
-        });
+            $(".img_perfil").click(function() {
+                $("#up_foto").trigger("click");
+            })
+            // bind 'myForm' and provide a simple callback function 
+            $("#up_foto").change(function() {
+                $('#form-foto').ajaxForm({
+                    url: './processos/img_perfil.php',
+                    type: 'POST',
+                    success: function(data) {
+                        if (data == 'Não suportado') {
+                            alert('Formato de arquivo não suportado');
+                        } else {
+                            $(".img_perfil").attr("src", '../' + data);
+                            $(".verificacao").attr("src", '../' + data);
+                        }
 
-        function executar() {
-            $('#up_foto').trigger('click');
-            $("#btnSub").css("display", "block");
-        }
+                    }
+                }).submit();
+            })
+        });
     </script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="../Js/menu/menu.js"></script>
     <script src="../Js/Buttons-Perfil-User/btn-editar.js"></script>
     <script src="../Js/Buttons-Perfil-User/btns.js"></script>

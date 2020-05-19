@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Tempo de geração: 19-Maio-2020 às 01:26
+-- Tempo de geração: 19-Maio-2020 às 03:59
 -- Versão do servidor: 8.0.18
 -- versão do PHP: 7.3.12
 
@@ -301,7 +301,7 @@ CREATE TABLE IF NOT EXISTS `tb_usuario` (
 --
 
 INSERT INTO `tb_usuario` (`id`, `nome`, `email`, `senha`, `nascimento`, `raca`, `classe`, `descricao`, `personagem`, `animefav`, `img_perfil`) VALUES
-(1, 'Eduardo R. de Matos', 'eduardoooax@gmail.com', '$2y$10$IuSNQKlJCZg6eKW2wobn.OjMKbM9jb1LXPOD4eS9ctehhyRstpmFC', '2003-04-17', 'Human', 'Adventurer', 'sem descrição.', 'não definido', 'não definido', 'Imagens/server/empty_profile.jpg'),
+(1, 'Eduardo R. de Matos', 'eduardoooax@gmail.com', '$2y$10$IuSNQKlJCZg6eKW2wobn.OjMKbM9jb1LXPOD4eS9ctehhyRstpmFC', '2003-04-17', 'Human', 'Adventurer', 'sem descrição.', 'não definido', 'não definido', 'Imagens/users/1empty_profile.jpg'),
 (2, 'Gayzão', 'gayzao@jebanabunda.paitaon.com.ru', '$2y$10$W7Py/rBa6CBDRg3AZFuCgu337pKhJHoW8Y0/NA9JBOnTaV.IddcR2', '1945-04-30', 'Human', 'Adventurer', 'sem descrição.', 'não definido', 'não definido', 'Imagens/server/empty_profile.jpg');
 COMMIT;
 
