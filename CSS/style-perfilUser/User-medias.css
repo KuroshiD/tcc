@@ -22,7 +22,11 @@
 @media screen and (min-width: 935px){
 
     /*Inicio da seção de imagem de capa e perfil */
-
+    .container-main{
+        position: relative;
+        top: 0;
+            
+    }
     .main-capa-peril .container-capa{
         position: relative;
         width: 100%;
@@ -47,7 +51,6 @@
         max-width: 100%;
         border-radius: 50%;
     }
-
     /*Fim da seção de imagem de capa e perfil*/
 
     /*Inicio da seção de descrições, contendo caracteristicas e nome do user */

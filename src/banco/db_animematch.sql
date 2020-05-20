@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Tempo de geração: 20-Maio-2020 às 18:34
+-- Tempo de geração: 20-Maio-2020 às 21:47
 -- Versão do servidor: 8.0.18
 -- versão do PHP: 7.3.12
 
@@ -103,18 +103,16 @@ CREATE TABLE IF NOT EXISTS `tb_usuario` (
   `personagem` varchar(60) DEFAULT 'não definido',
   `animefav` varchar(60) DEFAULT 'não definido',
   `img_perfil` varchar(255) NOT NULL DEFAULT 'Imagens/server/empty_profile.jpg',
+  `img_capa` varchar(255) NOT NULL DEFAULT 'Imagens/server/empty_capa.jpg',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `tb_usuario`
 --
 
-INSERT INTO `tb_usuario` (`id`, `nome`, `email`, `senha`, `nascimento`, `raca`, `classe`, `descricao`, `personagem`, `animefav`, `img_perfil`) VALUES
-(1, 'Eduardo R. de Matos', 'eduardoooax@gmail.com', '$2y$10$IuSNQKlJCZg6eKW2wobn.OjMKbM9jb1LXPOD4eS9ctehhyRstpmFC', '2003-04-17', 'Human', 'Adventurer', 'sem descrição.', 'não definido', 'não definido', 'Imagens/users/1empty_profile.jpg'),
-(2, 'Gayzão', 'gayzao@jebanabunda.paitaon.com.ru', '$2y$10$W7Py/rBa6CBDRg3AZFuCgu337pKhJHoW8Y0/NA9JBOnTaV.IddcR2', '1945-04-30', 'Human', 'Adventurer', 'sem descrição.', 'não definido', 'não definido', 'Imagens/server/empty_profile.jpg'),
-(3, 'Jefferson Santos', 'jefferson@gmail.com', '$2y$10$k.fcyg.1rUoD8A.IRUC4PejXHqLBuyWBgGIlPYBkLY5q1Z6yy9SUm', '2000-05-08', 'Human', 'Adventurer', 'sem descrição.', 'não definido', 'não definido', 'Imagens/users/3aizen.jpg'),
-(4, 'Gustavo', 'gusanches601@gmail.com', '$2y$10$fAU.B.8t8H2UHjuzJ43yBeau9ADTLFnYLQCgwExQO1b4HKRZQws.C', '1999-11-12', 'Human', 'Adventurer', 'sem descrição.', 'não definido', 'não definido', 'Imagens/server/empty_profile.jpg');
+INSERT INTO `tb_usuario` (`id`, `nome`, `email`, `senha`, `nascimento`, `raca`, `classe`, `descricao`, `personagem`, `animefav`, `img_perfil`, `img_capa`) VALUES
+(1, 'Gustavo', 'gusanches601@gmail.com', '$2y$10$KNulKtkqT69xrrQBoNv9BOi9TNSqQh0kGGAqvfGjte261uo8TekHS', '2002-11-12', 'Human', 'Adventurer', 'sem descrição.', 'não definido', 'não definido', 'Imagens/users/1one-piece-hd_011530570_277.jpg', 'Imagens/users/1thumb-1920-433087.jpg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
