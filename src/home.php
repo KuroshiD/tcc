@@ -127,26 +127,26 @@
                     <!-- Full-width images with number and caption text -->
                     <div class="mySlides fade">
                         <div class="numbertext">1 / 5</div>
-                        <img src="">
+                        <img src="../Imagens/animes/kaguya.jpg">
                     </div>
                     
-            
+
                     <div class="mySlides fade">
                         <div class="numbertext">2 / 5</div>
-                        <img src="../Imagens/cavalheiros.png">
+                        <img src="../Imagens/animes/onepiece.jpg">
                     </div>
 
                     <div class="mySlides fade">
                         <div class="numbertext">3 / 5</div>
-                        <img src="../Imagens/DragonBallZ.jpg">
+                        <img src="../Imagens/animes/lovelive.jpg">
                     </div>
                     <div class="mySlides fade">
                         <div class="numbertext">4 / 5</div>
-                        <img src="../Imagens/hunter_X_hunter.jpg">
+                        <img src="../Imagens/animes/jojo.jpg">
                     </div>
                     <div class="mySlides fade">
                         <div class="numbertext">5 / 5</div>
-                        <img src="../Imagens/naruto.jpg">
+                        <img src="../Imagens/animes/yuno.jpg">
                         <!-- <div class="text">Caption Text</div> -->
                     </div>
 
@@ -173,16 +173,16 @@
                     <h2 class="titulo-swiper">Animes Recentes</h2>
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="../Imagens/bleach.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/cavalheiros.png" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/DragonBallZ.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/hunter_X_hunter.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/naruto.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/bleach.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/demon-slayer.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/death-note.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/hunter_X_hunter.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/Naruto-Shippuuden.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/BNA.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Fruits-Basket-2nd-Season.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Gleipnir.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Honzuki-no-Gekokujou-Shisho-ni-Naru-Tame-ni-wa-Shudan-wo-Erandeiraremasen-2nd-Season.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kaguya-sama-wa-Kokurasetai-Tensai-tachi-no-Renai-Zunousen.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kakushigoto-TV.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kami-no-Tou.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Otome-Game-no-Hametsu-Flag-shika-Nai-Akuyaku-Reijou-ni-Tensei-shiteshimatta....jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Shokugeki-no-Souma-Gou-no-Sara.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Sword-Art-Online-Alicization-War-of-Underworld-2nd-Season.jpg" alt=""></div>
                         </div>
                         <div class="swiper-button-next btns-N-P"></div>
                         <div class="swiper-button-prev btns-N-P"></div>
@@ -190,19 +190,19 @@
                 </div>
 
                 <div class="container-slide-swiper">
-                    <h2 class="titulo-swiper">Animes antigos</h2>
+                    <h2 class="titulo-swiper">Animes Novos</h2>
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="../Imagens/bleach.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/cavalheiros.png" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/DragonBallZ.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/hunter_X_hunter.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/naruto.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/bleach.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/cavalheiros-dos-zoodiacos.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/Dragon ball.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/hunter_X_hunter.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/Naruto-Shippuuden.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="../Imagens/animes/BNA.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Fruits-Basket-2nd-Season.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Gleipnir.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Honzuki-no-Gekokujou-Shisho-ni-Naru-Tame-ni-wa-Shudan-wo-Erandeiraremasen-2nd-Season.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kaguya-sama-wa-Kokurasetai-Tensai-tachi-no-Renai-Zunousen.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kakushigoto-TV.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kami-no-Tou.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Otome-Game-no-Hametsu-Flag-shika-Nai-Akuyaku-Reijou-ni-Tensei-shiteshimatta....jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Shokugeki-no-Souma-Gou-no-Sara.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Sword-Art-Online-Alicization-War-of-Underworld-2nd-Season.jpg" alt=""></div>
                         </div>
                         <div class="swiper-button-next btns-N-P"></div>
                         <div class="swiper-button-prev btns-N-P"></div>
@@ -213,16 +213,16 @@
                     <h2 class="titulo-swiper">Melhores animes</h2>
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="../Imagens/bleach.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/cavalheiros.png" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/Dragon_Ball_Super.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/hunter_X_hunter.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/naruto.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/bleach.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/cavalheiros.png" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/DragonBallZ.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/hunter_X_hunter.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/naruto.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="../Imagens/animes/BNA.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Fruits-Basket-2nd-Season.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Gleipnir.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Honzuki-no-Gekokujou-Shisho-ni-Naru-Tame-ni-wa-Shudan-wo-Erandeiraremasen-2nd-Season.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kaguya-sama-wa-Kokurasetai-Tensai-tachi-no-Renai-Zunousen.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kakushigoto-TV.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kami-no-Tou.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Otome-Game-no-Hametsu-Flag-shika-Nai-Akuyaku-Reijou-ni-Tensei-shiteshimatta....jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Shokugeki-no-Souma-Gou-no-Sara.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Sword-Art-Online-Alicization-War-of-Underworld-2nd-Season.jpg" alt=""></div>
                         </div>
                         <div class="swiper-button-next btns-N-P"></div>
                         <div class="swiper-button-prev btns-N-P"></div>
@@ -230,24 +230,66 @@
                 </div>
 
                 <div class="container-slide-swiper">
-                    <h2 class="titulo-swiper">Animes nutella</h2>
+                    <h2 class="titulo-swiper">Animes Renomados</h2>
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="../Imagens/bleach.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/cavalheiros-dos-zoodiacos.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/Attack-on-titan.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/one-piece.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/jojos-bizarre-adventure.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/nanatsu no taizai.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/my-hero-academia.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="..//Imagens/Dragon_Ball_Super.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/hunter_X_hunter.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/naruto.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="../Imagens/animes/BNA.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Fruits-Basket-2nd-Season.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Gleipnir.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Honzuki-no-Gekokujou-Shisho-ni-Naru-Tame-ni-wa-Shudan-wo-Erandeiraremasen-2nd-Season.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kaguya-sama-wa-Kokurasetai-Tensai-tachi-no-Renai-Zunousen.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kakushigoto-TV.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kami-no-Tou.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Otome-Game-no-Hametsu-Flag-shika-Nai-Akuyaku-Reijou-ni-Tensei-shiteshimatta....jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Shokugeki-no-Souma-Gou-no-Sara.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Sword-Art-Online-Alicization-War-of-Underworld-2nd-Season.jpg" alt=""></div>
                         </div>
                         <div class="swiper-button-next btns-N-P"></div>
                         <div class="swiper-button-prev btns-N-P"></div>
                     </div>
                 </div>
+                <div class="container-slide-swiper">
+                    <h2 class="titulo-swiper">Animes Ação</h2>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="../Imagens/animes/BNA.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Fruits-Basket-2nd-Season.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Gleipnir.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Honzuki-no-Gekokujou-Shisho-ni-Naru-Tame-ni-wa-Shudan-wo-Erandeiraremasen-2nd-Season.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kaguya-sama-wa-Kokurasetai-Tensai-tachi-no-Renai-Zunousen.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kakushigoto-TV.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kami-no-Tou.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Otome-Game-no-Hametsu-Flag-shika-Nai-Akuyaku-Reijou-ni-Tensei-shiteshimatta....jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Shokugeki-no-Souma-Gou-no-Sara.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Sword-Art-Online-Alicization-War-of-Underworld-2nd-Season.jpg" alt=""></div>
+                        </div>
+                        <div class="swiper-button-next btns-N-P"></div>
+                        <div class="swiper-button-prev btns-N-P"></div>
+                    </div>
+                </div>
+                <div class="container-slide-swiper">
+                    <h2 class="titulo-swiper">Animes Aventura</h2>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="../Imagens/animes/BNA.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Fruits-Basket-2nd-Season.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Gleipnir.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Honzuki-no-Gekokujou-Shisho-ni-Naru-Tame-ni-wa-Shudan-wo-Erandeiraremasen-2nd-Season.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kaguya-sama-wa-Kokurasetai-Tensai-tachi-no-Renai-Zunousen.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kakushigoto-TV.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kami-no-Tou.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Otome-Game-no-Hametsu-Flag-shika-Nai-Akuyaku-Reijou-ni-Tensei-shiteshimatta....jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Shokugeki-no-Souma-Gou-no-Sara.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Sword-Art-Online-Alicization-War-of-Underworld-2nd-Season.jpg" alt=""></div>
+                        </div>
+                        <div class="swiper-button-next btns-N-P"></div>
+                        <div class="swiper-button-prev btns-N-P"></div>
+                    </div>
+                </div>
+                
+
+                
+                
 
             </section> 
 
