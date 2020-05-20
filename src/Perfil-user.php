@@ -49,7 +49,7 @@ $x = rand(0, 99);
 
     <div class="interface">
 
-        
+
 
         <div class="container-menu-editar active-menu-none">
             <!--active-menu-none-->
@@ -105,50 +105,48 @@ $x = rand(0, 99);
             <section class="main-capa-peril">
 
                 <div class="container-capa">
-                    <img src="<?php  echo "../" . $dados['img_capa'] ?>" alt="Sua imagem de capa" class="img_capa">
+                    <img src="<?php echo "../" . $dados['img_capa'] ?>" alt="Sua imagem de capa" class="img_capa">
                     <form action="processos/img_capa.php" method="post" enctype="multipart/form-data" id="form-capa">
                         <input id="up_capa" type="file" name="arquivo" hidden />
                         <input type="text" name="id" value="<?php echo $id; ?>" hidden />
-                        <i for="id" class="fas fa-pencil-alt icon img_capa_icon"></i>
+                        <i for="id" class="fas fa-pencil-alt icon img_capa_icon" id="lapisCapa"></i>
                     </form>
                 </div>
-                <script>
-                    $(document).ready(function() {
-                        $(".img_capa_icon").click(function() {
-                        $("#up_capa").trigger("click");
-                    })
-                    // bind 'myForm' and provide a simple callback function 
-                    $("#up_capa").change(function() {
-                        if ($(this).val() != '') {
-                            $('#form-capa').ajaxForm({
-                            url: './processos/img_capa.php',
-                            type: 'POST',
-                            success: function(data) {
-                            if (data == 'Não suportado') {
-                                alert('Formato de arquivo não suportado');
-                            } else {
-                                $(".img_capa").attr("src", '../' + data);
-                                $(".verificacao").attr("src", '../' + data);
-                            }                                
-                        }
-                    }).submit();
-                }
-            })
-        });
-                </script>
+
                 <div class="container-perfil">
                     <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="Sua imagem de perfil" height="150" width="200" class="img_perfil">
                     <form action="processos/img_perfil.php" method="post" enctype="multipart/form-data" id="form-foto">
                         <input id="up_foto" type="file" name="arquivo" hidden />
                         <input type="text" name="id" value="<?php echo $id; ?>" hidden />
-                        <i for="id" class="fas fa-pencil-alt icon img_perfil_icon"></i>
+                        <i for="id" class="fas fa-pencil-alt icon img_perfil_icon" id="lapisPerfil"></i>
                     </form>
-                    
-                    
-                    
                 </div>
 
             </section>
+
+            <script>
+                $(document).ready(function() {
+                    $("#lapisCapa").click(function() {
+                        $("#up_capa").trigger("click");
+                    })
+
+                    $("#up_capa").change(function() {
+                        if ($(this).val() != '') {
+                            $('#form-capa').ajaxForm({
+                                url: './processos/img_capa.php',
+                                type: 'POST',
+                                success: function(data) {
+                                    if (data == 'Não suportado') {
+                                        alert('Formato de arquivo não suportado');
+                                    } else {
+                                        $(".img_capa").attr("src", '../' + data);
+                                    }
+                                }
+                            }).submit();
+                        }
+                    })
+                })
+            </script>
 
             <section class="main-descricao">
 
@@ -287,10 +285,7 @@ $x = rand(0, 99);
                                 alert('Formato de arquivo não suportado');
                             } else {
                                 $(".img_perfil").attr("src", '../' + data);
-                                $(".verificacao").attr("src", '../' + data);
-                            }                                
-
-
+                            }
                         }
                     }).submit();
                 }

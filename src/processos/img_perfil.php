@@ -19,12 +19,11 @@
         if($foto_atual != 'Imagens/server/empty_profile.jpg'){
             unlink('../../' . $foto_atual);
         }
-        move_uploaded_file($_FILES['arquivo']['tmp_name'], "../../Imagens/users/" . $foto); //Função que coloca o arquivo no diretório "../../Imagens/users/[nome da foto]"
-        $caminho = "Imagens/users/" . $foto; //Variável que recebe o caminho e o nome do arquivo
+        move_uploaded_file($_FILES['arquivo']['tmp_name'], "../../Imagens/users/profile/" . $foto); //Função que coloca o arquivo no diretório "../../Imagens/users/[nome da foto]"
+        $caminho = "Imagens/users/profile/" . $foto; //Variável que recebe o caminho e o nome do arquivo
         $insere = mysqli_query($con, "UPDATE tb_usuario SET img_perfil ='$caminho' WHERE id = '$id'"); //Consulta SQL que insere o caminho da imagem no banco de dados
         echo $caminho;
     } else {
-        $saidas[] = 'Não foi possível fazer upload!'; //Se o teste retornar negativo, o upload não é efetuado e o array recebe uma mensagem dizendo que o formato não é permitido
         echo 'Não suportado';
     }
 ?>
