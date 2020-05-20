@@ -134,12 +134,14 @@
 .interface .container-footer{
     position: relative;
     top: 20px;
-    height: 125px;
+    height: 200px;
 
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     text-align: center;
+    background: url("../../Imagens/yuno.jpg");
+    background-position: top;
 }
 
 .container-footer .footer-des{

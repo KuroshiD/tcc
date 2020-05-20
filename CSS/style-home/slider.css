@@ -96,11 +96,11 @@
 
 /* Fading animation */
 
-.fade {
-  animation: fade 1.5s cubic-bezier(.05,1.47,.96,-0.61);
+/* .fade {
+  animation: fade 1s cubic-bezier(.05,1.47,.96,-0.61);
 }
 
 @keyframes fade {
   from{transform: translateX(-50%);}
   to{transform: translateX(0);}
-}
+} */
