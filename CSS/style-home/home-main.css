@@ -1,4 +1,8 @@
+.interface .container-main{
 
+    padding-bottom: 20px;
+
+}
 /*Inicio form do pesquisa */
 
 .container-main .main-form{
@@ -10,6 +14,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background-image: url('../../Imagens/top.png');
+    filter: grayscale(80%);
+    background-size: cover;
+    background-position: top;
+    background-repeat: repeat-y;
+    background-blend-mode: color-dodge;
+    background-color: rgba(0,0,0,0.6);
 }
 
 .main-form .content-form{
@@ -44,6 +56,9 @@
 
 /*Fim form de pesquisa*/
 
+
+/*slider carousel*/
+
 .container-main .main-slider{
     position: relative;
     margin-top: 20px;
@@ -51,13 +66,16 @@
     overflow: hidden;
 }
 
+/*slider carousel*/
+
+/*começo style do slider do netflix*/
 .container-main .main-animes{
     width: 100%;
     margin-top: 2rem;
 }
 
 .main-animes .container-slide-swiper{
-    margin-bottom: 1.5rem;
+    margin-bottom: 50px;
 }
 
 .main-animes .container-slide-swiper .titulo-swiper{
@@ -71,8 +89,12 @@
     height: auto;
     margin-top: 0.5rem;
 }
-.swiper-slide {
 
+.swiper-wrapper{
+    margin-left: .5rem;
+}
+
+.swiper-slide {
     text-align: center;
     font-size: 18px;
     background: #fff;
@@ -94,7 +116,7 @@
 
 .swiper-slide img{
     width: 100%;
-    height: 296.133px;
+    height: 246.133px;
 }
 
 .btns-N-P{
@@ -105,53 +127,13 @@
     --swiper-theme-color: #fff;
 }
 
-
-/*Section ResultadoPes*/
-
-#ResultadoPes{
-    display: none;
-} 
-
-.resultado-titulo{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-align: center;
-    font-size: 18pt;
-    color: #fff;
-}
-
-.Container-resultado-pes{
-    width: 100%;
-    display: grid;
-    grid-column-gap: 10px;
-    grid-row-gap: 15px;
-    grid-template-columns: 24.5% 24.5% 24.5% 24.5%;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-
-    border: 1px solid red;
-}
-
-.resultado-img{
-    width: 100%;
-}
-.resultado-img img{
-    width: 100%;
-    height: 296.13px
-}
-
-.resultado-aparecer{
-    display: block;
-}
-
-/*Fim section ResultadoPes*/
+/*fim style slider netflix*/
 
 /*começo da stylização do footer*/
 
 .interface .container-footer{
     position: relative;
-    top: 61px;
+    top: 20px;
     height: 125px;
 
     display: flex;

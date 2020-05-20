@@ -8,13 +8,12 @@
 .interface{
     width: 100%;
     height: 100%;
-    background-color: lightcoral;
+    background-color: rgb(10, 10, 10);
 }
 
 .container-main{
     position: relative;
     top: 70px;
-    padding-bottom: 10px;
     width: 100%;
     background-color: rgb(10, 10, 10);
 }
@@ -29,13 +28,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* background-color: rgba(0, 0, 0, 0.7);
-    background-blend-mode: color-dodge;
-    background-image: url('/home/jefferson/Documents/Anime Match v1.2/Imagens/img-da-pesquisa.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center; */
 }
 
 .main-form .content-form{

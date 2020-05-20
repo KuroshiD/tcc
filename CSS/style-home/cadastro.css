@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Roboto';
 }
 
 .container {
@@ -42,14 +43,20 @@
 
 /*Aqui é o style do login*/
 
+
+
 .entrar-titulos {
-    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     color: #fff;
-    text-align: center;
+    height: 120px;
+    padding: 5px;
 }
 
-.entrar-titulos h1 {
-    margin-bottom: 5px;
+.letra span{
+    font-size: 12pt;
 }
 
 .campos-log {
@@ -129,6 +136,44 @@
     justify-content: space-between;
     align-items: center;
 }
+
+/*inicio do style de não sei*/
+
+.p_retorno {
+    color: red;
+    font-weight: '600';
+    text-align: center;
+}
+
+.vazio::-webkit-input-placeholder {
+    color: red;
+    font-weight: bold;
+}
+
+.respostaLogin {
+    color: white;
+}
+
+#resposta {
+    text-align: center;
+    color: red;
+}
+
+#respostaOk {
+    text-align: center;
+    color: green;
+}
+
+.texto{
+    background: rgba(255, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+}
+
+/*fim do style que não sei*/
 
 
 /*Fim do cadastro*/

@@ -48,56 +48,7 @@ $x = rand(0, 99);
 
     <div class="interface">
 
-        <header class="container-header">
-
-            <div class="container-logo-img">
-                <img src="../Imagens/Logo.png">
-            </div>
-
-            <nav class="container-menu">
-
-                <div class="content-profile">
-
-                    <div class="container-profile-img">
-                        <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" id="foto_perfil">
-                    </div>
-
-                    <div class="content-nome-classe">
-                        <h3>Petista</h3>
-                        <legend>humano/Guerreiro</legend>
-                    </div>
-
-                </div>
-
-                <ul class="list-nav">
-
-                    <li class="list-item">
-                        <a href="home.php" class="link-item active-link">home</a>
-                    </li>
-                    <li class="list-item">
-                        <a href="#" class="link-item">animes recentes</a>
-                    </li>
-                    <li class="list-item">
-                        <a href="#" class="link-item">recomendação aleatoria</a>
-                    </li>
-                    <li class="list-item">
-                        <a href="#" class="link-item">temporadaras</a>
-                    </li>
-                    <li class="list-item">
-                        <a href="#" class="link-item">noticias</a>
-                    </li>
-
-                </ul>
-
-            </nav>
-
-            <div class="container-icone-profile">
-
-                <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" class="verificacao">
-
-            </div>
-
-        </header>
+        
 
         <div class="container-menu-editar">
             <!--active-menu-none-->
@@ -184,7 +135,7 @@ $x = rand(0, 99);
             <section class="main-capa-peril">
 
                 <div class="container-capa">
-                    <img src="../Imagens/cavalheiros.png" alt="Sua imagem de capa">
+                    <img src="../Imagens/negro.jpg" alt="Sua imagem de capa">
                 </div>
 
                 <div class="container-perfil">
@@ -335,7 +286,8 @@ $x = rand(0, 99);
                             } else {
                                 $(".img_perfil").attr("src", '../' + data);
                                 $(".verificacao").attr("src", '../' + data);
-                            }
+                            }                                
+
 
                         }
                     }).submit();

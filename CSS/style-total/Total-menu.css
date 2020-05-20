@@ -1,14 +1,21 @@
 .container-header{
     position: fixed;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 935px;
+    left: 0;
+    width: 100%;
     height: 70px;
+    background-color: rgb(20, 20, 20);
+    box-shadow: 0px 10px 3px -3px rgba(0,0,0,0.75);
+    z-index: 3;
+    
+}
+
+.container{
+    width: 935px;
+    height: 100%;
+    margin: auto;
     display: flex;
     align-items: center;
-    background-color: rgb(20, 20, 20);
-    z-index: 3;
 }
 
 .container-logo-img {
@@ -24,14 +31,15 @@
 .container-menu{
     position: relative;
     width: 835px;
-    height: 70px;
+    height: 100%;
 }
 
 .content-profile{
     position: absolute;
-    right: 1rem;
     top: 50%;
+    right: 0;
     transform: translateY(-50%);
+    width: 45px;
 }
 
 .container-profile-img{
@@ -49,10 +57,8 @@
 
 .list-nav{
     position: absolute;
-    left: 0;
     top: 50%;
     transform: translateY(-50%);
-
     width: 570px;
     display: flex;
     list-style: none;
@@ -81,15 +87,16 @@
 
 
 @media screen and (max-width: 935px){
-    .container-header{
+
+    .container{
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
         padding-left: .5rem;
         padding-right: .5rem;
-        background-color: rgb(20, 20, 20);
-    } 
+    }
+
     .container-menu{
         position: absolute;
         top: 70px;

@@ -11,6 +11,8 @@
 
     $sql = mysqli_query($con, "SELECT * FROM tb_usuario WHERE id = '$id'");
     $dados = mysqli_fetch_array($sql);
+    $sql_anime = mysqli_query($con, "SELECT * FROM tb_anime");
+    $dados_animes = mysqli_fetch_array($sql_anime);
 
     $x = rand(0, 99);
 ?>
@@ -36,6 +38,7 @@
     <link rel="stylesheet" href="../CSS/style-home/home-main.css">
     <link rel="stylesheet" href="../CSS/style-home/slider.css">
     <link rel="stylesheet" href="../CSS/style-home/home-medias.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <title>Home</title>
@@ -44,54 +47,58 @@
 
 <body>
 
-    <div class="interface">
+    <div class="interface back">
 
         <header class="container-header">
 
-            <div class="container-logo-img">
-                <img src="../Imagens/Logo.png">
-            </div>
+            <div class="container">
 
-            <nav class="container-menu">
-
-                <div class="content-profile">
-
-                    <div class="container-profile-img">
-                        <a href="Perfil-user.php"><img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" class="verificacao"></a>
-                    </div>
-
-                    <div class="content-nome-classe">
-                        <h3>Kpop</h3>
-                        <legend>humano/Guerreiro</legend>
-                    </div>
-
+                <div class="container-logo-img">
+                    <img src="../Imagens/Logo.png">
                 </div>
 
-                <ul class="list-nav">
+                <nav class="container-menu">
 
-                    <li class="list-item">
-                        <a href="#" class="link-item active-link">home</a>
-                    </li>
-                    <li class="list-item">
-                        <a href="#" class="link-item">animes recentes</a>
-                    </li>
-                    <li class="list-item">
-                        <a href="#" class="link-item">recomendação aleatoria</a>
-                    </li>
-                    <li class="list-item">
-                        <a href="#" class="link-item">temporadaras</a>
-                    </li>
-                    <li class="list-item">
-                        <a href="#" class="link-item">noticias</a>
-                    </li>
+                    <div class="content-profile">
 
-                </ul>
+                        <div class="container-profile-img">
+                            <a href="Perfil-user.php"><img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>"></a>
+                        </div>
 
-            </nav>
+                        <div class="content-nome-classe">
+                            <h3> <?php echo $dados['nome']; ?> </h3>
+                            <span><?php echo $dados['raca'].'/'.$dados['classe'] ?></span>
+                        </div>
 
-            <div class="container-icone-profile">
+                    </div>
 
-                <a href="Perfil-user.php"><img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" class="verificacao"></a>
+                    <ul class="list-nav">
+
+                        <li class="list-item">
+                            <a href="#" class="link-item active-link">home</a>
+                        </li>
+                        <li class="list-item">
+                            <a href="#" class="link-item">animes recentes</a>
+                        </li>
+                        <li class="list-item">
+                            <a href="#" class="link-item">recomendação aleatoria</a>
+                        </li>
+                        <li class="list-item">
+                            <a href="#" class="link-item">temporadaras</a>
+                        </li>
+                        <li class="list-item">
+                            <a href="#" class="link-item">noticias</a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+
+                <div class="container-icone-profile">
+
+                    <a><img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" class="menu-verifica"></a>
+
+                </div>
 
             </div>
 
@@ -117,7 +124,7 @@
                     <!-- Full-width images with number and caption text -->
                     <div class="mySlides fade">
                         <div class="numbertext">1 / 5</div>
-                        <img src="../Imagens/bleach.jpg">
+                        <img src="<?php echo $dados_animes['img_anime'] ?>">
                         <!-- <div class="text">Caption Text</div> -->
                     </div>
 
@@ -263,13 +270,13 @@
             $.post('datalist_home.php', { pesquisa: pesquisa }, function(dados){
                 $("#sugestoes").html(dados);
             })
-        })
+        });
     </script>
     <script src="../package/js/swiper.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="../Js/interface/back-img.js"></script>
     <script src="../Js/menu/menu.js"></script>
-    <script src="../Js/pesquisa/pesquisa.js"></script>
     <script src="../Js/slider/slider.js"></script>
     <script src="../Js/slider/swiper.js"></script>
     <script src="../Js/interface/content.js"></script>
