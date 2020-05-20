@@ -54,6 +54,7 @@ if (isset($_POST['logar'])) {
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     <meta name="google-signin-client_id" content="158825657011-8jhq9pdj1q7l6ml0ao2i532n0ip6q8p6.apps.googleusercontent.com">
+    <link rel="stylesheet" href="./CSS/normalize/nomalize.css">
     <title>Bem-vindo</title>
     <style>
         .p_retorno {

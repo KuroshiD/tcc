@@ -30,14 +30,17 @@
 
     <link rel="stylesheet" href="../package/css/swiper.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/normalize/nomalize.css">
 
     <link rel="stylesheet" href="../CSS/style-total/Total-menu.css">
     <link rel="stylesheet" href="../CSS/style-total/Total-main.css">
     <link rel="stylesheet" href="../CSS/style-total/Total-media.css">
+    <link rel="stylesheet" href="../CSS/style-total/classe.css">
 
     <link rel="stylesheet" href="../CSS/style-home/home-main.css">
     <link rel="stylesheet" href="../CSS/style-home/slider.css">
     <link rel="stylesheet" href="../CSS/style-home/home-medias.css">
+    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -75,10 +78,10 @@
                     <ul class="list-nav">
 
                         <li class="list-item">
-                            <a href="#" class="link-item active-link">home</a>
+                            <a href="#" class="link-item active-link <?php print $dados['classe']?>">home</a>
                         </li>
                         <li class="list-item">
-                            <a href="#" class="link-item">animes recentes</a>
+                            <a href="#" class="link-item" >animes recentes</a>
                         </li>
                         <li class="list-item">
                             <a href="#" class="link-item">recomendação aleatoria</a>
@@ -124,25 +127,22 @@
                     <!-- Full-width images with number and caption text -->
                     <div class="mySlides fade">
                         <div class="numbertext">1 / 5</div>
-                        <img src="<?php echo $dados_animes['img_anime'] ?>">
-                        <!-- <div class="text">Caption Text</div> -->
+                        <img src="">
                     </div>
-
+                    
+            
                     <div class="mySlides fade">
                         <div class="numbertext">2 / 5</div>
                         <img src="../Imagens/cavalheiros.png">
-                        <!-- <div class="text">Caption Two</div> -->
                     </div>
 
                     <div class="mySlides fade">
                         <div class="numbertext">3 / 5</div>
                         <img src="../Imagens/DragonBallZ.jpg">
-                        <!-- <div class="text">Caption Three</div> -->
                     </div>
                     <div class="mySlides fade">
                         <div class="numbertext">4 / 5</div>
                         <img src="../Imagens/hunter_X_hunter.jpg">
-                        <!-- <div class="text">Caption Three</div> -->
                     </div>
                     <div class="mySlides fade">
                         <div class="numbertext">5 / 5</div>
@@ -163,6 +163,7 @@
                     <span class="dot" onclick="currentSlide(4)"></span>
                     <span class="dot" onclick="currentSlide(5)"></span>
                 </div>
+                
 
             </section>
 

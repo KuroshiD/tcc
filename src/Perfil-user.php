@@ -31,6 +31,7 @@ $x = rand(0, 99);
     <link rel="stylesheet" href="../CSS/style-perfilUser/User-main.css">
     <link rel="stylesheet" href="../CSS/style-perfilUser/menu-editar.css">
     <link rel="stylesheet" href="../CSS/style-perfilUser/User-medias.css">
+    <link rel="stylesheet" href="../CSS/normalize/nomalize.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
 
@@ -68,59 +69,28 @@ $x = rand(0, 99);
                     <label for="">Classe:</label>
                     <select name="" id="" class="items-editar">
                         <option value="Arqueiro">Arqueiro</option>
+                        <option value="Bardo">Bardo</option>
+                        <option value="Berseker">Berseker</option>
                         <option value="Druida">Druida</option>
                         <option value="Guerreiro">Guerreiro</option>
                         <option value="Ladino">Ladino</option>
                         <option value="Mago">Mago</option>
                         <option value="Necromante">Necromante</option>
+                        <option value="Berseker">Berseker</option>
+                        <option value="Bardo">Bardo</option>
                     </select>
                 </div>
 
                 <div class="content-editar content-raca">
                     <label for="">Raça:</label>
                     <select name="" id="" class="items-editar">
-                        <option value="Angels">Angels</option>
+                        <option value="Angels">Angel</option>
                         <option value="Anao">Anão</option>
-                        <option value="Demons">demons</option>
+                        <option value="Demons">demon</option>
                         <option value="Elfo">Elfo</option>
                         <option value="Humano">Humano</option>
                         <option value="Ogro">Ogro</option>
-                    </select>
-                </div>
-
-                <div class="content-editar content-sexo">
-                    <label for="">Sexo:</label>
-                    <select name="" id="" class="items-editar">
-                        <option value="Homem">Homem</option>
-                        <option value="Mulher">Mulher</option>
-                        <option value="Emo">Emo</option>
-                        <option value="Comunista">Comunista</option>
-                        <option value="lula livre">Lula livre</option>
-                        <option value="otaku">Otaku</option>
-                        <option value="Capitalista">Capitalista</option>
-                        <option value="Pokemon">Pokemon</option>
-                    </select>
-                </div>
-
-                <div class="content-editar content-sexualidade">
-                    <label for="">Sexualidade:</label>
-                    <select name="" id="" class="items-editar">
-                        <option value="Lesbicas">Lésbicas</option>
-                        <option value="Gays">Gays</option>
-                        <option value="Bisexuais">Bisexuais</option>
-                        <option value="Trnassexual">Trnassexual</option>
-                        <option value="Queer">Queer</option>
-                        <option value="Questioning">Questioning</option>
-                        <option value="Interssexuais">Interssexuais</option>
-                        <option value="Asexuados">Asexuados</option>
-                        <option value="Sem genero">Sem Gênero</option>
-                        <option value="Simpatizantes">Simpatizantes</option>
-                        <option value="Curiosos">Curiosos</option>
-                        <option value="Panssexuais">Panssexuais</option>
-                        <option value="Polissexuais">Polissexuais</option>
-                        <option value="Friends and Family">Friends and Family</option>
-                        <option value="Two-spirit">Two-spirit</option>
-                        <option value="kink">Kink</option>
+                        <option value="Demi-human">Demi-human</option>
                     </select>
                 </div>
 
