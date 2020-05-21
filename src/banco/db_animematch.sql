@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Tempo de geração: 20-Maio-2020 às 22:58
+-- Tempo de geração: 21-Maio-2020 às 00:15
 -- Versão do servidor: 8.0.18
 -- versão do PHP: 7.3.12
 
@@ -103,9 +103,9 @@ CREATE TABLE IF NOT EXISTS `tb_usuario` (
   `personagem` varchar(60) DEFAULT 'não definido',
   `animefav` varchar(60) DEFAULT 'não definido',
   `img_perfil` varchar(255) NOT NULL DEFAULT 'Imagens/server/empty_profile.jpg',
-  `img_capa` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'Imagens/server/capas_default.jpg',
+  `img_capa` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'Imagens/server/capa_default.jpg',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `tb_usuario`
@@ -113,7 +113,8 @@ CREATE TABLE IF NOT EXISTS `tb_usuario` (
 
 INSERT INTO `tb_usuario` (`id`, `nome`, `email`, `senha`, `nascimento`, `raca`, `classe`, `descricao`, `personagem`, `animefav`, `img_perfil`, `img_capa`) VALUES
 (1, 'Gustavo', 'gusanches601@gmail.com', '$2y$10$KNulKtkqT69xrrQBoNv9BOi9TNSqQh0kGGAqvfGjte261uo8TekHS', '2002-11-12', 'Human', 'Adventurer', 'sem descrição.', 'não definido', 'não definido', 'Imagens/server/empty_profile.jpg', 'Imagens/server/capa_default.jpg'),
-(2, 'Eduardo R. de Matos', 'eduardoooax@gmail.com', '$2y$10$nx32qgT6QZHwvVKPryheZunOKR69k9z1v6dPxcjJtPfZFHe.JZ/am', '2003-04-17', 'Human', 'Adventurer', 'sem descrição.', 'não definido', 'não definido', 'Imagens/users/profile/2eu.jpg', 'Imagens/server/capa_default.jpg');
+(2, 'Eduardo R. de Matos', 'eduardoooax@gmail.com', '$2y$10$nx32qgT6QZHwvVKPryheZunOKR69k9z1v6dPxcjJtPfZFHe.JZ/am', '2003-04-17', 'Human', 'Adventurer', 'sem descrição.', 'não definido', 'não definido', 'Imagens/users/profile/2eu.jpg', 'Imagens/server/capa_default.jpg'),
+(3, 'Paulo Guina', 'guina@gmail.com', '$2y$10$tHVCYpqPKNoIa7DCRlpqfO0SP1c/OO36n6r9ODvLq6U2NSPwdp8BK', '1975-07-14', 'Human', 'Adventurer', 'sem descrição.', 'não definido', 'não definido', 'Imagens/server/empty_profile.jpg', 'Imagens/server/capa_default.jpg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
