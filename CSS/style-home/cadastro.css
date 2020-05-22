@@ -175,6 +175,45 @@
 
 /*fim do style que não sei*/
 
+/*Inicio erros*/
+
+.p_retorno {
+    color: red;
+    font-family: 'Roboto';
+    font-weight: '600';
+    text-align: center;
+}
+
+.vazio::-webkit-input-placeholder {
+    color: red;
+    font-weight: bold;
+}
+
+#respostaLogin {
+    background: rgba(300, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto';
+    font-weight: bold;
+    color: white
+}
+
+#resposta {
+    text-align: center;
+    color: red;
+    font-family: 'Roboto';
+    font-weight: bold;
+}
+
+#respostaOk {
+    text-align: center;
+    color: green;
+    font-family: 'Roboto';
+    font-weight: bold;
+}
+
+/*Fim erros*/
 
 /*Fim do cadastro*/
 

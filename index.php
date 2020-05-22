@@ -47,52 +47,20 @@ if (isset($_POST['logar'])) {
 <html lang="pt-br">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style-home/cadastro.css">
+    <meta http-equiv="refresh" content="50">
+
+    <link rel="stylesheet" href="CSS/style-home/cadastro.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     <meta name="google-signin-client_id" content="158825657011-8jhq9pdj1q7l6ml0ao2i532n0ip6q8p6.apps.googleusercontent.com">
-    <link rel="stylesheet" href="./CSS/normalize/nomalize.css">
+    <link rel="stylesheet" href="../CSS/normalize/nomalize.css">
+    
     <title>Bem-vindo</title>
-    <style>
-        .p_retorno {
-            color: red;
-            font-family: 'Roboto';
-            font-weight: '600';
-            text-align: center;
-        }
 
-        .vazio::-webkit-input-placeholder {
-            color: red;
-            font-weight: bold;
-        }
-
-        #respostaLogin {
-            background: rgba(300, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Roboto';
-            font-weight: bold;
-            color: white
-        }
-
-        #resposta {
-            text-align: center;
-            color: red;
-            font-family: 'Roboto';
-            font-weight: bold;
-        }
-
-        #respostaOk {
-            text-align: center;
-            color: green;
-            font-family: 'Roboto';
-            font-weight: bold;
-        }
-    </style>
 </head>
 
 <body>

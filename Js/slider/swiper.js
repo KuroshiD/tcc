@@ -6,7 +6,7 @@ setTimeout(window.addEventListener("load", function(event){
       
       slidesPerView: 5,
       spaceBetween: 10,
-      slidesPerGroup: 3.5,
+      slidesPerGroup: 3,
     
       navigation: {
         nextEl: '.swiper-button-next',
@@ -19,7 +19,7 @@ setTimeout(window.addEventListener("load", function(event){
       
       slidesPerView: 4,
       spaceBetween: 10,
-      slidesPerGroup: 3,
+      slidesPerGroup: 2,
     
       navigation: {
         nextEl: '.swiper-button-next',
@@ -32,7 +32,7 @@ setTimeout(window.addEventListener("load", function(event){
       
       slidesPerView: 3,
       spaceBetween: 10,
-      slidesPerGroup: 3,
+      slidesPerGroup: 2,
     
       navigation: {
         nextEl: '.swiper-button-next',
@@ -43,7 +43,7 @@ setTimeout(window.addEventListener("load", function(event){
   }else if(innerWidth >= 320){
     let swiper = new Swiper('.swiper-container', {
       
-      slidesPerView: 2.5,
+      slidesPerView: 2,
       spaceBetween: 10,
       slidesPerGroup: 2,
     

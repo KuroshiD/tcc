@@ -1,5 +1,4 @@
 .interface .container-main{
-
     padding-bottom: 20px;
 
 }
@@ -133,7 +132,7 @@
 
 .interface .container-footer{
     position: relative;
-    top: 20px;
+    top: 70px;
     height: 200px;
 
     display: flex;

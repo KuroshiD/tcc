@@ -30,7 +30,8 @@
 
     <link rel="stylesheet" href="../package/css/swiper.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/normalize/nomalize.css">
+    <link rel="stylesheet" href="../CSS/nomalize/normalize.css">
+    <link rel="icon" href=".././Imagens/favicon.ico" >
 
     <link rel="stylesheet" href="../CSS/style-total/Total-menu.css">
     <link rel="stylesheet" href="../CSS/style-total/Total-main.css">
@@ -44,7 +45,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <title>Home</title>
+    <title>Anime Match</title>
 
 </head>
 
@@ -54,58 +55,69 @@
 
         <header class="container-header">
 
-            <div class="container">
+            <div class="content-center">
 
-                <div class="container-logo-img">
-                    <img src="../Imagens/Logo.png">
+                <div class="container-logo">
+
+                    <img src=".././Imagens/Logo.png" alt="Logotipo desse website">
+
                 </div>
 
-                <nav class="container-menu">
+                <div class="menu-mobile">
 
-                    <div class="content-profile">
+                    <div class="content-user">
 
-                        <div class="container-profile-img">
-                            <a href="Perfil-user.php"><img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>"></a>
+                        <div class="mobile-user">
+
+                           <a href="Perfil-user.php"><img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt=""></a>
+
                         </div>
 
-                        <div class="content-nome-classe">
-                            <h3> <?php echo $dados['nome']; ?> </h3>
+                        <div class="user-raca-classe">
+
+                            <h2><?php echo $dados['nome'] ?></h2>
                             <span><?php echo $dados['raca'].'/'.$dados['classe'] ?></span>
+
                         </div>
 
                     </div>
 
-                    <ul class="list-nav">
+                    <nav class="nav-list">
 
-                        <li class="list-item">
-                            <a href="#" class="link-item active-link <?php print $dados['classe']?>">home</a>
-                        </li>
-                        <li class="list-item">
-                            <a href="#" class="link-item" >animes recentes</a>
-                        </li>
-                        <li class="list-item">
-                            <a href="#" class="link-item">recomendação aleatoria</a>
-                        </li>
-                        <li class="list-item">
-                            <a href="#" class="link-item">temporadaras</a>
-                        </li>
-                        <li class="list-item">
-                            <a href="#" class="link-item">noticias</a>
-                        </li>
+                        <ul class="list">
 
-                    </ul>
+                            <li class="list-items">
+                                <a href="home.php" class="link-items">home</a>
+                            </li>
+                            
+                            <li class="list-items">
+                                <a href="#" class="link-items">recomendação aleatorio</a>
+                            </li>
+                            
+                            <li class="list-items">
+                                <a href="noticias.php" class="link-items">notocias</a>
+                            </li>
 
-                </nav>
+                            <li class="list-items sair-mobile">
+                                <a href="processos/logout.php" class="link-items">sair</a>
+                            </li>
 
-                <div class="container-icone-profile">
+                        </ul>
 
-                    <a><img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" class="menu-verifica"></a>
+                    </nav>
 
+                </div>
+
+                <div class="container-img-user">
+
+                    <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="" class="menu-verifica">
+                
                 </div>
 
             </div>
 
-        </header>
+
+        </header> 
 
         <main class="container-main">
 
@@ -173,6 +185,17 @@
                     <h2 class="titulo-swiper">Animes Recentes</h2>
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="../Imagens/animes/BNA.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Fruits-Basket-2nd-Season.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Gleipnir.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Honzuki-no-Gekokujou-Shisho-ni-Naru-Tame-ni-wa-Shudan-wo-Erandeiraremasen-2nd-Season.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kaguya-sama-wa-Kokurasetai-Tensai-tachi-no-Renai-Zunousen.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kakushigoto-TV.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Kami-no-Tou.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Otome-Game-no-Hametsu-Flag-shika-Nai-Akuyaku-Reijou-ni-Tensei-shiteshimatta....jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Shokugeki-no-Souma-Gou-no-Sara.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="../Imagens/animes/Sword-Art-Online-Alicization-War-of-Underworld-2nd-Season.jpg" alt=""></div>
+
                             <div class="swiper-slide"><img src="../Imagens/animes/BNA.jpg" alt=""></div>
                             <div class="swiper-slide"><img src="../Imagens/animes/Fruits-Basket-2nd-Season.jpg" alt=""></div>
                             <div class="swiper-slide"><img src="../Imagens/animes/Gleipnir.jpg" alt=""></div>
@@ -293,7 +316,7 @@
 
             </section> 
 
-        </main>
+        </main> 
 
         <footer class="container-footer">
 
@@ -318,11 +341,9 @@
     <script src="../package/js/swiper.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="../Js/interface/back-img.js"></script>
     <script src="../Js/menu/menu.js"></script>
     <script src="../Js/slider/slider.js"></script>
     <script src="../Js/slider/swiper.js"></script>
-    <script src="../Js/interface/content.js"></script>
 
 </body>
 

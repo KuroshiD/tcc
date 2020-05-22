@@ -24,10 +24,10 @@ $x = rand(0, 99);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../CSS/style-total/Total-menu.css">
     <link rel="stylesheet" href="../CSS/style-total/Total-main.css">
     <link rel="stylesheet" href="../CSS/style-total/Total-media.css">
 
+    <link rel="stylesheet" href="../CSS/style-perfilUser/header-menu.css">
     <link rel="stylesheet" href="../CSS/style-perfilUser/User-main.css">
     <link rel="stylesheet" href="../CSS/style-perfilUser/menu-editar.css">
     <link rel="stylesheet" href="../CSS/style-perfilUser/User-medias.css">
@@ -35,13 +35,7 @@ $x = rand(0, 99);
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
 
-    <title>Perfil</title>
-
-    <style>
-        img {
-            object-fit: cover;
-        }
-    </style>
+    <title><?php echo $dados['nome'] ?></title>
 
 </head>
 
@@ -100,6 +94,27 @@ $x = rand(0, 99);
 
         </div>
 
+        <header class="container-header">
+
+            <div class="container">
+
+                <div class="icon-voltar">
+
+                    <a href="home"><i class="fas fa-arrow-left arrow-voltar"></i></a>
+
+                </div>
+
+                <form class="form-content">
+
+                    <input type="text" name="" id="txtPesUser" class="pesquisa-user" placeholder="Pesquise outra pessoa">
+                    <button class="btn-pesquisa-user"><i class="fa fa-search"></i></button>
+
+                </form>
+
+            </div>
+
+        </header>
+
         <main class="container-main">
 
             <section class="main-capa-peril">
@@ -118,8 +133,8 @@ $x = rand(0, 99);
                     <form action="processos/img_perfil.php" method="post" enctype="multipart/form-data" id="form-foto">
                         <input id="up_foto" type="file" name="arquivo" hidden />
                         <input type="text" name="id" value="<?php echo $id; ?>" hidden />
-                        <i for="id" class="fas fa-pencil-alt icon img_perfil_icon" id="lapisPerfil"></i>
                     </form>
+                    <i for="id" class="fas fa-pencil-alt icon img_perfil_icon" id="lapisPerfil"></i>
                 </div>
 
             </section>
@@ -162,7 +177,6 @@ $x = rand(0, 99);
                     <p><b>Personagem Favorito: <?php echo $dados['personagem']; ?></b> </p>
                     <p><b>Descrição: <?php echo $dados['descricao']; ?></b> </p>
                 </div>
-                <a href="processos/logout.php">Sair</a>
 
             </section>
 
@@ -293,7 +307,6 @@ $x = rand(0, 99);
         });
     </script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="../Js/menu/menu.js"></script>
     <script src="../Js/Buttons-Perfil-User/btn-editar.js"></script>
     <script src="../Js/Buttons-Perfil-User/btns.js"></script>
 

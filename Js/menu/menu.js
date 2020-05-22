@@ -1,15 +1,24 @@
-let menu_verifica = document.querySelector(".menu-verifica");
-let menu = document.querySelector(".container-menu");
+setTimeout(function() {
+    window.location.reload(1);
+}, 50000);
 
-menu_verifica.addEventListener('click', function () {
-    menu.classList.toggle("menu-abriu");
-});
+if(innerWidth < 935){
 
+    $(".menu-verifica").click(function(){
+        $(".menu-mobile").toggleClass("menu-mobile-abriu");
+    });
 
-let menu_links = document.querySelectorAll(".link-item");
-
-for (var i = 0; i < menu_links.length; i++) {
-    menu_links[i].addEventListener("click", function (e) {
-        this.classList.toggle("active-link");
+    $(document).on('click', '.link-item', function(){
+         $(this).addClass('active-link').siblings().removeClass('active-link')
     })
+
+}else{
+
+    $(".menu-verifica").click(function(){
+        var novaURL = "Perfil-user.php";
+        $(window.document.location).attr('href',novaURL);
+    });
+
 }
+
+

@@ -5,7 +5,6 @@
         background-image: url('../../Imagens/server/background.jpg');
         background-size: cover;
         background-position: center;
-        filter: grayscale(70%);
     }
 
     .interface .container-main{
