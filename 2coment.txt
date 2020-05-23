@@ -1,0 +1,121 @@
+/*
+<section class="main-descricao">
+
+                <div class="content-nome-btn">
+                    <h1 class="name-do-user"><?php echo $dados['nome']; ?></h1>
+                    <div class="container-btn">
+                        <input type="button" name="editar-btn" id="bttn-editar" class="btn-editar" value="Editar">
+                    </div>
+                </div>
+
+                <div class="container-descricao">
+                    <p><b>Classe: <?php echo $dados['classe']; ?></b> </p>
+                    <p><b>Personagem Favorito: <?php echo $dados['personagem']; ?></b> </p>
+                    <p><b>Descrição: <?php echo $dados['descricao']; ?></b> </p>
+                </div>
+
+            </section>
+
+            <div class="main-btns-interacoes">
+
+                <button type="button" id="" class="btns-interacoes btn-atvddR active">Atividade recentes</button>
+                <button type="button" id="" class="btns-interacoes btn-assistindo">Assistindo</button>
+                <button type="button" id="" class="btns-interacoes btn-assistidos">Assistidos</button>
+                <button type="button" id="" class="btns-interacoes btn-dropados">Dropados</button>
+                <button type="button" id="" class="btns-interacoes btn-favorito">Favorito</button>
+
+            </div>
+
+            <section class="container-avd-recentes">
+
+                <div class="content-recentes">
+
+                    <div class="titulo-recentes">
+                        <h2 class="ttl-rec">Atividades Recentes</h2>
+                    </div>
+
+                    <div class="container-coment">
+                        <div class="container-img-rec-anime">
+                            <img src="../Imagens/Dragon ball.jpg">
+                        </div>
+
+                        <div class="content-coment-name">
+                            <h4 class="name-coment">Dragon Ball Z</h4>
+                            <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="container-coment">
+
+                        <div class="container-img-rec-anime">
+                            <img src="../Imagens/cavalheiros.png">
+                        </div>
+
+                        <div class="content-coment-name">
+                            <h4 class="name-coment">Dragon Ball Z</h4>
+                            <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="container-coment">
+
+                        <div class="container-img-rec-anime">
+                            <img src="../Imagens/hunter_X_hunter.jpg">
+                        </div>
+
+                        <div class="content-coment-name">
+                            <h4 class="name-coment">Dragon Ball Z</h4>
+                            <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="container-coment">
+
+                        <div class="container-img-rec-anime">
+                            <img src="../Imagens/naruto.jpg">
+                        </div>
+
+                        <div class="content-coment-name">
+                            <h4 class="name-coment">Dragon Ball Z</h4>
+                            <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="container-coment">
+
+                        <div class="container-img-rec-anime">
+                            <img src="../Imagens/bleach.jpg">
+                        </div>
+
+                        <div class="content-coment-name">
+                            <h4 class="name-coment">Dragon Ball Z</h4>
+                            <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="container-coment">
+
+                        <div class="container-img-rec-anime">
+                            <img src="../Imagens/cavalheiros.png">
+                        </div>
+
+                        <div class="content-coment-name">
+                            <h4 class="name-coment">Dragon Ball Z</h4>
+                            <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+*/
