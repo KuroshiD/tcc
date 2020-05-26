@@ -141,6 +141,7 @@
     text-align: center;
     background: url("../../Imagens/yuno.jpg");
     background-position: top;
+    filter: grayscale(50%);
 }
 
 .container-footer .footer-des{

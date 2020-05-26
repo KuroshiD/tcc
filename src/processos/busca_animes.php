@@ -36,6 +36,10 @@
             padding: 20px;
             border-bottom: 1px solid white;
         }
+        .anime-img{
+            width: 150px;
+            height: 150px
+        }
     </style>
 </head>
 <body>
@@ -47,7 +51,7 @@
                     while($animes = mysqli_fetch_array($sql)){
                         echo '<div class="anime">';
                         echo '<div class="image">';
-                        echo '<img src=' . $animes['img_anime'] . '>';
+                        echo "<img src='../../".$animes['img_anime']."' class='anime-img'>";
                         echo '</div>';
                         echo '<div class="info">';
                         echo '<h4>' . 'Nome: ' . $animes['nome'] . '</h4>';

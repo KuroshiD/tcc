@@ -2,7 +2,7 @@
 
     .interface{
         width: 100% !important;
-        background-image: url('../../Imagens/server/background.jpg');
+        /* background-image: url('../../Imagens/server/background.png'); */
         background-size: cover;
         background-position: center;
     }

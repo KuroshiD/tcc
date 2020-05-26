@@ -22,10 +22,10 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="descri6666666666666667ption" content="">
     <meta name="keywords" content="Animes, Melhores animes, ">
     <meta name="robots" content="index, follow">
-    <meta name="author" content="Jefferson santos">
+    <meta name="author" content="Luis Gustavo, Jefferson Santos, Gabriel Paiva, Eduardo de Matos">
 
     <link rel="stylesheet" href="../package/css/swiper.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -90,11 +90,11 @@
                             </li>
                             
                             <li class="list-items">
-                                <a href="#" class="link-items">recomendação aleatorio</a>
+                                <a href="#" class="link-items">recomendação aleatoria</a>
                             </li>
                             
                             <li class="list-items">
-                                <a href="noticias.php" class="link-items">notocias</a>
+                                <a href="noticias.php" class="link-items">noticias</a>
                             </li>
 
                             <li class="list-items sair-mobile">
@@ -137,12 +137,12 @@
 
                     
                     <?php 
-                        $sql_anime = mysqli_query($con, "SELECT * FROM tb_anime LIMIT 5");
+                        $sql_anime = mysqli_query($con, "SELECT * FROM tb_anime WHERE data_lancamento >= 2019 ORDER BY data_lancamento desc LIMIT 5");
                         $i = 1;
                         while($dados_animes_slider = mysqli_fetch_array($sql_anime)){?>
                             <div class="mySlides fade">
-                                <div class="numbertext"><?php echo $i ?> / 5</div>
-                                <img src="<?php echo $dados_animes_slider['img_anime']?>" alt="">
+                                <div class="numbertext"><?php print $i . " / " . mysqli_num_rows($sql_anime) ?></div>
+                                <img src="../<?php print $dados_animes_slider['img_anime'];?>" alt="">
                             </div>
                     <?php
                             $i++;
@@ -172,27 +172,13 @@
                     <h2 class="titulo-swiper">Animes Recentes</h2>
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="../Imagens/animes/BNA.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Fruits-Basket-2nd-Season.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Gleipnir.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Honzuki-no-Gekokujou-Shisho-ni-Naru-Tame-ni-wa-Shudan-wo-Erandeiraremasen-2nd-Season.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kaguya-sama-wa-Kokurasetai-Tensai-tachi-no-Renai-Zunousen.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kakushigoto-TV.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kami-no-Tou.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Otome-Game-no-Hametsu-Flag-shika-Nai-Akuyaku-Reijou-ni-Tensei-shiteshimatta....jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Shokugeki-no-Souma-Gou-no-Sara.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Sword-Art-Online-Alicization-War-of-Underworld-2nd-Season.jpg" alt=""></div>
-
-                            <div class="swiper-slide"><img src="../Imagens/animes/BNA.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Fruits-Basket-2nd-Season.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Gleipnir.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Honzuki-no-Gekokujou-Shisho-ni-Naru-Tame-ni-wa-Shudan-wo-Erandeiraremasen-2nd-Season.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kaguya-sama-wa-Kokurasetai-Tensai-tachi-no-Renai-Zunousen.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kakushigoto-TV.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kami-no-Tou.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Otome-Game-no-Hametsu-Flag-shika-Nai-Akuyaku-Reijou-ni-Tensei-shiteshimatta....jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Shokugeki-no-Souma-Gou-no-Sara.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Sword-Art-Online-Alicization-War-of-Underworld-2nd-Season.jpg" alt=""></div>
+                            <?php 
+                                $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime ORDER BY data_lancamento DESC LIMIT 10 ");
+                                while($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)){?>
+                                <div class="swiper-slide"><img src="../<?php print $dados_swiper_recentes['img_anime'];?>" alt=""></div>
+                            <?php
+                                }
+                            ?>
                         </div>
                         <div class="swiper-button-next btns-N-P"></div>
                         <div class="swiper-button-prev btns-N-P"></div>
@@ -200,19 +186,16 @@
                 </div>
 
                 <div class="container-slide-swiper">
-                    <h2 class="titulo-swiper">Animes Novos</h2>
+                    <h2 class="titulo-swiper">Terror</h2>
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="../Imagens/animes/BNA.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Fruits-Basket-2nd-Season.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Gleipnir.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Honzuki-no-Gekokujou-Shisho-ni-Naru-Tame-ni-wa-Shudan-wo-Erandeiraremasen-2nd-Season.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kaguya-sama-wa-Kokurasetai-Tensai-tachi-no-Renai-Zunousen.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kakushigoto-TV.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kami-no-Tou.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Otome-Game-no-Hametsu-Flag-shika-Nai-Akuyaku-Reijou-ni-Tensei-shiteshimatta....jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Shokugeki-no-Souma-Gou-no-Sara.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Sword-Art-Online-Alicization-War-of-Underworld-2nd-Season.jpg" alt=""></div>
+                            <?php 
+                                $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Terror%' LIMIT 10 ");
+                                while($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)){?>
+                                <div class="swiper-slide"><img src="../<?php print $dados_swiper_recentes['img_anime'];?>" alt=""></div>
+                            <?php
+                                }
+                            ?>
                         </div>
                         <div class="swiper-button-next btns-N-P"></div>
                         <div class="swiper-button-prev btns-N-P"></div>
@@ -220,39 +203,16 @@
                 </div>
 
                 <div class="container-slide-swiper">
-                    <h2 class="titulo-swiper">Melhores animes</h2>
+                    <h2 class="titulo-swiper">Slice of Life</h2>
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="../Imagens/animes/BNA.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Fruits-Basket-2nd-Season.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Gleipnir.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Honzuki-no-Gekokujou-Shisho-ni-Naru-Tame-ni-wa-Shudan-wo-Erandeiraremasen-2nd-Season.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kaguya-sama-wa-Kokurasetai-Tensai-tachi-no-Renai-Zunousen.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kakushigoto-TV.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kami-no-Tou.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Otome-Game-no-Hametsu-Flag-shika-Nai-Akuyaku-Reijou-ni-Tensei-shiteshimatta....jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Shokugeki-no-Souma-Gou-no-Sara.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Sword-Art-Online-Alicization-War-of-Underworld-2nd-Season.jpg" alt=""></div>
-                        </div>
-                        <div class="swiper-button-next btns-N-P"></div>
-                        <div class="swiper-button-prev btns-N-P"></div>
-                    </div>
-                </div>
-
-                <div class="container-slide-swiper">
-                    <h2 class="titulo-swiper">Animes Renomados</h2>
-                    <div class="swiper-container">
-                        <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="../Imagens/animes/BNA.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Fruits-Basket-2nd-Season.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Gleipnir.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Honzuki-no-Gekokujou-Shisho-ni-Naru-Tame-ni-wa-Shudan-wo-Erandeiraremasen-2nd-Season.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kaguya-sama-wa-Kokurasetai-Tensai-tachi-no-Renai-Zunousen.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kakushigoto-TV.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kami-no-Tou.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Otome-Game-no-Hametsu-Flag-shika-Nai-Akuyaku-Reijou-ni-Tensei-shiteshimatta....jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Shokugeki-no-Souma-Gou-no-Sara.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Sword-Art-Online-Alicization-War-of-Underworld-2nd-Season.jpg" alt=""></div>
+                                <?php 
+                                $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Slice of life%'  LIMIT 10 ");
+                                while($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)){?>
+                                <div class="swiper-slide"><img src="../<?php print $dados_swiper_recentes['img_anime'];?>" alt=""></div>
+                            <?php
+                                }
+                            ?>
                         </div>
                         <div class="swiper-button-next btns-N-P"></div>
                         <div class="swiper-button-prev btns-N-P"></div>
@@ -262,16 +222,13 @@
                     <h2 class="titulo-swiper">Animes Ação</h2>
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="../Imagens/animes/BNA.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Fruits-Basket-2nd-Season.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Gleipnir.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Honzuki-no-Gekokujou-Shisho-ni-Naru-Tame-ni-wa-Shudan-wo-Erandeiraremasen-2nd-Season.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kaguya-sama-wa-Kokurasetai-Tensai-tachi-no-Renai-Zunousen.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kakushigoto-TV.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kami-no-Tou.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Otome-Game-no-Hametsu-Flag-shika-Nai-Akuyaku-Reijou-ni-Tensei-shiteshimatta....jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Shokugeki-no-Souma-Gou-no-Sara.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Sword-Art-Online-Alicization-War-of-Underworld-2nd-Season.jpg" alt=""></div>
+                            <?php 
+                                $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Ação%'   LIMIT 10 ");
+                                while($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)){?>
+                                <div class="swiper-slide"><img src="../<?php print $dados_swiper_recentes['img_anime'];?>" alt=""></div>
+                            <?php
+                                }
+                            ?>
                         </div>
                         <div class="swiper-button-next btns-N-P"></div>
                         <div class="swiper-button-prev btns-N-P"></div>
@@ -281,16 +238,13 @@
                     <h2 class="titulo-swiper">Animes Aventura</h2>
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="../Imagens/animes/BNA.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Fruits-Basket-2nd-Season.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Gleipnir.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Honzuki-no-Gekokujou-Shisho-ni-Naru-Tame-ni-wa-Shudan-wo-Erandeiraremasen-2nd-Season.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kaguya-sama-wa-Kokurasetai-Tensai-tachi-no-Renai-Zunousen.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kakushigoto-TV.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Kami-no-Tou.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Otome-Game-no-Hametsu-Flag-shika-Nai-Akuyaku-Reijou-ni-Tensei-shiteshimatta....jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Shokugeki-no-Souma-Gou-no-Sara.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="../Imagens/animes/Sword-Art-Online-Alicization-War-of-Underworld-2nd-Season.jpg" alt=""></div>
+                            <?php 
+                                $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Aventura%' ORDER BY data_lancamento desc LIMIT 10 ");
+                                while($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)){?>
+                                <div class="swiper-slide"><img src="../<?php print $dados_swiper_recentes['img_anime'];?>" alt=""></div>
+                            <?php
+                                }
+                            ?>
                         </div>
                         <div class="swiper-button-next btns-N-P"></div>
                         <div class="swiper-button-prev btns-N-P"></div>

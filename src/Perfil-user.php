@@ -26,7 +26,7 @@ $x = rand(0, 99);
 
     <link rel="stylesheet" href="../CSS/style-total/Total-main.css">
     <link rel="stylesheet" href="../CSS/style-total/Total-media.css">
-
+    <link rel="icon" href=".././Imagens/favicon.ico" >
     <link rel="stylesheet" href="../CSS/style-perfilUser/header-menu.css">
     <link rel="stylesheet" href="../CSS/style-perfilUser/User-main.css">
     <link rel="stylesheet" href="../CSS/style-perfilUser/menu-editar.css">
@@ -50,18 +50,19 @@ $x = rand(0, 99);
 
             <i class="fas fa-times icon-sair"></i>
 
-            <form class="form-menu-editar">
-
+            <form class="form-menu-editar" method="POST" action="./processos/updatePerfil.php">
                 <h1 class="titulo-editar">Editar seu perfil</h1>
 
                 <div class="content-editar content-nome">
                     <label for="">Nome: </label>
-                    <input type="text" class="items-editar item-nome">
+                    <input type="text" class="items-editar item-nome" name="nome" value="<?php print $dados['nome'] ?>">
                 </div>
 
                 <div class="content-editar content-classe">
                     <label for="">Classe:</label>
-                    <select name="" id="" class="items-editar">
+                    <select name="class" id="" class="items-editar">
+                        <option value="<?php print $dados['classe'];?>" selected disabled><?php print $dados['classe']?></option> 
+                        <option value="Adventurer">Adventurer</option>
                         <option value="Arqueiro">Arqueiro</option>
                         <option value="Bardo">Bardo</option>
                         <option value="Berseker">Berseker</option>
@@ -77,8 +78,9 @@ $x = rand(0, 99);
                 </div>
 
                 <div class="content-editar content-raca">
-                    <label for="">Raça:</label>
-                    <select name="" id="" class="items-editar">
+                    <label for="raca">Raça:</label>
+                    <select name="raca" id="" class="items-editar">
+                    <option value="<?php print $dados['raca'];?>" selected disabled><?php print $dados['raca']?></option> 
                         <option value="Angels">Angel</option>
                         <option value="Anao">Anão</option>
                         <option value="Demons">demon</option>
@@ -88,7 +90,14 @@ $x = rand(0, 99);
                         <option value="Demi-human">Demi-human</option>
                     </select>
                 </div>
-
+                <div class="content-editar content-classe">
+                    <label for="">Descricao: </label>
+                    <input type="textarea" class="items-editar item-nome" name="descricao" value="<?php print $dados['descricao'] ?>">
+                </div>
+                <div class="content-editar content-raca">
+                    <label for="">Personagem Favorito: </label>
+                    <input type="text" class="items-editar item-nome" name="personagem" value="<?php print $dados['personagem'] ?>">
+                </div>
                 <button class="btn-salvar">Salvar</button>
 
             </form>
@@ -203,7 +212,7 @@ $x = rand(0, 99);
 
                     <div class="container-coment">
                         <div class="container-img-rec-anime">
-                            <img src="../Imagens/Dragon ball.jpg">
+                            <img src="../Imagens/animes/bleach.jpg">
                         </div>
 
                         <div class="content-coment-name">
@@ -216,7 +225,7 @@ $x = rand(0, 99);
                     <div class="container-coment">
 
                         <div class="container-img-rec-anime">
-                            <img src="../Imagens/cavalheiros.png">
+                            <img src="../Imagens/animes/bleach.jpg">
                         </div>
 
                         <div class="content-coment-name">
@@ -229,7 +238,7 @@ $x = rand(0, 99);
                     <div class="container-coment">
 
                         <div class="container-img-rec-anime">
-                            <img src="../Imagens/hunter_X_hunter.jpg">
+                            <img src="../Imagens/animes/bleach.jpg">
                         </div>
 
                         <div class="content-coment-name">
@@ -242,7 +251,7 @@ $x = rand(0, 99);
                     <div class="container-coment">
 
                         <div class="container-img-rec-anime">
-                            <img src="../Imagens/naruto.jpg">
+                            <img src="../Imagens/animes/bleach.jpg">
                         </div>
 
                         <div class="content-coment-name">
@@ -255,20 +264,20 @@ $x = rand(0, 99);
                     <div class="container-coment">
 
                         <div class="container-img-rec-anime">
-                            <img src="../Imagens/bleach.jpg">
+                            <img src="../Imagens/animes/bleach.jpg">
                         </div>
 
                         <div class="content-coment-name">
-                            <h4 class="name-coment">Dragon Ball Z</h4>
+                            <h4 class="name-coment">Bleach</h4>
                             <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
                         </div>
 
-                    </div>
+                    </div>  
 
                     <div class="container-coment">
 
                         <div class="container-img-rec-anime">
-                            <img src="../Imagens/cavalheiros.png">
+                            <img src="../Imagens/animes/bleach.jpg">
                         </div>
 
                         <div class="content-coment-name">
