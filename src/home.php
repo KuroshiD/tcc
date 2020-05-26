@@ -11,8 +11,7 @@
 
     $sql = mysqli_query($con, "SELECT * FROM tb_usuario WHERE id = '$id'");
     $dados = mysqli_fetch_array($sql);
-    $sql_anime = mysqli_query($con, "SELECT * FROM tb_anime");
-    $dados_animes = mysqli_fetch_array($sql_anime);
+    
 
     $x = rand(0, 99);
 ?>
@@ -111,7 +110,7 @@
                 <div class="container-img-user">
 
                     <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="" class="menu-verifica">
-                
+                    <!-- </?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?> -->
                 </div>
 
             </div>
@@ -136,31 +135,19 @@
 
                 <div class="slideshow-container">
 
-                    <!-- Full-width images with number and caption text -->
-                    <div class="mySlides fade">
-                        <div class="numbertext">1 / 5</div>
-                        <img src="../Imagens/animes/kaguya.jpg">
-                    </div>
                     
-
-                    <div class="mySlides fade">
-                        <div class="numbertext">2 / 5</div>
-                        <img src="../Imagens/animes/onepiece.jpg">
-                    </div>
-
-                    <div class="mySlides fade">
-                        <div class="numbertext">3 / 5</div>
-                        <img src="../Imagens/animes/lovelive.jpg">
-                    </div>
-                    <div class="mySlides fade">
-                        <div class="numbertext">4 / 5</div>
-                        <img src="../Imagens/animes/jojo.jpg">
-                    </div>
-                    <div class="mySlides fade">
-                        <div class="numbertext">5 / 5</div>
-                        <img src="../Imagens/animes/yuno.jpg">
-                        <!-- <div class="text">Caption Text</div> -->
-                    </div>
+                    <?php 
+                        $sql_anime = mysqli_query($con, "SELECT * FROM tb_anime LIMIT 5");
+                        $i = 1;
+                        while($dados_animes_slider = mysqli_fetch_array($sql_anime)){?>
+                            <div class="mySlides fade">
+                                <div class="numbertext"><?php echo $i ?> / 5</div>
+                                <img src="<?php echo $dados_animes_slider['img_anime']?>" alt="">
+                            </div>
+                    <?php
+                            $i++;
+                        }
+                    ?>
 
                     <!-- Next and previous buttons -->
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>

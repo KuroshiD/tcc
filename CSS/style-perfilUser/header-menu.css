@@ -22,9 +22,13 @@
     cursor: pointer;
 }
 
+.icon-voltar .arrow-voltar:hover{
+    background-color: rgba(0,0,0,0.5);
+}
+
 .container-header .form-content{
     position: relative;
-    width: 250px;
+    width: 80%;
     height: 30px;
 }
 
@@ -40,6 +44,10 @@
     outline: none;
 }
 
+.form-content .pesquisa-user:hover{
+    background-color: rgba(0,0,0,0.5);
+}
+
 .form-content .btn-pesquisa-user{
     position: absolute;
     top: 0;
@@ -53,3 +61,20 @@
     color: grey;
     z-index: 3;
 }
+
+/*midia*/
+
+@media screen and (min-width: 450px){
+    .container-header .form-content{
+        width: 352px;
+    }
+}
+
+@media screen and (min-width: 935px){
+    .container-header .container{
+        width: 935px;
+        margin: auto;
+    }
+}
+
+/*midia*/

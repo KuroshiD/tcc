@@ -1,0 +1,24 @@
+{
+  "name": "tcc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "cropperjs": "^1.5.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/KuroshiD/tcc.git"
+  },
+  "keywords": [],
+  "author": "Eduardo de Matos, Gabriel Paiva, Jefferson Santos, Gustavo Sanches Marioto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KuroshiD/tcc/issues"
+  },
+  "homepage": "https://github.com/KuroshiD/tcc#readme"
+}

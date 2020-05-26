@@ -1,6 +1,4 @@
-setTimeout(function() {
-    window.location.reload(1);
-}, 50000);
+
 
 if(innerWidth < 935){
 

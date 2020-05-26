@@ -17,16 +17,15 @@
         padding-top: 11px;
         padding-bottom: 11px;
     }
+    .main-capa-peril .container-perfil{
+        width: 100px;
+        height: 100px;
+    }
 }
 
 @media screen and (min-width: 935px){
 
     /*Inicio da seção de imagem de capa e perfil */
-    .container-main{
-        position: relative;
-        top: 0;
-            
-    }
     .main-capa-peril .container-capa{
         position: relative;
         width: 100%;
@@ -41,15 +40,8 @@
     }
 
     .main-capa-peril .container-perfil{
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        width: 15%;
-    }
-
-    .main-capa-peril .container-perfil img{
-        max-width: 100%;
-        border-radius: 50%;
+        width: 120px;
+        height: 120px;
     }
     /*Fim da seção de imagem de capa e perfil*/
 

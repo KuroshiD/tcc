@@ -1,4 +1,4 @@
-@media screen and (min-width: 400px){
+@media screen and (min-width: 420px){
 
     .container-main .main-form{
         height: 150px;
@@ -12,12 +12,18 @@
         width: 100%;
         font-size: 12pt;
     }
+    .swiper-slide img{
+        height: 200px;
+    }
 
 }
 
-@media screen and (min-width: 590px){
+@media screen and (min-width: 520px){
     .main-form .content-form{
         width: 472px;
+    }
+    .swiper-slide img{
+        height: 220px;
     }
 }
 
@@ -45,19 +51,7 @@
         width: 935px;
     }
 
-    .animes-content{
-        position: relative;
-        width: 850px;
-        margin: auto;
-        grid-template-columns: repeat(3, 33.33%);
-        grid-template-areas: "anime1 anime2 anime3"; 
-        grid-gap: 15px;
-    }
-
-    .animes-container{
-        width: 250px;
-    }
-    .btns-N-P{
-        display: flex;
+    .swiper-slide img{
+        height: 246.133px;
     }
 }

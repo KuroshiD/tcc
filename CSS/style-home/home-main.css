@@ -15,7 +15,7 @@
     align-items: center;
 
     background-image: url('../../Imagens/top.png');
-    filter: grayscale(80%);
+    filter: grayscale(100%);
     background-size: cover;
     background-position: top;
     background-repeat: repeat-y;
@@ -115,7 +115,7 @@
 
 .swiper-slide img{
     width: 100%;
-    height: 246.133px;
+    height: 150px;
 }
 
 .btns-N-P{

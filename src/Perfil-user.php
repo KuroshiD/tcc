@@ -72,6 +72,7 @@ $x = rand(0, 99);
                         <option value="Necromante">Necromante</option>
                         <option value="Berseker">Berseker</option>
                         <option value="Bardo">Bardo</option>
+                        <option value="loli">Loli</option>
                     </select>
                 </div>
 
@@ -100,7 +101,7 @@ $x = rand(0, 99);
 
                 <div class="icon-voltar">
 
-                    <a href="home"><i class="fas fa-arrow-left arrow-voltar"></i></a>
+                    <a href="home.php"><i class="fas fa-arrow-left arrow-voltar"></i></a>
 
                 </div>
 
@@ -120,7 +121,8 @@ $x = rand(0, 99);
             <section class="main-capa-peril">
 
                 <div class="container-capa">
-                    <img src="<?php echo "../" . $dados['img_capa'] ?>" alt="Sua imagem de capa" class="img_capa">
+                    <img src="<?php print "../" . $dados['img_capa']?>" alt="Sua imagem de capa" class="img_capa">
+                    <!-- </?php echo "../" . $dados['img_capa'] ?> -->
                     <form action="processos/img_capa.php" method="post" enctype="multipart/form-data" id="form-capa">
                         <input id="up_capa" type="file" name="arquivo" hidden />
                         <input type="text" name="id" value="<?php echo $id; ?>" hidden />
@@ -130,6 +132,7 @@ $x = rand(0, 99);
 
                 <div class="container-perfil">
                     <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="Sua imagem de perfil" height="150" width="200" class="img_perfil">
+                    <!-- </?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?> -->
                     <form action="processos/img_perfil.php" method="post" enctype="multipart/form-data" id="form-foto">
                         <input id="up_foto" type="file" name="arquivo" hidden />
                         <input type="text" name="id" value="<?php echo $id; ?>" hidden />
@@ -137,7 +140,7 @@ $x = rand(0, 99);
                     <i for="id" class="fas fa-pencil-alt icon img_perfil_icon" id="lapisPerfil"></i>
                 </div>
 
-            </section>
+            </section> 
 
             <script>
                 $(document).ready(function() {
@@ -277,7 +280,7 @@ $x = rand(0, 99);
 
                 </div>
 
-            </section>
+            </section> 
 
         </main>
 
