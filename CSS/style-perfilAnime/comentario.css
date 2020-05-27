@@ -1,0 +1,35 @@
+.content{
+    width: 95%;
+    margin: auto;
+    margin-top: 50px;
+    position: relative;
+    color: white;
+}
+.informacoes{
+    display: flex;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.informacoes .nome{
+    margin-left: 10px;
+}
+.nome h3{
+    font-size: 13pt;
+}
+.nome spam{
+    font-size: 10pt;
+}
+.img img{
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+}
+.comentario{
+    margin-left: 85px;
+    margin-right: 85px;
+}
+.comentario p{
+    font-size: 12pt;
+    word-break: break-word;
+    
+}

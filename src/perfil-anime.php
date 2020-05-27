@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="../CSS/style-total/Total-media.css">
 
     <link rel="stylesheet" href="../CSS/style-perfilAnime/main.css">
+    <link rel="stylesheet" href="../CSS/style-perfilAnime/comentario.css">
     <link rel="stylesheet" href="../CSS/style-perfilAnime/medias.css">
 
 
@@ -103,7 +104,6 @@
     <div class="container-img-user">
 
         <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="" class="menu-verifica">
-        <!-- </?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?> -->
     </div>
 
 </div>
@@ -148,15 +148,84 @@
                 </div>
                 <section class="sec-main-comentarios">
                     <div class="coment-titulo">
-                        <h4 class="titulo-do-sec">23 comentários</h4>
+                        <?php 
+                            $query = mysqli_query($con, "SELECT COUNT(comentario) as numero FROM tb_comentario WHERE id_anime = '$id_anime'");
+                            $count_dados = mysqli_fetch_array($query)
+                        ?>
+                        <h4 class="titulo-do-sec"><?php echo $count_dados['numero']?> comentários</h4>
                     </div>
                     <div class="coment-user">
                         <div class="coment-img-user">
-                            <img src="../Imagens/perfil.jpg">
+                            <img src="../<?php echo $dados['img_perfil']?>">
                         </div>
-                        <textarea name="txta-coment" id="coment-txta" cols="30" rows="10" placeholder="Deixe sua critica aqui"></textarea>
+                        <form action="processos/comenta.php?id=<?php echo $id_anime?>" method="post">
+                            <textarea name="coment" id="coment-txta" cols="30" rows="10" placeholder="Deixe sua critica aqui"></textarea>
+                            <button type="submit">enviar</button>
+                        </form>
                     </div>    
-                </section> 
+
+                    
+                    <?php 
+                        $query_comentarios = mysqli_query($con, 
+                        "SELECT 
+                            com.id,
+                            com.comentario,
+                            DATE_FORMAT(com.data_publicacao, '%d/%m/%Y') as dia,
+                            DATE_FORMAT(com.data_publicacao, '%H:%i') as hora,
+                            usu.img_perfil,
+                            usu.nome
+                        FROM 
+                            tb_comentario as com 
+                        INNER JOIN 
+                            tb_usuario as usu ON com.id_usuario = usu.id 
+                        WHERE 
+                            com.id_anime = '$id_anime'
+                         ");
+
+                         
+                    ?>
+                    <!-- <div class="content">
+                        <div class="informacoes">
+                            <div class="img">
+                                <img src="../Imagens/server/empty_profile.jpg" alt="">
+                            </div>
+                            <div class="nome">
+                                <h3>FIZ HERRADO PQ SOU BURRO</h3>
+                                <spam>HORA DE MATAR O JEFF</spam>
+                            </div>
+                        </div>
+                        <div class="comentario">
+                            <p>
+
+                            </p>
+                        </div>
+                        
+                    </div> -->
+                    <?php 
+                        while($dados_comentarios = mysqli_fetch_array($query_comentarios)){
+                    ?>
+                            <div class="content">
+                                <div class="informacoes">
+                                    <div class="img">
+                                        <img src="../<?php echo $dados_comentarios['img_perfil'] ?>" alt="">
+                                    </div>
+                                    <div class="nome">
+                                        <h3><?php echo $dados_comentarios['nome'] ?></h3>
+                                        <spam>Dia: <?php echo $dados_comentarios['dia'] . " as " . $dados_comentarios['hora']?></spam>
+                                    </div>
+                                </div>
+                                <div class="comentario">
+                                    <p>
+                                        <?php 
+                                            echo $dados_comentarios['comentario'];
+                                        ?>
+                                    </p>
+                                </div>
+                            </div>
+                    <?php
+                        }
+                    ?>
+                </section>  
                 <br>
                 <br>
                 <br>
