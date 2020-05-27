@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Roboto";
+    font-family: "Roboto", "Helv", "Helvetica Neue";
 }
 
 .interface{
@@ -55,3 +55,43 @@
 }
 
 /*Fim form de pesquisa*/
+/*começo da stylização do footer*/
+
+.interface .container-footer{
+    position: relative;
+    top: 70px;
+    height: 200px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    background: url("../../Imagens/yuno.jpg");
+    background-position: top;
+    filter: grayscale(50%);
+}
+
+.container-footer .footer-des{
+    color: rgb(143, 143, 143);
+    font-size: 10pt;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.container-footer .footer-email{
+    color: rgb(143, 143, 143);
+    font-size: 10pt;
+}
+
+.container-footer .footer-email a{
+    color: rgb(143, 143, 143);
+    font-size: 10pt;
+    text-decoration: none;
+}
+
+.container-footer .footer-copy{
+    color: rgb(85, 85, 85);
+    font-size: 9pt;
+}
+
+/*Fim da stylização do footer*/

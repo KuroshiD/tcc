@@ -109,8 +109,9 @@
 
                 <div class="container-img-user">
 
-                    <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="" class="menu-verifica">
+                    <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="" class="menu-verifica img-none">
                     <!-- </?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?> -->
+                    <i class="fas fa-bars icon-none"></i>
                 </div>
 
             </div>
@@ -142,7 +143,7 @@
                         while($dados_animes_slider = mysqli_fetch_array($sql_anime)){?>
                             <div class="mySlides fade">
                                 <div class="numbertext"><?php print $i . " / " . mysqli_num_rows($sql_anime) ?></div>
-                                <img src="../<?php print $dados_animes_slider['img_anime'];?>" alt="">
+                                <img src="../<?php print $dados_animes_slider['banner_anime'];?>" alt="">
                             </div>
                     <?php
                             $i++;
@@ -172,10 +173,17 @@
                     <h2 class="titulo-swiper">Animes Recentes</h2>
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
+                            <!-- <?php 
+                                //$animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime ORDER BY data_lancamento DESC LIMIT 10 ");
+                                // while($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)){?>
+                                <div class="swiper-slide"><img src="../<?php //print $dados_swiper_recentes['img_anime'];?>" alt=""></div>
+                            <?php
+                                // }
+                            ?> -->
                             <?php 
                                 $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime ORDER BY data_lancamento DESC LIMIT 10 ");
                                 while($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)){?>
-                                <div class="swiper-slide"><img src="../<?php print $dados_swiper_recentes['img_anime'];?>" alt=""></div>
+                                <div class="swiper-slide"><?php print "<a href=perfil-anime.php?id=".$dados_swiper_recentes['id_anime'].">" ?><img src="../<?php print $dados_swiper_recentes['img_anime'];?>" alt="<?php print $dados_swiper_recentes['nome'];?>"></a></div>
                             <?php
                                 }
                             ?>
@@ -285,6 +293,7 @@
     <script src="../Js/menu/menu.js"></script>
     <script src="../Js/slider/slider.js"></script>
     <script src="../Js/slider/swiper.js"></script>
+    <script src="../|Js/menu/swiperLink.js"></script>
 
 </body>
 

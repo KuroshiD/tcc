@@ -80,10 +80,25 @@
     display: none;
 }
 
+.icon-none{
+    display: none !important;
+    
+}
+.img-none{
+    display: block;
+}
 /*MEDIA*/
 
 @media screen and (max-width: 935px){
-
+    .icon-none{
+        display: block !important;
+        color: white;
+        font-size: 30pt;
+        cursor: pointer;
+    }
+    .img-none{
+        display: none;
+    }
     .container-header .content-center{
         width: 100%;
         padding: 0 1rem;

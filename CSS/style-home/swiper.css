@@ -73,3 +73,6 @@
     right: 0;
     background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1)100%);
 }
+.link{
+    text-decoration: none !important;    
+}

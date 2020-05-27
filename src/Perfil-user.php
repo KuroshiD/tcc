@@ -91,12 +91,16 @@ $x = rand(0, 99);
                     </select>
                 </div>
                 <div class="content-editar content-classe">
-                    <label for="">Descricao: </label>
-                    <input type="textarea" class="items-editar item-nome" name="descricao" value="<?php print $dados['descricao'] ?>">
+                    <label for="">Anime favorito: </label>
+                    <input type="text" class="items-editar item-nome" name="animefav" value="<?php print $dados['animefav'] ?>">
                 </div>
                 <div class="content-editar content-raca">
                     <label for="">Personagem Favorito: </label>
                     <input type="text" class="items-editar item-nome" name="personagem" value="<?php print $dados['personagem'] ?>">
+                </div>
+                <div class="content-editar content-descricao">
+                    <label for="">Descricao: </label>
+                    <input type="text" class="items-editar item-nome" name="descricao" value="<?php print $dados['descricao'] ?>" maxlength="255"></input>
                 </div>
                 <button class="btn-salvar">Salvar</button>
 
@@ -185,9 +189,11 @@ $x = rand(0, 99);
                 </div>
 
                 <div class="container-descricao">
-                    <p><b>Classe: <?php echo $dados['classe']; ?></b> </p>
-                    <p><b>Personagem Favorito: <?php echo $dados['personagem']; ?></b> </p>
-                    <p><b>Descrição: <?php echo $dados['descricao']; ?></b> </p>
+                    <p><b>Classe: </b><?php echo $dados['classe'] . " / " . $dados['raca'] ; ?></p>
+                    <p><b>Personagem Favorito: </b><?php echo $dados['personagem']; ?> </p>
+                    <p><b>Anime favorito: </b><?php echo $dados['animefav'] ?></p>
+                    <p><b>Descrição: </b> <?php echo $dados['descricao']; ?></p>
+                    
                 </div>
 
             </section>
