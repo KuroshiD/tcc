@@ -26,7 +26,7 @@ $x = rand(0, 99);
 
     <link rel="stylesheet" href="../CSS/style-total/Total-main.css">
     <link rel="stylesheet" href="../CSS/style-total/Total-media.css">
-    <link rel="icon" href=".././Imagens/favicon.ico" >
+    <link rel="icon" href=".././Imagens/favicon.ico">
     <link rel="stylesheet" href="../CSS/style-perfilUser/header-menu.css">
     <link rel="stylesheet" href="../CSS/style-perfilUser/User-main.css">
     <link rel="stylesheet" href="../CSS/style-perfilUser/menu-editar.css">
@@ -53,6 +53,7 @@ $x = rand(0, 99);
             <form class="form-menu-editar" method="POST" action="./processos/updatePerfil.php">
                 <h1 class="titulo-editar">Editar seu perfil</h1>
 
+
                 <div class="content-editar content-nome">
                     <label for="">Nome: </label>
                     <input type="text" class="items-editar item-nome" name="nome" value="<?php print $dados['nome'] ?>">
@@ -61,7 +62,7 @@ $x = rand(0, 99);
                 <div class="content-editar content-classe">
                     <label for="">Classe:</label>
                     <select name="class" id="" class="items-editar">
-                        <option value="<?php print $dados['classe'];?>" selected disabled><?php print $dados['classe']?></option> 
+                        <option value="<?php print $dados['classe']; ?>" selected disabled><?php print $dados['classe'] ?></option>
                         <option value="Adventurer">Adventurer</option>
                         <option value="Arqueiro">Arqueiro</option>
                         <option value="Bardo">Bardo</option>
@@ -80,7 +81,7 @@ $x = rand(0, 99);
                 <div class="content-editar content-raca">
                     <label for="raca">Raça:</label>
                     <select name="raca" id="" class="items-editar">
-                    <option value="<?php print $dados['raca'];?>" selected disabled><?php print $dados['raca']?></option> 
+                        <option value="<?php print $dados['raca']; ?>" selected disabled><?php print $dados['raca'] ?></option>
                         <option value="Angels">Angel</option>
                         <option value="Anao">Anão</option>
                         <option value="Demons">demon</option>
@@ -118,9 +119,11 @@ $x = rand(0, 99);
 
                 </div>
 
-                <form class="form-content">
+                <form class="form-content" id="form-user">
 
-                    <input type="text" name="" id="txtPesUser" class="pesquisa-user" placeholder="Pesquise outra pessoa">
+                    <datalist id="datalist_users">
+                    </datalist>
+                    <input type="text" name="" id="txtPesUser" class="pesquisa-user" placeholder="Pesquise outra pessoa" list="datalist_users" autocomplete="off">
                     <button class="btn-pesquisa-user"><i class="fa fa-search"></i></button>
 
                 </form>
@@ -134,7 +137,7 @@ $x = rand(0, 99);
             <section class="main-capa-peril">
 
                 <div class="container-capa">
-                    <img src="<?php print "../" . $dados['img_capa']?>" alt="Sua imagem de capa" class="img_capa">
+                    <img src="<?php print "../" . $dados['img_capa'] ?>" alt="Sua imagem de capa" class="img_capa">
                     <!-- </?php echo "../" . $dados['img_capa'] ?> -->
                     <form action="processos/img_capa.php" method="post" enctype="multipart/form-data" id="form-capa">
                         <input id="up_capa" type="file" name="arquivo" hidden />
@@ -153,7 +156,7 @@ $x = rand(0, 99);
                     <i for="id" class="fas fa-pencil-alt icon img_perfil_icon" id="lapisPerfil"></i>
                 </div>
 
-            </section> 
+            </section>
 
             <script>
                 $(document).ready(function() {
@@ -189,11 +192,11 @@ $x = rand(0, 99);
                 </div>
 
                 <div class="container-descricao">
-                    <p><b>Classe: </b><?php echo $dados['classe'] . " / " . $dados['raca'] ; ?></p>
+                    <p><b>Classe: </b><?php echo $dados['classe'] . " / " . $dados['raca']; ?></p>
                     <p><b>Personagem Favorito: </b><?php echo $dados['personagem']; ?> </p>
                     <p><b>Anime favorito: </b><?php echo $dados['animefav'] ?></p>
                     <p><b>Descrição: </b> <?php echo $dados['descricao']; ?></p>
-                    
+
                 </div>
 
             </section>
@@ -278,7 +281,7 @@ $x = rand(0, 99);
                             <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
                         </div>
 
-                    </div>  
+                    </div>
 
                     <div class="container-coment">
 
@@ -295,7 +298,7 @@ $x = rand(0, 99);
 
                 </div>
 
-            </section> 
+            </section>
 
         </main>
 
@@ -320,6 +323,23 @@ $x = rand(0, 99);
                             }
                         }
                     }).submit();
+                }
+            })
+
+            $("#txtPesUser").keyup(function() {
+                var users = $(this).val();
+
+                if (users != '') {
+                    $.ajax({
+                        url: './processos/busca_user.php',
+                        method: 'POST',
+                        data: {
+                            users: users
+                        },
+                        success: function(retorno) {
+                            $("#datalist_users").html(retorno);
+                        }
+                    })
                 }
             })
         });

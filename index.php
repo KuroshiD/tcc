@@ -55,7 +55,6 @@ if (isset($_POST['logar'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-    <meta name="google-signin-client_id" content="158825657011-8jhq9pdj1q7l6ml0ao2i532n0ip6q8p6.apps.googleusercontent.com">
     <link rel="stylesheet" href="../CSS/normalize/nomalize.css">
     
     <title>Bem-vindo</title>
@@ -88,8 +87,6 @@ if (isset($_POST['logar'])) {
             <form action="index.php" method="POST">
                 <div class="entrar-titulos">
                     <h1 id="teste">Faça seu login</h1>
-                    <span>ou use sua conta do Google</span>
-                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
                 </div>
                 <div class="campos-log">
                     <input type="email" id="logEmail" name="email" placeholder="Email" class="campos" required />

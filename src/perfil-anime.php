@@ -184,23 +184,7 @@
 
                          
                     ?>
-                    <!-- <div class="content">
-                        <div class="informacoes">
-                            <div class="img">
-                                <img src="../Imagens/server/empty_profile.jpg" alt="">
-                            </div>
-                            <div class="nome">
-                                <h3>FIZ HERRADO PQ SOU BURRO</h3>
-                                <spam>HORA DE MATAR O JEFF</spam>
-                            </div>
-                        </div>
-                        <div class="comentario">
-                            <p>
-
-                            </p>
-                        </div>
-                        
-                    </div> -->
+                    
                     <?php 
                         while($dados_comentarios = mysqli_fetch_array($query_comentarios)){
                     ?>
