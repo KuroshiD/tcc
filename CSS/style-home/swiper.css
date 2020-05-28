@@ -76,3 +76,7 @@
 .link{
     text-decoration: none !important;    
 }
+
+.imgAnime {
+    cursor: pointer;
+}

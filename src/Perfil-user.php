@@ -219,82 +219,23 @@ $x = rand(0, 99);
                         <h2 class="ttl-rec">Atividades Recentes</h2>
                     </div>
 
-                    <div class="container-coment">
-                        <div class="container-img-rec-anime">
-                            <img src="../Imagens/animes/bleach.jpg">
-                        </div>
+                    <?php
+                    $buscaRecentes = mysqli_query($con, "SELECT * FROM recentes WHERE id = $id ORDER BY data_publicacao DESC");
+                    while ($recentes = mysqli_fetch_array($buscaRecentes)) {
+                        echo '<div class="container-coment">';
 
-                        <div class="content-coment-name">
-                            <h4 class="name-coment">Dragon Ball Z</h4>
-                            <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
-                        </div>
+                            echo '<div class="container-img-rec-anime">';
+                                echo '<img src="../' . $recentes['img_anime'] . '">';
+                            echo '</div>';
 
-                    </div>
-
-                    <div class="container-coment">
-
-                        <div class="container-img-rec-anime">
-                            <img src="../Imagens/animes/bleach.jpg">
-                        </div>
-
-                        <div class="content-coment-name">
-                            <h4 class="name-coment">Dragon Ball Z</h4>
-                            <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
-                        </div>
-
-                    </div>
-
-                    <div class="container-coment">
-
-                        <div class="container-img-rec-anime">
-                            <img src="../Imagens/animes/bleach.jpg">
-                        </div>
-
-                        <div class="content-coment-name">
-                            <h4 class="name-coment">Dragon Ball Z</h4>
-                            <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
-                        </div>
-
-                    </div>
-
-                    <div class="container-coment">
-
-                        <div class="container-img-rec-anime">
-                            <img src="../Imagens/animes/bleach.jpg">
-                        </div>
-
-                        <div class="content-coment-name">
-                            <h4 class="name-coment">Dragon Ball Z</h4>
-                            <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
-                        </div>
-
-                    </div>
-
-                    <div class="container-coment">
-
-                        <div class="container-img-rec-anime">
-                            <img src="../Imagens/animes/bleach.jpg">
-                        </div>
-
-                        <div class="content-coment-name">
-                            <h4 class="name-coment">Bleach</h4>
-                            <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
-                        </div>
-
-                    </div>
-
-                    <div class="container-coment">
-
-                        <div class="container-img-rec-anime">
-                            <img src="../Imagens/animes/bleach.jpg">
-                        </div>
-
-                        <div class="content-coment-name">
-                            <h4 class="name-coment">Dragon Ball Z</h4>
-                            <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
-                        </div>
-
-                    </div>
+                            echo '<div class="content-coment-name">';
+                                echo '<h4 class="name-coment">' . $recentes['nome'] . '</h4>';
+                                echo '<p class="coment">' . $recentes['descricao'] . '</p>';
+                            echo '</div>';
+                            
+                        echo '</div>';
+                    }
+                    ?>
 
                 </div>
 

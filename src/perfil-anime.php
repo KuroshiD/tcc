@@ -1,26 +1,26 @@
-<?php 
-    require_once('banco/conexao.php');
+<?php
+require_once('banco/conexao.php');
 
-    session_start();
+session_start();
 
-    if(!isset($_SESSION['logado'])){
-        header("Location: ../index.php");
-    }
+if (!isset($_SESSION['logado'])) {
+    header("Location: ../index.php");
+}
 
-    $id = $_SESSION['logado'];
+$id = $_SESSION['logado'];
 
-    $sql = mysqli_query($con, "SELECT * FROM tb_usuario WHERE id = '$id'");
-    $dados = mysqli_fetch_array($sql);
-    
+$sql = mysqli_query($con, "SELECT * FROM tb_usuario WHERE id = '$id'");
+$dados = mysqli_fetch_array($sql);
 
-    $x = rand(0, 99);
 
-    if(!isset($_GET['id'])){
-        header("Location: home.php");
-    }
-    $id_anime = $_GET['id'];
-    $select = mysqli_query($con, "SELECT * FROM tb_anime WHERE id_anime = '$id_anime'");
-    $dados_animes = mysqli_fetch_array($select);
+$x = rand(0, 99);
+
+if (!isset($_GET['id'])) {
+    header("Location: home.php");
+}
+$id_anime = $_GET['id'];
+$select = mysqli_query($con, "SELECT * FROM tb_anime WHERE id_anime = '$id_anime'");
+$dados_animes = mysqli_fetch_array($select);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -29,7 +29,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="stylesheet" href="../CSS/style-total/Total-menu.css">
     <link rel="stylesheet" href="../CSS/style-total/Total-main.css">
     <link rel="stylesheet" href="../CSS/style-total/Total-media.css">
@@ -38,83 +38,85 @@
     <link rel="stylesheet" href="../CSS/style-perfilAnime/comentario.css">
     <link rel="stylesheet" href="../CSS/style-perfilAnime/medias.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <title><?php print $dados_animes['nome']?></title>
+
+    <title><?php print $dados_animes['nome'] ?></title>
 
 </head>
 
 <body>
     <div class="interface back">
-    
-    <header class="container-header">
 
-        <div class="content-center">
+        <header class="container-header">
 
-            <div class="container-logo">
+            <div class="content-center">
 
-                <img src=".././Imagens/Logo.png" alt="Logotipo desse website">
+                <div class="container-logo">
+
+                    <img src=".././Imagens/Logo.png" alt="Logotipo desse website">
+
+                </div>
+
+                <div class="menu-mobile">
+
+                    <div class="content-user">
+
+                        <div class="mobile-user">
+
+                            <a href="Perfil-user.php"><img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt=""></a>
+
+                        </div>
+
+                        <div class="user-raca-classe">
+
+                            <h2><?php echo $dados['nome'] ?></h2>
+                            <span><?php echo $dados['raca'] . '/' . $dados['classe'] ?></span>
+
+                        </div>
+
+                    </div>
+
+                    <nav class="nav-list">
+
+                        <ul class="list">
+
+                            <li class="list-items">
+                                <a href="home.php" class="link-items">home</a>
+                            </li>
+
+                            <li class="list-items">
+                                <a href="#" class="link-items">recomendação aleatoria</a>
+                            </li>
+
+                            <li class="list-items">
+                                <a href="noticias.php" class="link-items">noticias</a>
+                            </li>
+
+                            <li class="list-items sair-mobile">
+                                <a href="processos/logout.php" class="link-items">sair</a>
+                            </li>
+
+                        </ul>
+
+                    </nav>
+
+                </div>
+
+                <div class="container-img-user">
+
+                    <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="" class="menu-verifica">
+                </div>
 
             </div>
 
-        <div class="menu-mobile">
 
-            <div class="content-user">
-
-                <div class="mobile-user">
-
-                    <a href="Perfil-user.php"><img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt=""></a>
-
-                </div>
-
-                <div class="user-raca-classe">
-
-                    <h2><?php echo $dados['nome'] ?></h2>
-                    <span><?php echo $dados['raca'].'/'.$dados['classe'] ?></span>
-
-                </div>
-
-        </div>
-
-        <nav class="nav-list">
-
-            <ul class="list">
-
-                <li class="list-items">
-                    <a href="home.php" class="link-items">home</a>
-                </li>
-                
-                <li class="list-items">
-                    <a href="#" class="link-items">recomendação aleatoria</a>
-                </li>
-                
-                <li class="list-items">
-                    <a href="noticias.php" class="link-items">noticias</a>
-                </li>
-
-                <li class="list-items sair-mobile">
-                    <a href="processos/logout.php" class="link-items">sair</a>
-                </li>
-
-            </ul>
-
-        </nav>
-
-    </div>
-
-    <div class="container-img-user">
-
-        <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="" class="menu-verifica">
-    </div>
-
-</div>
-
-
-</header> 
+        </header>
         <main class="container-main">
             <div class="content-main">
                 <div class="main-flex">
                     <div class="container-img-anime">
-                        <img src="../<?php print $dados_animes['img_anime']?>">
+                        <img src="../<?php print $dados_animes['img_anime'] ?>">
                         <div class="feedback">
                             <span>&starf;</span>
                             <span>&starf;</span>
@@ -124,18 +126,18 @@
                         </div>
                     </div>
                     <div class="descricao-anime">
-                        <h1 class="anime-name"><?php print $dados_animes['nome']?></h1>
+                        <h1 class="anime-name"><?php print $dados_animes['nome'] ?></h1>
                         <div class="descri-topicos">
                             <ul class="topicos-list">
-                                <li class="topicos-items"><b>Total de Episódios:</b> <?php print $dados_animes['episodios']?></li>
-                                <li class="topicos-items"><b>Duração: </b><?php print $dados_animes['duracao']?></li>
-                                <li class="topicos-items"><b>Gêneros :</b><?php print $dados_animes['genre']?></li>
-                                <li class="topicos-items"><b>Autor: </b> <?php print $dados_animes['Autor']?></li>
-                                <li class="topicos-items"><b>Diretor: </b> <?php print $dados_animes['diretor']?></li>
-                                <li class="topicos-items"><b>Estúdio:</b> <?php print $dados_animes['estudio']?></li>
-                                <li class="topicos-items"><b>OVAs: </b><?php print $dados_animes['ovas']?></li>
-                                <li class="topicos-items"><b>Filmes: </b><?php print $dados_animes['filmes']?></li>
-                                <li class="topicos-items"><b>Classificação: </b><?php print $dados_animes['classificacao']?></li>
+                                <li class="topicos-items"><b>Total de Episódios:</b> <?php print $dados_animes['episodios'] ?></li>
+                                <li class="topicos-items"><b>Duração: </b><?php print $dados_animes['duracao'] ?></li>
+                                <li class="topicos-items"><b>Gêneros :</b><?php print $dados_animes['genre'] ?></li>
+                                <li class="topicos-items"><b>Autor: </b> <?php print $dados_animes['Autor'] ?></li>
+                                <li class="topicos-items"><b>Diretor: </b> <?php print $dados_animes['diretor'] ?></li>
+                                <li class="topicos-items"><b>Estúdio:</b> <?php print $dados_animes['estudio'] ?></li>
+                                <li class="topicos-items"><b>OVAs: </b><?php print $dados_animes['ovas'] ?></li>
+                                <li class="topicos-items"><b>Filmes: </b><?php print $dados_animes['filmes'] ?></li>
+                                <li class="topicos-items"><b>Classificação: </b><?php print $dados_animes['classificacao'] ?></li>
                             </ul>
                         </div>
                     </div>
@@ -143,84 +145,32 @@
                 <div class="sinopse">
                     <h3 class="descri-sinopse">Sinopse</h3>
                     <p class="sinopse-do-anime">
-                        <?php print $dados_animes['descricao']?>
+                        <?php print $dados_animes['descricao'] ?>
                     </p>
                 </div>
                 <section class="sec-main-comentarios">
                     <div class="coment-titulo">
-                        <?php 
-                            $query = mysqli_query($con, "SELECT COUNT(comentario) as numero FROM tb_comentario WHERE id_anime = '$id_anime'");
-                            $count_dados = mysqli_fetch_array($query)
-                        ?>
-                        <h4 class="titulo-do-sec"><?php echo $count_dados['numero']?> comentários</h4>
+                        <h4 class="titulo-do-sec"></h4>
                     </div>
                     <div class="coment-user">
                         <div class="coment-img-user">
-                            <img src="../<?php echo $dados['img_perfil']?>">
+                            <img src="../<?php echo $dados['img_perfil'] ?>">
                         </div>
-                        <form action="processos/comenta.php?id=<?php echo $id_anime?>" method="post">
+                        <form id="form-comentario">
                             <textarea name="coment" id="coment-txta" cols="30" rows="10" placeholder="Deixe sua critica aqui"></textarea>
-                            <button type="submit">enviar</button>
+                            <input type="text" class="txtId" value="<?php echo $id_anime; ?>" hidden>
+                            <button type="button" id="btnComenta">enviar</button>
                         </form>
-                    </div>    
+                    </div>
 
-                    
-                    <?php 
-                        $query_comentarios = mysqli_query($con, 
-                        "SELECT 
-                            com.id,
-                            com.comentario,
-                            DATE_FORMAT(com.data_publicacao, '%d/%m/%Y') as dia,
-                            DATE_FORMAT(com.data_publicacao, '%H:%i') as hora,
-                            usu.img_perfil,
-                            usu.nome
-                        FROM 
-                            tb_comentario as com 
-                        INNER JOIN 
-                            tb_usuario as usu ON com.id_usuario = usu.id 
-                        WHERE 
-                            com.id_anime = '$id_anime'
-                         ");
+                    <div class="comentarios">
 
-                         
-                    ?>
-                    
-                    <?php 
-                        while($dados_comentarios = mysqli_fetch_array($query_comentarios)){
-                    ?>
-                            <div class="content">
-                                <div class="informacoes">
-                                    <div class="img">
-                                        <img src="../<?php echo $dados_comentarios['img_perfil'] ?>" alt="">
-                                    </div>
-                                    <div class="nome">
-                                        <h3><?php echo $dados_comentarios['nome'] ?></h3>
-                                        <spam>Dia: <?php echo $dados_comentarios['dia'] . " as " . $dados_comentarios['hora']?></spam>
-                                    </div>
-                                </div>
-                                <div class="comentario">
-                                    <p>
-                                        <?php 
-                                            echo $dados_comentarios['comentario'];
-                                        ?>
-                                    </p>
-                                </div>
-                            </div>
-                    <?php
-                        }
-                    ?>
-                </section>  
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
+                    </div>
+
+                </section>
+
             </div>
-        </main> 
+        </main>
         <footer class="container-footer">
 
             <p class="footer-des">Esse site é um projeto de TCC e não tem fins lucrativos (ainda).</p>
@@ -231,6 +181,69 @@
 
         </footer>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            function carregaComentarios() {
+                var id_anime = <?php echo $id_anime; ?>;
+
+                $.ajax({
+                    url: './processos/comentarios/carregaComentarios.php',
+                    method: 'POST',
+                    data: {
+                        id_anime: id_anime
+                    },
+                    success: function(retorno) {
+                        $(".comentarios").html(retorno);
+                    }
+                })
+
+                $.ajax({
+                    url: './processos/comentarios/contaComentarios.php',
+                    method: 'POST',
+                    data: {
+                        id_anime: id_anime
+                    },
+                    success: function(retorno) {
+                        $(".titulo-do-sec").html(retorno);
+                    }
+                })
+            }
+
+            carregaComentarios();
+
+            $("#btnComenta").click(function() {
+                var comentario = $("#coment-txta").val();
+                var id_anime = $(".txtId").val();
+
+                if (comentario !== '' && id_anime !== '') {
+                    $.ajax({
+                        url: './processos/comentarios/comenta.php',
+                        method: 'POST',
+                        data: {
+                            comentario: comentario,
+                            id_anime: id_anime
+                        },
+                        success: function(retorno) {
+                            $(".comentarios").html(retorno);
+                            $("#coment-txta").val('');
+                        }
+                    })
+
+                    $.ajax({
+                        url: './processos/comentarios/contaComentarios.php',
+                        method: 'POST',
+                        data: {
+                            id_anime: id_anime
+                        },
+                        success: function(retorno) {
+                            $(".titulo-do-sec").html(retorno);
+                        }
+                    })
+                }
+            })
+        })
+    </script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="../Js/menu/menu.js"></script>

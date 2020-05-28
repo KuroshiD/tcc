@@ -1,5 +1,24 @@
+<?php
+require_once('../src/banco/conexao.php');
+require_once('../src/banco/includes/security.php');
+
+session_start();
+
+if (!isset($_SESSION['logado'])) {
+    header("Location: ../index.php");
+}
+
+$id = $_SESSION['logado'];
+
+$sql = mysqli_query($con, "SELECT * FROM tb_usuario WHERE id = '$id'");
+$dados = mysqli_fetch_array($sql);
+
+$x = rand(0, 99);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,58 +31,76 @@
 
     <title>Noticias</title>
 </head>
+
 <body>
-    
+
     <div class="interface">
 
         <header class="container-header">
-            
-            <div class="header">
-                <div class="header-logo">
-                    <a href="#"><img src="../Imagens/LogoPequena.png" alt="Logotipo da plataforma"></a>
+
+            <div class="content-center">
+
+                <div class="container-logo">
+
+                    <img src=".././Imagens/Logo.png" alt="Logotipo desse website">
+
                 </div>
-                <div class="header-icon-abrir">
-                    <i class="fas fa-bars icon"></i>
+
+                <div class="menu-mobile">
+
+                    <div class="content-user">
+
+                        <div class="mobile-user">
+
+                            <a href="Perfil-user.php"><img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt=""></a>
+
+                        </div>
+
+                        <div class="user-raca-classe">
+
+                            <h2><?php echo $dados['nome'] ?></h2>
+                            <span><?php echo $dados['raca'] . '/' . $dados['classe'] ?></span>
+
+                        </div>
+
+                    </div>
+
+                    <nav class="nav-list">
+
+                        <ul class="list">
+
+                            <li class="list-items">
+                                <a href="home.php" class="link-items">home</a>
+                            </li>
+
+                            <li class="list-items">
+                                <a href="#" class="link-items">recomendação aleatoria</a>
+                            </li>
+
+                            <li class="list-items">
+                                <a href="news.php" class="link-items">noticias</a>
+                            </li>
+
+                            <li class="list-items sair-mobile">
+                                <a href="processos/logout.php" class="link-items">sair</a>
+                            </li>
+
+                        </ul>
+
+                    </nav>
+
                 </div>
+
+                <div class="container-img-user">
+
+                    <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="" class="menu-verifica img-none">
+                    <!-- </?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?> -->
+                    <i class="fas fa-bars icon-none"></i>
+                </div>
+
             </div>
-        
+
         </header>
-        <div class="menu">
-
-            <nav class="navigation-menu">
-                <div class="profile">
-                    <span class="profile-img">
-                        <a href="Perfil-user.html" class="link-perfil"><img src="../Imagens/perfil.jpg" alt="Imagem de perfil"></a>
-                    </span>
-                    <span>
-                        <p class="name"><a href="Perfil-user.html" class="link-perfil">Gabriel Paiva</a></p>
-                    </span>
-                </div>
-                <ul class="list-nav">
-                    <li class="item-nav">
-                        <a class="link-nav" href="home.html">
-                            Home
-                        </a>
-                    </li>
-                    <li class="item-nav">
-                        <a class="link-nav" href="#">
-                            Animes recentes
-                        </a>
-                    </li>
-                    <li class="item-nav">
-                        <a class="link-nav link-nav-arrow" href="noticias.html">
-                            Notícias
-                        </a>
-                    </li>
-                    <li class="item-nav">
-                        <a class="link-nav" href="temporada.html">
-                            Temporadas
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-
-        </div>
 
         <main class="container-main">
 
@@ -83,7 +120,7 @@
                     <div class="titulo-recentes">
                         <h2 class="ttl-rec">Noticias Recentes</h2>
                     </div>
-                    
+
                     <div class="container-coment">
                         <div class="container-img-rec-anime">
                             <img src="../Imagens/dragonBall.jpg">
@@ -101,7 +138,7 @@
                         <div class="container-img-rec-anime">
                             <img src="../Imagens/cavalheiros.png">
                         </div>
-                        
+
                         <div class="content-coment-name">
                             <h4 class="name-coment">Dragon Ball Z</h4>
                             <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
@@ -110,37 +147,37 @@
                     </div>
 
                     <div class="container-coment">
-                    
+
                         <div class="container-img-rec-anime">
                             <img src="../Imagens/hunter_X_hunter.jpg">
                         </div>
-                    
+
                         <div class="content-coment-name">
                             <h4 class="name-coment">Dragon Ball Z</h4>
                             <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
                         </div>
-                    
+
                     </div>
-                    
+
                     <div class="container-coment">
-                    
+
                         <div class="container-img-rec-anime">
                             <img src="../Imagens/naruto.jpg">
                         </div>
-                    
+
                         <div class="content-coment-name">
                             <h4 class="name-coment">Dragon Ball Z</h4>
                             <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
                         </div>
-                    
+
                     </div>
-                    
+
                     <div class="container-coment">
-                        
+
                         <div class="container-img-rec-anime">
                             <img src="../Imagens/bleach.jpg">
                         </div>
-                        
+
                         <div class="content-coment-name">
                             <h4 class="name-coment">Dragon Ball Z</h4>
                             <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
@@ -149,7 +186,7 @@
                     </div>
 
                     <div class="container-coment">
-                        
+
                         <div class="container-img-rec-anime">
                             <img src="../Imagens/cavalheiros.png">
                         </div>
@@ -160,12 +197,22 @@
                         </div>
 
                     </div>
-                
+
                 </div>
 
             </section>
 
         </main>
+
+        <footer class="container-footer">
+
+            <p class="footer-des">Esse site é um projeto de TCC e não tem fins lucrativos (ainda).</p>
+
+            <p class="footer-email">E-mail para contato: <br><a href="#">contato.animematch@gmail.com</a></p>
+
+            <p class="footer-copy">&copy; Anime Match</p>
+
+        </footer>
 
     </div>
 
@@ -175,4 +222,5 @@
     <script src="../Js/menu/menu.js"></script>
 
 </body>
+
 </html>
