@@ -3,14 +3,19 @@ require_once('banco/conexao.php');
 
 session_start();
 
+if(!isset($_GET['id'])){
+    header('Location: Perfil-user.php');
+}
 if (!isset($_SESSION['logado'])) {
     header("Location: ../index.php");
 }
+
 
 $id = $_SESSION['logado'];
 
 $sql = mysqli_query($con, "SELECT * FROM tb_usuario WHERE id = '$id'");
 $dados = mysqli_fetch_array($sql);
+
 
 
 $x = rand(0, 99);
@@ -21,6 +26,9 @@ if (!isset($_GET['id'])) {
 $id_anime = $_GET['id'];
 $select = mysqli_query($con, "SELECT * FROM tb_anime WHERE id_anime = '$id_anime'");
 $dados_animes = mysqli_fetch_array($select);
+if(mysqli_num_rows($select) == 0){
+    header('Location: home.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -86,7 +94,7 @@ $dados_animes = mysqli_fetch_array($select);
                             </li>
 
                             <li class="list-items">
-                                <a href="#" class="link-items">recomendação aleatoria</a>
+                                <a href="recomenda.php" class="link-items">recomendação aleatoria</a>
                             </li>
 
                             <li class="list-items">

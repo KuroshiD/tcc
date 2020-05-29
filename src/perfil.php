@@ -162,7 +162,7 @@ if($id == $id_sessao){
 
                 if (users != '') {
                     $.ajax({
-                        url: './processos/busca_user.php',
+                        url: './processos/datalist_user.php',
                         method: 'POST',
                         data: {
                             users: users

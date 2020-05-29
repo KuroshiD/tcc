@@ -23,6 +23,8 @@
         tb_usuario as usu ON com.id_usuario = usu.id 
     WHERE 
         com.id_anime = '$id_anime'
+    ORDER BY 
+        com.data_publicacao DESC
     ");
 
     while ($dados_comentarios = mysqli_fetch_array($sql)) {
