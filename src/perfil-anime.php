@@ -98,7 +98,7 @@ if(mysqli_num_rows($select) == 0){
                             </li>
 
                             <li class="list-items">
-                                <a href="noticias.php" class="link-items">noticias</a>
+                                <a href="news.php" class="link-items">noticias</a>
                             </li>
 
                             <li class="list-items sair-mobile">
