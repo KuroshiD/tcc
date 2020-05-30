@@ -272,7 +272,11 @@ $x = rand(0, 99);
 
                 if (users != '') {
                     $.ajax({
+<<<<<<< HEAD:src/user/Perfil-user.php
                         url: '../processos/user/busca_user.php',
+=======
+                        url: './processos/datalist_user.php',
+>>>>>>> d6ef0fbe5b6e46c8ef48794d2693432b68108eea:src/Perfil-user.php
                         method: 'POST',
                         data: {
                             users: users

@@ -1,21 +1,27 @@
 let swiperSlide = document.querySelector(".swiper-container");
+var teste =  0;
+window.onload = window.setInterval(function(){
+  if(this.innerWidth >= 820 && (teste == 0 || teste != this.innerWidth)){
+    s820();
+    teste = this.innerWidth;
+  }else if(innerWidth >= 720 && (teste == 0 || teste != this.innerWidth)){
+    s720();
+    teste = this.innerWidth;
+  }else if(innerWidth >= 620 && (teste == 0 || teste != this.innerWidth)){
+    s620();
+    teste = this.innerWidth;
+  }else if(innerWidth >= 520 && (teste == 0 || teste != this.innerWidth)){
+    s520();
+    teste = this.innerWidth;
+  }else if(innerWidth >= 420 && (teste == 0 || teste != this.innerWidth)){
+    s420();
+    teste = this.innerWidth;
+  }else if(innerWidth >= 320 &&(teste == 0 || teste != this.innerWidth)){
+    s320();
+    teste = this.innerWidth;
+  }
+}, 100);
 
-// window.onload = window.setInterval(function(){
-  
-// }, 0);
-if(this.innerWidth >= 820){
-  s820();
-}else if(innerWidth >= 720){
-  s720();
-}else if(innerWidth >= 620){
-  s620();
-}else if(innerWidth >= 520){
-  s520();
-}else if(innerWidth >= 420){
-  s420();
-}else if(innerWidth >= 320){
-  s320();
-}
 
 function s320(){
   let swiper = new Swiper('.swiper-container', {

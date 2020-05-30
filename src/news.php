@@ -74,7 +74,7 @@ $x = rand(0, 99);
                             </li>
 
                             <li class="list-items">
-                                <a href="#" class="link-items">recomendação aleatoria</a>
+                                <a href="./recomenda.php" class="link-items">recomendação aleatoria</a>
                             </li>
 
                             <li class="list-items">

@@ -3,14 +3,19 @@ require_once('../banco/conexao.php');
 
 session_start();
 
+if(!isset($_GET['id'])){
+    header('Location: Perfil-user.php');
+}
 if (!isset($_SESSION['logado'])) {
     header("Location: ../../index.php");
 }
+
 
 $id = $_SESSION['logado'];
 
 $sql = mysqli_query($con, "SELECT * FROM tb_usuario WHERE id = '$id'");
 $dados = mysqli_fetch_array($sql);
+
 
 
 $x = rand(0, 99);
@@ -20,10 +25,16 @@ if (!isset($_GET['id'])) {
 }
 $id_anime = $_GET['id'];
 $select = mysqli_query($con, "SELECT * FROM tb_anime WHERE id_anime = '$id_anime'");
+<<<<<<< HEAD:src/anime/perfil-anime.php
 if (mysqli_num_rows($select) == 0) {
     header("Location: ../home.php");
 } else {
     $dados_animes = mysqli_fetch_array($select);
+=======
+$dados_animes = mysqli_fetch_array($select);
+if(mysqli_num_rows($select) == 0){
+    header('Location: home.php');
+>>>>>>> d6ef0fbe5b6e46c8ef48794d2693432b68108eea:src/perfil-anime.php
 }
 ?>
 <!DOCTYPE html>
@@ -93,11 +104,15 @@ if (mysqli_num_rows($select) == 0) {
                             </li>
 
                             <li class="list-items">
-                                <a href="#" class="link-items">recomendação aleatoria</a>
+                                <a href="recomenda.php" class="link-items">recomendação aleatoria</a>
                             </li>
 
                             <li class="list-items">
+<<<<<<< HEAD:src/anime/perfil-anime.php
                                 <a href="../noticias.php" class="link-items">noticias</a>
+=======
+                                <a href="news.php" class="link-items">noticias</a>
+>>>>>>> d6ef0fbe5b6e46c8ef48794d2693432b68108eea:src/perfil-anime.php
                             </li>
 
                             <li class="list-items sair-mobile">

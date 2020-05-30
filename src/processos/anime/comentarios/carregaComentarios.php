@@ -23,7 +23,12 @@
         tb_usuario as usu ON com.id_usuario = usu.id 
     WHERE 
         com.id_anime = '$id_anime'
+<<<<<<< HEAD:src/processos/anime/comentarios/carregaComentarios.php
     ORDER BY com.data_publicacao DESC
+=======
+    ORDER BY 
+        com.data_publicacao DESC
+>>>>>>> d6ef0fbe5b6e46c8ef48794d2693432b68108eea:src/processos/comentarios/carregaComentarios.php
     ");
 
     while ($dados_comentarios = mysqli_fetch_array($sql)) {

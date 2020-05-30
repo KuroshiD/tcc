@@ -1,0 +1,6 @@
+{
+    "name": "tcc/tcc",
+    "require": {
+        "cocur/slugify": "^4.0"
+    }
+}

@@ -6,6 +6,6 @@
     $sql = mysqli_query($con, "SELECT * FROM tb_anime WHERE nome LIKE '$termo%' LIMIT 10");
     
     while($animes = mysqli_fetch_array($sql)){
-        echo '<option value="' . $animes['nome'] . '">' . $animes['nome'] . '</option>';
+        echo '<option class="anime-datalist id="'. $animes['id_anime'] . '" value="' . $animes['nome'] . '">' . $animes['nome'] . '</option>';
     }
 ?>
