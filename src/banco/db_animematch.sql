@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 27, 2020 at 07:42 PM
--- Server version: 5.7.29-0ubuntu0.18.04.1
--- PHP Version: 7.2.24-0ubuntu0.18.04.3
+-- Host: 127.0.0.1:3308
+-- Tempo de geração: 30-Maio-2020 às 23:48
+-- Versão do servidor: 8.0.18
+-- versão do PHP: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,17 +19,34 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_animematch`
+-- Banco de dados: `db_animematch`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_anime`
+-- Estrutura stand-in para vista `recentes`
+-- (Veja abaixo para a view atual)
+--
+DROP VIEW IF EXISTS `recentes`;
+CREATE TABLE IF NOT EXISTS `recentes` (
+`comentario` varchar(255)
+,`data_publicacao` datetime
+,`descricao` text
+,`id` int(11)
+,`img_anime` text
+,`nome` varchar(200)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_anime`
 --
 
-CREATE TABLE `tb_anime` (
-  `id_anime` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tb_anime`;
+CREATE TABLE IF NOT EXISTS `tb_anime` (
+  `id_anime` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(200) NOT NULL,
   `episodios` int(11) NOT NULL,
   `duracao` varchar(100) NOT NULL,
@@ -41,11 +60,12 @@ CREATE TABLE `tb_anime` (
   `ovas` int(11) NOT NULL,
   `filmes` int(11) NOT NULL,
   `classificacao` varchar(100) NOT NULL,
-  `Data_lancamento` varchar(10) DEFAULT '???'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Data_lancamento` varchar(10) DEFAULT '???',
+  PRIMARY KEY (`id_anime`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_anime`
+-- Extraindo dados da tabela `tb_anime`
 --
 
 INSERT INTO `tb_anime` (`id_anime`, `nome`, `episodios`, `duracao`, `genre`, `descricao`, `img_anime`, `banner_anime`, `Autor`, `diretor`, `estudio`, `ovas`, `filmes`, `classificacao`, `Data_lancamento`) VALUES
@@ -73,59 +93,84 @@ INSERT INTO `tb_anime` (`id_anime`, `nome`, `episodios`, `duracao`, `genre`, `de
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_comentario`
+-- Estrutura da tabela `tb_comentario`
 --
 
-CREATE TABLE `tb_comentario` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tb_comentario`;
+CREATE TABLE IF NOT EXISTS `tb_comentario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_usuario` int(11) NOT NULL,
   `id_anime` int(11) NOT NULL,
   `comentario` varchar(255) NOT NULL,
   `data_publicacao` datetime NOT NULL,
   `likes` varchar(10) NOT NULL DEFAULT '0',
-  `deslikes` varchar(10) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `deslikes` varchar(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_comentario`
+-- Extraindo dados da tabela `tb_comentario`
 --
 
 INSERT INTO `tb_comentario` (`id`, `id_usuario`, `id_anime`, `comentario`, `data_publicacao`, `likes`, `deslikes`) VALUES
-(1, 1, 1, '', '2020-05-07 05:20:26', '154', '1000'),
-(2, 10, 15, 'tenho hetero', '2020-12-11 20:35:10', '0', '0'),
-(3, 50, 1, 'sou gay', '2020-12-10 22:00:12', '0', '0'),
-(4, 2, 2, 'sou gay', '2020-05-28 05:40:59', '151', '0'),
-(5, 1, 11, 'teste', '2020-05-27 17:42:26', '0', '0'),
-(6, 1, 11, 'fiz esse comentario', '2020-05-27 17:42:40', '0', '0'),
-(7, 1, 15, 'comentario referente  a kaguya sama', '2020-05-27 17:43:07', '0', '0'),
-(8, 1, 15, 'teste', '2020-05-27 17:54:42', '0', '0'),
-(9, 1, 15, 'teste', '2020-05-27 17:54:48', '0', '0'),
-(10, 1, 12, 'teste', '2020-05-27 19:29:57', '0', '0'),
-(11, 1, 12, 'eu comentei aqui', '2020-05-27 19:30:06', '0', '0'),
-(12, 1, 12, 'teste comentario\r\n', '2020-05-27 19:32:55', '0', '0');
+(1, 4, 1, 'kkkk', '2020-05-30 20:28:44', '0', '0'),
+(2, 4, 1, 'Eae', '2020-05-30 20:28:56', '0', '0'),
+(3, 4, 1, 'Opa', '2020-05-30 20:30:05', '0', '0'),
+(4, 4, 10, 'Jóia', '2020-05-30 20:30:19', '0', '0'),
+(5, 4, 10, 'Beleza hein sobrinho 8)', '2020-05-30 20:30:42', '0', '0');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_genre`
+-- Estrutura da tabela `tb_estrelas`
 --
 
-CREATE TABLE `tb_genre` (
+DROP TABLE IF EXISTS `tb_estrelas`;
+CREATE TABLE IF NOT EXISTS `tb_estrelas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
+  `id_anime` int(11) NOT NULL,
+  `estrelas` int(11) NOT NULL,
+  `hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `tb_estrelas`
+--
+
+INSERT INTO `tb_estrelas` (`id`, `id_user`, `id_anime`, `estrelas`, `hora`) VALUES
+(1, 4, 10, 5, '2020-05-30 23:31:44'),
+(2, 4, 1, 5, '2020-05-30 22:32:48'),
+(3, 1, 10, 3, '2020-05-30 21:59:49'),
+(4, 4, 20, 5, '2020-05-30 23:31:32'),
+(5, 4, 8, 5, '2020-05-30 23:32:06');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_genre`
+--
+
+DROP TABLE IF EXISTS `tb_genre`;
+CREATE TABLE IF NOT EXISTS `tb_genre` (
   `genero` varchar(255) NOT NULL,
   `id_anime` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
   `user_pesquisa` int(11) DEFAULT NULL,
-  `pesquisa` int(11) DEFAULT NULL
+  `pesquisa` int(11) DEFAULT NULL,
+  PRIMARY KEY (`genero`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_usuario`
+-- Estrutura da tabela `tb_usuario`
 --
 
-CREATE TABLE `tb_usuario` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tb_usuario`;
+CREATE TABLE IF NOT EXISTS `tb_usuario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
   `senha` varchar(255) NOT NULL,
@@ -137,65 +182,30 @@ CREATE TABLE `tb_usuario` (
   `animefav` varchar(60) DEFAULT 'não definido',
   `img_perfil` varchar(255) NOT NULL DEFAULT 'Imagens/server/empty_profile.jpg',
   `img_capa` varchar(255) NOT NULL DEFAULT 'Imagens/server/capa_default.jpg',
-  `last_update` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `last_update` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_usuario`
+-- Extraindo dados da tabela `tb_usuario`
 --
 
 INSERT INTO `tb_usuario` (`id`, `nome`, `email`, `senha`, `nascimento`, `raca`, `classe`, `descricao`, `personagem`, `animefav`, `img_perfil`, `img_capa`, `last_update`) VALUES
 (1, 'Gustavo Sanchez', 'gusanches601@gmail.com', '$2y$10$aqbQmoP9DxooloxTeWwS9O3IxJb6jHaPfJTXx2mhe28TB/1k1A0A6', '1945-12-11', 'Anao', 'Druida', 'Legends never die.', 'Jotaro Joestar.', 'Jojo\'s Bizarre adventure', 'Imagens/users/profile/1nanatsu.jpg', 'Imagens/users/capa/1bleach.jpg', '2020-05-27'),
 (2, 'teste@teste.com', 'gusanches@gmail.com', '$2y$10$HWfWcJc/LQq3/AqO5AcubuWkRpTmtME/rUNFBgzSKmtpsKFOTkBbq', '2019-12-31', 'Human', 'Adventurer', 'sem descrição.', 'não definido', 'não definido', 'Imagens/server/empty_profile.jpg', 'Imagens/server/capa_default.jpg', NULL),
-(3, 'Gustavo', 'gusanches930@gmail.com', '$2y$10$0uC/t6Bous5HKT1r3lpweO1iyqiK7/iF7ooBPLViZppDmKP6KSBaG', '2222-12-11', 'Human', 'Adventurer', 'sem descrição.', 'não definido', 'não definido', 'Imagens/users/profile/3narutoshipuden.jpg', 'Imagens/users/capa/3unnamed.jpg', NULL);
+(3, 'Gustavo', 'gusanches930@gmail.com', '$2y$10$0uC/t6Bous5HKT1r3lpweO1iyqiK7/iF7ooBPLViZppDmKP6KSBaG', '2222-12-11', 'Human', 'Adventurer', 'sem descrição.', 'não definido', 'não definido', 'Imagens/users/profile/3narutoshipuden.jpg', 'Imagens/users/capa/3unnamed.jpg', NULL),
+(4, 'Eduardo R. de Matos', 'eduardoooax@gmail.com', '$2y$10$B5ZWkL/ELhpkm5XMPvgqa.Xnayk4ohzKwlPJQEnhVLmkPVZvWp3O6', '2003-04-17', 'Humano', 'Guerreiro', 'homem macho hétero', 'Peituda de Nanatsu', 'Nanatsu no Taizai', 'Imagens/users/profile/4eu.jpg', 'Imagens/users/capa/4capa_default.jpg', '2020-05-27');
+
+-- --------------------------------------------------------
 
 --
--- Indexes for dumped tables
+-- Estrutura para vista `recentes`
 --
+DROP TABLE IF EXISTS `recentes`;
 
---
--- Indexes for table `tb_anime`
---
-ALTER TABLE `tb_anime`
-  ADD PRIMARY KEY (`id_anime`);
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `recentes`  AS  select `tu`.`id` AS `id`,`tc`.`comentario` AS `comentario`,`tc`.`data_publicacao` AS `data_publicacao`,`ta`.`nome` AS `nome`,`ta`.`img_anime` AS `img_anime`,`ta`.`descricao` AS `descricao` from ((`tb_comentario` `tc` join `tb_usuario` `tu` on((`tc`.`id_usuario` = `tu`.`id`))) join `tb_anime` `ta` on((`ta`.`id_anime` = `tc`.`id_anime`))) ;
+COMMIT;
 
---
--- Indexes for table `tb_comentario`
---
-ALTER TABLE `tb_comentario`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tb_genre`
---
-ALTER TABLE `tb_genre`
-  ADD PRIMARY KEY (`genero`);
-
---
--- Indexes for table `tb_usuario`
---
-ALTER TABLE `tb_usuario`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `tb_anime`
---
-ALTER TABLE `tb_anime`
-  MODIFY `id_anime` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
---
--- AUTO_INCREMENT for table `tb_comentario`
---
-ALTER TABLE `tb_comentario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
---
--- AUTO_INCREMENT for table `tb_usuario`
---
-ALTER TABLE `tb_usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
