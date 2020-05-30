@@ -1,0 +1,12 @@
+.feedback input[type=radio] {
+    display: none;
+}
+
+.feedback label i.fa::before {
+    content: '\f005';
+    color: indigo;
+}
+
+.feedback input[type=radio]:checked ~ label i.fa::before {
+    color: #CCC;
+}

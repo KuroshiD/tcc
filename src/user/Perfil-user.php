@@ -1,11 +1,11 @@
 <?php
-require_once('banco/conexao.php');
-require_once '../vendor/autoload.php';
+require_once('../banco/conexao.php');
+require_once '../../vendor/autoload.php';
 
 session_start();
 
 if (!isset($_SESSION['logado'])) {
-    header("Location: ../index.php");
+    header("Location: ../../index.php");
 }
 
 $id = $_SESSION['logado'];
@@ -24,14 +24,14 @@ $x = rand(0, 99);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../CSS/style-total/Total-main.css">
-    <link rel="stylesheet" href="../CSS/style-total/Total-media.css">
-    <link rel="icon" href=".././Imagens/favicon.ico">
-    <link rel="stylesheet" href="../CSS/style-perfilUser/header-menu.css">
-    <link rel="stylesheet" href="../CSS/style-perfilUser/User-main.css">
-    <link rel="stylesheet" href="../CSS/style-perfilUser/menu-editar.css">
-    <link rel="stylesheet" href="../CSS/style-perfilUser/User-medias.css">
-    <link rel="stylesheet" href="../CSS/normalize/nomalize.css">
+    <link rel="stylesheet" href="../../CSS/style-total/Total-main.css">
+    <link rel="stylesheet" href="../../CSS/style-total/Total-media.css">
+    <link rel="icon" href="../../Imagens/favicon.ico">
+    <link rel="stylesheet" href="../../CSS/style-perfilUser/header-menu.css">
+    <link rel="stylesheet" href="../../CSS/style-perfilUser/User-main.css">
+    <link rel="stylesheet" href="../../CSS/style-perfilUser/menu-editar.css">
+    <link rel="stylesheet" href="../../CSS/style-perfilUser/User-medias.css">
+    <link rel="stylesheet" href="../../CSS/normalize/nomalize.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
 
@@ -50,7 +50,7 @@ $x = rand(0, 99);
 
             <i class="fas fa-times icon-sair"></i>
 
-            <form class="form-menu-editar" method="POST" action="./processos/updatePerfil.php">
+            <form class="form-menu-editar" method="POST" action="../processos/updatePerfil.php">
                 <h1 class="titulo-editar">Editar seu perfil</h1>
 
 
@@ -115,7 +115,7 @@ $x = rand(0, 99);
 
                 <div class="icon-voltar">
 
-                    <a href="home.php"><i class="fas fa-arrow-left arrow-voltar"></i></a>
+                    <a href="../home.php"><i class="fas fa-arrow-left arrow-voltar"></i></a>
 
                 </div>
 
@@ -137,7 +137,7 @@ $x = rand(0, 99);
             <section class="main-capa-peril">
 
                 <div class="container-capa">
-                    <img src="<?php print "../" . $dados['img_capa'] ?>" alt="Sua imagem de capa" class="img_capa">
+                    <img src="<?php print "../../" . $dados['img_capa'] ?>" alt="Sua imagem de capa" class="img_capa">
                     <!-- </?php echo "../" . $dados['img_capa'] ?> -->
                     <form action="processos/img_capa.php" method="post" enctype="multipart/form-data" id="form-capa">
                         <input id="up_capa" type="file" name="arquivo" hidden />
@@ -147,7 +147,7 @@ $x = rand(0, 99);
                 </div>
 
                 <div class="container-perfil">
-                    <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="Sua imagem de perfil" height="150" width="200" class="img_perfil">
+                    <img src="<?php echo '../../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="Sua imagem de perfil" height="150" width="200" class="img_perfil">
                     <!-- </?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?> -->
                     <form action="processos/img_perfil.php" method="post" enctype="multipart/form-data" id="form-foto">
                         <input id="up_foto" type="file" name="arquivo" hidden />
@@ -167,13 +167,13 @@ $x = rand(0, 99);
                     $("#up_capa").change(function() {
                         if ($(this).val() != '') {
                             $('#form-capa').ajaxForm({
-                                url: './processos/img_capa.php',
+                                url: '../processos/user/img_capa.php',
                                 type: 'POST',
                                 success: function(data) {
                                     if (data == 'Não suportado') {
                                         alert('Formato de arquivo não suportado');
                                     } else {
-                                        $(".img_capa").attr("src", '../' + data);
+                                        $(".img_capa").attr("src", '../../' + data);
                                     }
                                 }
                             }).submit();
@@ -225,7 +225,7 @@ $x = rand(0, 99);
                         echo '<div class="container-coment">';
 
                             echo '<div class="container-img-rec-anime">';
-                                echo '<img src="../' . $recentes['img_anime'] . '">';
+                                echo '<img src="../../' . $recentes['img_anime'] . '">';
                             echo '</div>';
 
                             echo '<div class="content-coment-name">';
@@ -254,13 +254,13 @@ $x = rand(0, 99);
             $("#up_foto").change(function() {
                 if ($(this).val() != '') {
                     $('#form-foto').ajaxForm({
-                        url: './processos/img_perfil.php',
+                        url: '../processos/user/img_perfil.php',
                         type: 'POST',
                         success: function(data) {
                             if (data == 'Não suportado') {
                                 alert('Formato de arquivo não suportado');
                             } else {
-                                $(".img_perfil").attr("src", '../' + data);
+                                $(".img_perfil").attr("src", '../../' + data);
                             }
                         }
                     }).submit();
@@ -272,7 +272,7 @@ $x = rand(0, 99);
 
                 if (users != '') {
                     $.ajax({
-                        url: './processos/busca_user.php',
+                        url: '../processos/user/busca_user.php',
                         method: 'POST',
                         data: {
                             users: users
@@ -286,8 +286,8 @@ $x = rand(0, 99);
         });
     </script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="../Js/Buttons-Perfil-User/btn-editar.js"></script>
-    <script src="../Js/Buttons-Perfil-User/btns.js"></script>
+    <script src="../../Js/Buttons-Perfil-User/btn-editar.js"></script>
+    <script src="../../Js/Buttons-Perfil-User/btns.js"></script>
 
 </body>
 

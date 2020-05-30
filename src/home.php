@@ -30,16 +30,16 @@ $x = rand(0, 99);
     <link rel="stylesheet" href="../package/css/swiper.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/nomalize/normalize.css">
-    <link rel="icon" href=".././Imagens/favicon.ico">
+    <link rel="icon" href="../../Imagens/favicon.ico">
 
-    <link rel="stylesheet" href="../CSS/style-total/Total-menu.css">
-    <link rel="stylesheet" href="../CSS/style-total/Total-main.css">
-    <link rel="stylesheet" href="../CSS/style-total/Total-media.css">
-    <link rel="stylesheet" href="../CSS/style-total/classe.css">
+    <link rel="stylesheet" href="../CSS/style-total/Total-menu.css?<?php echo $x;?>">
+    <link rel="stylesheet" href="../CSS/style-total/Total-main.css?<?php echo $x;?>">
+    <link rel="stylesheet" href="../CSS/style-total/Total-media.css?<?php echo $x;?>">
+    <link rel="stylesheet" href="../CSS/style-total/classe.css?<?php echo $x;?>">
 
-    <link rel="stylesheet" href="../CSS/style-home/home-main.css">
-    <link rel="stylesheet" href="../CSS/style-home/slider.css">
-    <link rel="stylesheet" href="../CSS/style-home/home-medias.css">
+    <link rel="stylesheet" href="../CSS/style-home/home-main.css?<?php echo $x;?>">
+    <link rel="stylesheet" href="../CSS/style-home/slider.css?<?php echo $x;?>">
+    <link rel="stylesheet" href="../CSS/style-home/home-medias.css?<?php echo $x;?>">
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -68,7 +68,7 @@ $x = rand(0, 99);
 
                         <div class="mobile-user">
 
-                            <a href="Perfil-user.php"><img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt=""></a>
+                            <a href="user/Perfil-user.php"><img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt=""></a>
 
                         </div>
 
@@ -123,7 +123,7 @@ $x = rand(0, 99);
 
             <div class="main-form">
 
-                <form action="processos/busca_animes.php" class="content-form" method="post" autocomplete="off">
+                <form action="processos/anime/busca_animes.php" class="content-form" method="post" autocomplete="off">
                     <datalist id="sugestoes">
                     </datalist>
                     <input type="text" id="txtPes" class="txt-pes" name="pesquisa" placeholder="Ex: Bleach" list="sugestoes">
@@ -300,14 +300,18 @@ $x = rand(0, 99);
 
             $(".imgAnime").click(function() {
                 var id = $(this).next(".txtId").val();
-                window.location.href = 'perfil-anime.php?id=' + id;
+                window.location.href = 'anime/perfil-anime.php?id=' + id;
             });
+
+            $(".menu-verifica").click(function(){
+                window.location.href = 'user/Perfil-user.php';
+            })
         })
     </script>
     <script src="../package/js/swiper.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="../Js/menu/menu.js"></script>
+    <script src="../Js/menu/menu.js?<?php echo $x;?>"></script>
     <script src="../Js/slider/slider.js"></script>
     <script src="../Js/slider/swiper.js"></script>
     <script src="../|Js/menu/swiperLink.js"></script>

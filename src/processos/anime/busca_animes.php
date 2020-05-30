@@ -1,11 +1,11 @@
 <?php
-    require_once('../banco/conexao.php');
-    require_once('../banco/includes/security.php');
+    require_once('../../banco/conexao.php');
+    require_once('../../banco/includes/security.php');
 
     session_start();
     
     if(!isset($_SESSION['logado'])){
-        header('Location: ../index.php');
+        header('Location: ../../index.php');
     }
     $id = $_SESSION['logado'];
 
@@ -35,13 +35,13 @@
 
     <link rel="stylesheet" href="../package/css/swiper.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../../CSS/nomalize/normalize.css">
-    <link rel="icon" href="../../Imagens/favicon.ico" >
+    <link rel="stylesheet" href="../../../CSS/nomalize/normalize.css">
+    <link rel="icon" href="../....//Imagens/favicon.ico" >
 
-    <link rel="stylesheet" href="../../CSS/style-total/Total-menu.css">
-    <link rel="stylesheet" href="../../CSS/style-total/Total-main.css">
-    <link rel="stylesheet" href="../../CSS/style-total/Total-media.css">
-    <link rel="stylesheet" href="../../CSS/style-total/classe.css">
+    <link rel="stylesheet" href="../../../CSS/style-total/Total-menu.css">
+    <link rel="stylesheet" href="../../../CSS/style-total/Total-main.css">
+    <link rel="stylesheet" href="../../../CSS/style-total/Total-media.css">
+    <link rel="stylesheet" href="../../../CSS/style-total/classe.css">
     
 </head>
 <body>
@@ -53,7 +53,7 @@
 
             <div class="container-logo">
 
-                <img src="../../Imagens/Logo.png" alt="Logotipo desse website">
+                <img src="../../../Imagens/Logo.png" alt="Logotipo desse website">
 
             </div>
 
@@ -63,7 +63,7 @@
 
                     <div class="mobile-user">
 
-                    <a href="Perfil-user.php"><img src="<?php echo '../../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt=""></a>
+                    <a href="Perfil-user.php"><img src="<?php echo '../../../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt=""></a>
 
                     </div>
 
@@ -81,7 +81,7 @@
                     <ul class="list">
 
                         <li class="list-items">
-                            <a href="../home.php" class="link-items">home</a>
+                            <a href="../../home.php" class="link-items">home</a>
                         </li>
                         
                         <li class="list-items">
@@ -89,7 +89,7 @@
                         </li>
                         
                         <li class="list-items">
-                            <a href="../news.php" class="link-items">noticias</a>
+                            <a href="../../news.php" class="link-items">noticias</a>
                         </li>
 
                         <li class="list-items sair-mobile">
@@ -104,7 +104,7 @@
 
             <div class="container-img-user">
 
-                <img src="<?php echo '../../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="" class="menu-verifica img-none">
+                <img src="<?php echo '../../../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="" class="menu-verifica img-none">
                 <i class="fas fa-bars icon-none"></i>
             </div>
 
@@ -166,6 +166,6 @@
     </script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="../../Js/menu/menu.js"></script>
+    <script src="../../../Js/menu/menu.js"></script>
 </body>
 </html>

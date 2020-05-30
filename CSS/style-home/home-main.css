@@ -73,6 +73,10 @@
     margin-top: 2rem;
 }
 
+.imgAnime {
+    cursor: pointer;
+}
+
 .main-animes .container-slide-swiper{
     margin-bottom: 50px;
 }

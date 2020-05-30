@@ -1,6 +1,6 @@
 <?php
-    require_once('../banco/conexao.php');
-    require_once('../banco/includes/security.php');
+    require_once('../../banco/conexao.php');
+    require_once('../../banco/includes/security.php');
 
     session_start();
 

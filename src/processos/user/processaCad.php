@@ -1,6 +1,6 @@
 <?php
-require_once('../banco/conexao.php');
-require_once('../banco/includes/security.php');
+require_once('../../banco/conexao.php');
+require_once('../../banco/includes/security.php');
 
 $nome = security($_POST['nome']);
 $email = security($_POST['email']);

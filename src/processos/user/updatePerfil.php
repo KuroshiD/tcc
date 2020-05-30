@@ -1,13 +1,13 @@
     <?php
-        require_once('../banco/conexao.php');
-        require_once('../banco/includes/security.php');
+        require_once('../../banco/conexao.php');
+        require_once('../../banco/includes/security.php');
 
         date_default_timezone_set('America/Sao_Paulo');
 
         session_start();
 
         if (!isset($_SESSION['logado'])) {
-            header("Location: ../index.php");
+            header("Location: ../../index.php");
         }
 
         $id = $_SESSION['logado'];
@@ -58,5 +58,5 @@
                 echo 'Ainda não se passaram três meses!';
             }
         }
-        header('Location: ../Perfil-user.php')
+        header('Location: ../../Perfil-user.php')
     ?>

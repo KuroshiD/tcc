@@ -1,11 +1,11 @@
 <?php
-require_once('banco/conexao.php');
-require_once '../vendor/autoload.php';
+require_once('../banco/conexao.php');
+require_once '../../vendor/autoload.php';
 
 session_start();
 
 if (!isset($_SESSION['logado'])) {
-    header("Location: ../index.php");
+    header("Location: ../../index.php");
 }
 
  
@@ -39,14 +39,14 @@ if($id == $id_sessao){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../CSS/style-total/Total-main.css">
-    <link rel="stylesheet" href="../CSS/style-total/Total-media.css">
-    <link rel="icon" href=".././Imagens/favicon.ico">
-    <link rel="stylesheet" href="../CSS/style-perfilUser/header-menu.css">
-    <link rel="stylesheet" href="../CSS/style-perfilUser/User-main.css">
-    <link rel="stylesheet" href="../CSS/style-perfilUser/menu-editar.css">
-    <link rel="stylesheet" href="../CSS/style-perfilUser/User-medias.css">
-    <link rel="stylesheet" href="../CSS/normalize/nomalize.css">
+    <link rel="stylesheet" href="../../CSS/style-total/Total-main.css">
+    <link rel="stylesheet" href="../../CSS/style-total/Total-media.css">
+    <link rel="icon" href="../../Imagens/favicon.ico">
+    <link rel="stylesheet" href="../../CSS/style-perfilUser/header-menu.css">
+    <link rel="stylesheet" href="../../CSS/style-perfilUser/User-main.css">
+    <link rel="stylesheet" href="../../CSS/style-perfilUser/menu-editar.css">
+    <link rel="stylesheet" href="../../CSS/style-perfilUser/User-medias.css">
+    <link rel="stylesheet" href="../../CSS/normalize/nomalize.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
 
@@ -86,11 +86,11 @@ if($id == $id_sessao){
             <section class="main-capa-peril">
 
                 <div class="container-capa">
-                    <img src="<?php print "../" . $dados['img_capa'] ?>" alt="Sua imagem de capa" class="img_capa">
+                    <img src="<?php print "../../" . $dados['img_capa'] ?>" alt="Sua imagem de capa" class="img_capa">
                 </div>
 
                 <div class="container-perfil">
-                    <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="Sua imagem de perfil" height="150" width="200" class="img_perfil">
+                    <img src="<?php echo '../../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="Sua imagem de perfil" height="150" width="200" class="img_perfil">
                 </div>
 
             </section>
@@ -135,7 +135,7 @@ if($id == $id_sessao){
                         echo '<div class="container-coment">';
 
                             echo '<div class="container-img-rec-anime">';
-                                echo '<img src="../' . $recentes['img_anime'] . '">';
+                                echo '<img src="../../' . $recentes['img_anime'] . '">';
                             echo '</div>';
 
                             echo '<div class="content-coment-name">';
@@ -162,7 +162,7 @@ if($id == $id_sessao){
 
                 if (users != '') {
                     $.ajax({
-                        url: './processos/busca_user.php',
+                        url: '../processos/busca_user.php',
                         method: 'POST',
                         data: {
                             users: users
@@ -176,8 +176,8 @@ if($id == $id_sessao){
         });
     </script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="../Js/Buttons-Perfil-User/btn-editar.js"></script>
-    <script src="../Js/Buttons-Perfil-User/btns.js"></script>
+    <script src="../../Js/Buttons-Perfil-User/btn-editar.js"></script>
+    <script src="../../Js/Buttons-Perfil-User/btns.js"></script>
 
 </body>
 

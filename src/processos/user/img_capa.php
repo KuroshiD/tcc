@@ -1,6 +1,6 @@
 <?php
-    require_once('../banco/conexao.php');
-    require_once('../banco/includes/security.php');
+    require_once('../../banco/conexao.php');
+    require_once('../../banco/includes/security.php');
 
     $id = security($_POST['id']);
 
@@ -17,9 +17,9 @@
 
     if ($teste == true && !empty($foto)) { //Realiza as instruções abaixo se o teste retornar positivo
         if($foto_atual != 'Imagens/server/capa_default.jpg'){
-            unlink('../../' . $foto_atual);
+            unlink('../../../' . $foto_atual);
         }
-        move_uploaded_file($_FILES['arquivo']['tmp_name'], "../../Imagens/users/capa/" . $foto); //Função que coloca o arquivo no diretório "../../Imagens/users/[nome da foto]"
+        move_uploaded_file($_FILES['arquivo']['tmp_name'], "../../../Imagens/users/capa/" . $foto); //Função que coloca o arquivo no diretório "../../Imagens/users/[nome da foto]"
         $caminho = "Imagens/users/capa/" . $foto; //Variável que recebe o caminho e o nome do arquivo
         $insere = mysqli_query($con, "UPDATE tb_usuario SET img_capa ='$caminho' WHERE id = '$id'"); //Consulta SQL que insere o caminho da imagem no banco de dados
         echo $caminho;

@@ -11,7 +11,7 @@ $(document).on('click', '.link-item', function(){
 
 
 $(".menu-verifica").click(function(){
-    var novaURL = "Perfil-user.php";
+    var novaURL = "../user/Perfil-user.php";
     $(window.document.location).attr('href',novaURL);
 });
 
