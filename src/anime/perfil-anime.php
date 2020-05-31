@@ -1,6 +1,6 @@
 <?php
 require_once('../banco/conexao.php');
-
+require_once('../banco/includes/findhttp.php');
 session_start();
 
 if(!isset($_GET['id'])){
@@ -25,16 +25,10 @@ if (!isset($_GET['id'])) {
 }
 $id_anime = $_GET['id'];
 $select = mysqli_query($con, "SELECT * FROM tb_anime WHERE id_anime = '$id_anime'");
-<<<<<<< HEAD:src/anime/perfil-anime.php
 if (mysqli_num_rows($select) == 0) {
     header("Location: ../home.php");
 } else {
     $dados_animes = mysqli_fetch_array($select);
-=======
-$dados_animes = mysqli_fetch_array($select);
-if(mysqli_num_rows($select) == 0){
-    header('Location: home.php');
->>>>>>> d6ef0fbe5b6e46c8ef48794d2693432b68108eea:src/perfil-anime.php
 }
 ?>
 <!DOCTYPE html>
@@ -104,15 +98,11 @@ if(mysqli_num_rows($select) == 0){
                             </li>
 
                             <li class="list-items">
-                                <a href="recomenda.php" class="link-items">recomendação aleatoria</a>
+                                <a href="../recomenda.php" class="link-items">recomendação aleatoria</a>
                             </li>
 
                             <li class="list-items">
-<<<<<<< HEAD:src/anime/perfil-anime.php
-                                <a href="../noticias.php" class="link-items">noticias</a>
-=======
-                                <a href="news.php" class="link-items">noticias</a>
->>>>>>> d6ef0fbe5b6e46c8ef48794d2693432b68108eea:src/perfil-anime.php
+                                <a href="../news.php" class="link-items">noticias</a>
                             </li>
 
                             <li class="list-items sair-mobile">
@@ -137,7 +127,14 @@ if(mysqli_num_rows($select) == 0){
             <div class="content-main">
                 <div class="main-flex">
                     <div class="container-img-anime">
-                        <img src="../../<?php print $dados_animes['img_anime'] ?>">
+                        <?php 
+                            if(findHTTP($dados_animes['img_anime'])){
+                                print '<img src="'.$dados_animes['img_anime'].'">';
+                            }else{
+                                print '<img src="../../'.$dados_animes['img_anime'].'">';
+                            }
+                        ?>
+                        
                         <div class="feedback">
                             <input type="radio" name="estrela" id="vazio" value="" checked>
 

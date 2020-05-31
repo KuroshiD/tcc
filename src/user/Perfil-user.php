@@ -138,7 +138,6 @@ $x = rand(0, 99);
 
                 <div class="container-capa">
                     <img src="<?php print "../../" . $dados['img_capa'] ?>" alt="Sua imagem de capa" class="img_capa">
-                    <!-- </?php echo "../" . $dados['img_capa'] ?> -->
                     <form action="processos/img_capa.php" method="post" enctype="multipart/form-data" id="form-capa">
                         <input id="up_capa" type="file" name="arquivo" hidden />
                         <input type="text" name="id" value="<?php echo $id; ?>" hidden />
@@ -148,7 +147,6 @@ $x = rand(0, 99);
 
                 <div class="container-perfil">
                     <img src="<?php echo '../../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="Sua imagem de perfil" height="150" width="200" class="img_perfil">
-                    <!-- </?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?> -->
                     <form action="processos/img_perfil.php" method="post" enctype="multipart/form-data" id="form-foto">
                         <input id="up_foto" type="file" name="arquivo" hidden />
                         <input type="text" name="id" value="<?php echo $id; ?>" hidden />
@@ -272,11 +270,7 @@ $x = rand(0, 99);
 
                 if (users != '') {
                     $.ajax({
-<<<<<<< HEAD:src/user/Perfil-user.php
                         url: '../processos/user/busca_user.php',
-=======
-                        url: './processos/datalist_user.php',
->>>>>>> d6ef0fbe5b6e46c8ef48794d2693432b68108eea:src/Perfil-user.php
                         method: 'POST',
                         data: {
                             users: users

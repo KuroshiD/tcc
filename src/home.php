@@ -1,6 +1,6 @@
 <?php
 require_once('banco/conexao.php');
-
+require_once('banco/includes/findhttp.php');
 session_start();
 
 if (!isset($_SESSION['logado'])) {
@@ -22,7 +22,7 @@ $x = rand(0, 99);
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="descri6666666666666667ption" content="">
+    <meta name="description" content="">
     <meta name="keywords" content="Animes, Melhores animes, ">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Luis Gustavo, Jefferson Santos, Gabriel Paiva, Eduardo de Matos">
@@ -122,11 +122,7 @@ $x = rand(0, 99);
 
             <div class="main-form">
 
-<<<<<<< HEAD
                 <form action="processos/anime/busca_animes.php" class="content-form" method="post" autocomplete="off">
-=======
-                <form action="busca_animes.php" class="content-form" method="post" autocomplete="off">
->>>>>>> d6ef0fbe5b6e46c8ef48794d2693432b68108eea
                     <datalist id="sugestoes">
                     </datalist>
                     <input type="text" id="txtPes" class="txt-pes" name="pesquisa" placeholder="Ex: Bleach" list="sugestoes">
@@ -141,7 +137,7 @@ $x = rand(0, 99);
 
 
                     <?php
-                    $sql_anime = mysqli_query($con, "SELECT * FROM tb_anime WHERE data_lancamento >= 2019 ORDER BY data_lancamento desc LIMIT 5");
+                    $sql_anime = mysqli_query($con, "SELECT * FROM tb_anime WHERE data_lancamento >= 2019 AND id_anime <= 20 ORDER BY data_lancamento desc LIMIT 5");
                     $i = 1;
                     while ($dados_animes_slider = mysqli_fetch_array($sql_anime)) { ?>
                         <div class="mySlides fade">
@@ -176,12 +172,19 @@ $x = rand(0, 99);
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <?php
-                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE data_lancamento >= 2019 ORDER BY data_lancamento DESC ");
+                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE data_lancamento >= 2019 ORDER BY data_lancamento,score DESC ");
                             while ($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)) {
-                                echo '<div class="swiper-slide">';
-                                echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
-                                echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
-                                echo '</div>';
+                                if(findHTTP($dados_swiper_recentes['img_anime'])){
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }else{
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }
                             }
                             ?>
                         </div>
@@ -194,12 +197,44 @@ $x = rand(0, 99);
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <?php
-                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Shounen%' ORDER BY data_lancamento desc LIMIT 10 ");
+                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Shounen%' ORDER BY data_lancamento,score desc LIMIT 20 ");
                             while ($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)) {
-                                echo '<div class="swiper-slide">';
-                                echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
-                                echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
-                                echo '</div>';
+                                if(findHTTP($dados_swiper_recentes['img_anime'])){
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }else{
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }
+                            }
+                            ?>
+                        </div>
+                        <div class="swiper-button-next btns-N-P"></div>
+                        <div class="swiper-button-prev btns-N-P"></div>
+                    </div>
+                </div>
+                <div class="container-slide-swiper">
+                    <h2 class="titulo-swiper">Animes Artes marciais</h2>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <?php
+                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Artes marciais%' or genre like '%Martial Arts%' ORDER BY data_lancamento,score desc LIMIT 20 ");
+                            while ($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)) {
+                                if(findHTTP($dados_swiper_recentes['img_anime'])){
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }else{
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }
                             }
                             ?>
                         </div>
@@ -212,12 +247,20 @@ $x = rand(0, 99);
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <?php
-                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Seinen%' ORDER BY data_lancamento desc LIMIT 10 ");
+                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Seinen%' AND origem != 'manga' ORDER BY data_lancamento, score desc LIMIT 20 ");
                             while ($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)) {
-                                echo '<div class="swiper-slide">';
-                                echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
-                                echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
-                                echo '</div>';
+                                if(findHTTP($dados_swiper_recentes['img_anime'])){
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }else{
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }
+                                
                             }
                             ?>
                         </div>
@@ -226,34 +269,23 @@ $x = rand(0, 99);
                     </div>
                 </div>
                 <div class="container-slide-swiper">
-                    <h2 class="titulo-swiper">Animes Jogos</h2>
+                    <h2 class="titulo-swiper">Animes Magia</h2>
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <?php
-                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Jogos%' ORDER BY data_lancamento desc LIMIT 10 ");
+                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%magic%' ORDER BY data_lancamento,score desc LIMIT 20 ");
                             while ($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)) {
-                                echo '<div class="swiper-slide">';
-                                echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
-                                echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
-                                echo '</div>';
-                            }
-                            ?>
-                        </div>
-                        <div class="swiper-button-next btns-N-P"></div>
-                        <div class="swiper-button-prev btns-N-P"></div>
-                    </div>
-                </div>
-                <div class="container-slide-swiper">
-                    <h2 class="titulo-swiper">Animes Artes Marciais</h2>
-                    <div class="swiper-container">
-                        <div class="swiper-wrapper">
-                            <?php
-                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Artes Marciais%' ORDER BY data_lancamento desc LIMIT 10 ");
-                            while ($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)) {
-                                echo '<div class="swiper-slide">';
-                                echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
-                                echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
-                                echo '</div>';
+                                if(findHTTP($dados_swiper_recentes['img_anime'])){
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }else{
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }
                             }
                             ?>
                         </div>
@@ -266,12 +298,19 @@ $x = rand(0, 99);
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <?php
-                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Romance%' ORDER BY data_lancamento desc LIMIT 10 ");
+                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Romance%' ORDER BY data_lancamento,score desc LIMIT 20 ");
                             while ($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)) {
-                                echo '<div class="swiper-slide">';
-                                echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
-                                echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
-                                echo '</div>';
+                                if(findHTTP($dados_swiper_recentes['img_anime'])){
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }else{
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }
                             }
                             ?>
                         </div>
@@ -284,12 +323,19 @@ $x = rand(0, 99);
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <?php
-                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Terror%' LIMIT 10 ");
+                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Terror%' or genre LIKE '%horror%' LIMIT 20 ");
                             while ($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)) {
-                                echo '<div class="swiper-slide">';
-                                echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
-                                echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
-                                echo '</div>';
+                                if(findHTTP($dados_swiper_recentes['img_anime'])){
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }else{
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }
                             }
                             ?>
                         </div>
@@ -303,12 +349,19 @@ $x = rand(0, 99);
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <?php
-                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Slice of life%'  LIMIT 10 ");
+                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Slice of life%'  LIMIT 20 ");
                             while ($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)) {
-                                echo '<div class="swiper-slide">';
-                                echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
-                                echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
-                                echo '</div>';
+                                if(findHTTP($dados_swiper_recentes['img_anime'])){
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }else{
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }
                             }
                             ?>
                         </div>
@@ -321,12 +374,19 @@ $x = rand(0, 99);
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <?php
-                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Ação%'   LIMIT 10 ");
+                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Ação%' or genre LIKE '%action%' LIMIT 20 ");
                             while ($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)) {
-                                echo '<div class="swiper-slide">';
-                                echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
-                                echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
-                                echo '</div>';
+                                if(findHTTP($dados_swiper_recentes['img_anime'])){
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }else{
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }
                             }
                             ?>
                         </div>
@@ -339,12 +399,19 @@ $x = rand(0, 99);
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <?php
-                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Aventura%' ORDER BY data_lancamento desc LIMIT 10 ");
+                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Aventura%' or genre LIKE '%adventure%' ORDER BY data_lancamento,score desc LIMIT 20 ");
                             while ($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)) {
-                                echo '<div class="swiper-slide">';
-                                echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
-                                echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
-                                echo '</div>';
+                                if(findHTTP($dados_swiper_recentes['img_anime'])){
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }else{
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }
                             }
                             ?>
                         </div>
@@ -357,12 +424,19 @@ $x = rand(0, 99);
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <?php
-                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Comédia%' ORDER BY data_lancamento desc LIMIT 10 ");
+                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Comédia%' or genre like '%comedy%' ORDER BY data_lancamento,score desc LIMIT 20 ");
                             while ($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)) {
-                                echo '<div class="swiper-slide">';
-                                echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
-                                echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
-                                echo '</div>';
+                                if(findHTTP($dados_swiper_recentes['img_anime'])){
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }else{
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }
                             }
                             ?>
                         </div>
@@ -375,12 +449,119 @@ $x = rand(0, 99);
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <?php
-                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%drama%' ORDER BY data_lancamento desc LIMIT 10 ");
+                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%drama%' AND origem != 'manga' ORDER BY data_lancamento,score desc LIMIT 20 ");
                             while ($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)) {
-                                echo '<div class="swiper-slide">';
-                                echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
-                                echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
-                                echo '</div>';
+                                if(findHTTP($dados_swiper_recentes['img_anime'])){
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }else{
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }
+                            }
+                            ?>
+                        </div>
+                        <div class="swiper-button-next btns-N-P"></div>
+                        <div class="swiper-button-prev btns-N-P"></div>
+                    </div>
+                </div>
+                <div class="container-slide-swiper">
+                    <h2 class="titulo-swiper">Animes Superpoderes</h2>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <?php
+                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Super Power%' or genre like '%superpoder%' ORDER BY data_lancamento,score desc LIMIT 20 ");
+                            while ($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)) {
+                                if(findHTTP($dados_swiper_recentes['img_anime'])){
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }else{
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }
+                            }
+                            ?>
+                        </div>
+                        <div class="swiper-button-next btns-N-P"></div>
+                        <div class="swiper-button-prev btns-N-P"></div>
+                    </div>
+                </div>  
+                <div class="container-slide-swiper">
+                    <h2 class="titulo-swiper">Animes Supernatural</h2>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <?php
+                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Supernatural%' ORDER BY data_lancamento,score desc LIMIT 20 ");
+                            while ($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)) {
+                                if(findHTTP($dados_swiper_recentes['img_anime'])){
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }else{
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }
+                            }
+                            ?>
+                        </div>
+                        <div class="swiper-button-next btns-N-P"></div>
+                        <div class="swiper-button-prev btns-N-P"></div>
+                    </div>
+                </div>
+                <div class="container-slide-swiper">
+                    <h2 class="titulo-swiper">Animes esportes</h2>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <?php
+                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Sports%' ORDER BY data_lancamento,score desc LIMIT 20 ");
+                            while ($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)) {
+                                if(findHTTP($dados_swiper_recentes['img_anime'])){
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }else{
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }
+                            }
+                            ?>
+                        </div>
+                        <div class="swiper-button-next btns-N-P"></div>
+                        <div class="swiper-button-prev btns-N-P"></div>
+                    </div>
+                </div>
+                <div class="container-slide-swiper">
+                    <h2 class="titulo-swiper">Animes mecha</h2>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <?php
+                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%mecha%' ORDER BY data_lancamento,score desc LIMIT 20 ");
+                            while ($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)) {
+                                if(findHTTP($dados_swiper_recentes['img_anime'])){
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }else{
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }
                             }
                             ?>
                         </div>
@@ -393,12 +574,19 @@ $x = rand(0, 99);
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <?php
-                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Ecchi%' ORDER BY data_lancamento desc LIMIT 10 ");
+                            $animes_swiper_recentes = mysqli_query($con, "SELECT * FROM tb_anime WHERE genre LIKE '%Ecchi%' ORDER BY data_lancamento,score desc LIMIT 20 ");
                             while ($dados_swiper_recentes = mysqli_fetch_array($animes_swiper_recentes)) {
-                                echo '<div class="swiper-slide">';
-                                echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
-                                echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
-                                echo '</div>';
+                                if(findHTTP($dados_swiper_recentes['img_anime'])){
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }else{
+                                    echo '<div class="swiper-slide">';
+                                    echo '<img class="imgAnime" src="../' . $dados_swiper_recentes['img_anime'] . '" alt="' . $dados_swiper_recentes['nome'] . '">';
+                                    echo '<input type="text" class="txtId" value="' . $dados_swiper_recentes['id_anime'] . '" hidden>';
+                                    echo '</div>';
+                                }
                             }
                             ?>
                         </div>
@@ -406,9 +594,6 @@ $x = rand(0, 99);
                         <div class="swiper-button-prev btns-N-P"></div>
                     </div>
                 </div>
-
-
-
 
             </section>
 
@@ -442,18 +627,19 @@ $x = rand(0, 99);
                 })
             });
             $(".imgAnime").click(function() {
-<<<<<<< HEAD
                 var id = $(this).next(".txtId").val();
                 window.location.href = 'anime/perfil-anime.php?id=' + id;
-=======
-                let id = $(this).next(".txtId").val();
-                window.location.href = 'perfil-anime.php?id=' + id;
->>>>>>> d6ef0fbe5b6e46c8ef48794d2693432b68108eea
             });
 
             $(".menu-verifica").click(function(){
                 window.location.href = 'user/Perfil-user.php';
             })
+            $("#txtPes").keyup(function(){
+            var pesquisa = $(this).val();
+            $.post('./processos/datalist_home.php', { pesquisa: pesquisa }, function(dados){
+                $("#sugestoes").html(dados);
+            })
+        }); 
         })
     </script>
     <script src="../package/js/swiper.min.js"></script>
@@ -466,4 +652,4 @@ $x = rand(0, 99);
 
 </body>
 
-</html>
+</html> 
