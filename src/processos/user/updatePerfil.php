@@ -39,9 +39,12 @@
             if ($days < 90) {
                 $timestamp = new DateTime();
                 $data = $timestamp->format('Y-m-d');
-                $update_date = mysqli_query($con, "UPDATE tbisset($classe_usuario SET last_update = '$data' WHERE id = '$id'");
+                $update_date = mysqli_query($con, "UPDATE tb_usuario SET last_update = '$data' WHERE id = '$id'");
 
                 $nome = security($_POST['nome']);
+                if($nome == ""){
+                    $nome = $dados['nome'];
+                }
                 $classe = security($_POST['class']);
                 if($classe == ""){
                     $classe = $dados['classe'];
@@ -51,12 +54,21 @@
                     $raca = $dados['raca'];
                 }
                 $descricao = security($_POST['descricao']);
+                if($descricao == ""){
+                    $descricao = $dados['descricao'];
+                }
                 $personagem = security($_POST['personagem']);
+                if($descricao == ""){
+                    $personagem = $dados['personagem'];
+                }
                 $animefav = security($_POST['animefav']);
+                if($descricao == ""){
+                    $animefav = $dados['animefav'];
+                }
                 $atualiza = mysqli_query($con, "UPDATE tb_usuario SET nome = '$nome', classe = '$classe', raca = '$raca', descricao = '$descricao', personagem = '$personagem', animefav = '$animefav' WHERE id = '$id'");
             }else{
                 echo 'Ainda não se passaram três meses!';
             }
         }
-        header('Location: ../../Perfil-user.php')
+        header('Location: ../../user/Perfil-user.php')
     ?>

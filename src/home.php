@@ -32,14 +32,14 @@ $x = rand(0, 99);
     <link rel="stylesheet" href="../CSS/nomalize/normalize.css">
     <link rel="icon" href="../../Imagens/favicon.ico">
 
-    <link rel="stylesheet" href="../CSS/style-total/Total-menu.css?<?php echo $x;?>">
-    <link rel="stylesheet" href="../CSS/style-total/Total-main.css?<?php echo $x;?>">
-    <link rel="stylesheet" href="../CSS/style-total/Total-media.css?<?php echo $x;?>">
-    <link rel="stylesheet" href="../CSS/style-total/classe.css?<?php echo $x;?>">
+    <link rel="stylesheet" href="../CSS/style-total/Total-menu.css">
+    <link rel="stylesheet" href="../CSS/style-total/Total-main.css">
+    <link rel="stylesheet" href="../CSS/style-total/Total-media.css">
+    <link rel="stylesheet" href="../CSS/style-total/classe.css">
 
-    <link rel="stylesheet" href="../CSS/style-home/home-main.css?<?php echo $x;?>">
-    <link rel="stylesheet" href="../CSS/style-home/slider.css?<?php echo $x;?>">
-    <link rel="stylesheet" href="../CSS/style-home/home-medias.css?<?php echo $x;?>">
+    <link rel="stylesheet" href="../CSS/style-home/home-main.css?">
+    <link rel="stylesheet" href="../CSS/style-home/slider.css?">
+    <link rel="stylesheet" href="../CSS/style-home/home-medias.css?">
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

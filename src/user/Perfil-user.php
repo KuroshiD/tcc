@@ -1,6 +1,7 @@
 <?php
 require_once('../banco/conexao.php');
 require_once '../../vendor/autoload.php';
+require_once('../banco/includes/findhttp.php');
 
 session_start();
 
@@ -24,6 +25,7 @@ $x = rand(0, 99);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="../../CSS/style-total/Total-menu.css">
     <link rel="stylesheet" href="../../CSS/style-total/Total-main.css">
     <link rel="stylesheet" href="../../CSS/style-total/Total-media.css">
     <link rel="icon" href="../../Imagens/favicon.ico">
@@ -50,7 +52,7 @@ $x = rand(0, 99);
 
             <i class="fas fa-times icon-sair"></i>
 
-            <form class="form-menu-editar" method="POST" action="../processos/updatePerfil.php">
+            <form class="form-menu-editar" method="POST" action="../processos/user/updatePerfil.php">
                 <h1 class="titulo-editar">Editar seu perfil</h1>
 
 
@@ -220,18 +222,33 @@ $x = rand(0, 99);
                     <?php
                     $buscaRecentes = mysqli_query($con, "SELECT * FROM recentes WHERE id = $id ORDER BY data_publicacao DESC");
                     while ($recentes = mysqli_fetch_array($buscaRecentes)) {
-                        echo '<div class="container-coment">';
-
-                            echo '<div class="container-img-rec-anime">';
-                                echo '<img src="../../' . $recentes['img_anime'] . '">';
-                            echo '</div>';
-
-                            echo '<div class="content-coment-name">';
-                                echo '<h4 class="name-coment">' . $recentes['nome'] . '</h4>';
-                                echo '<p class="coment">' . $recentes['descricao'] . '</p>';
-                            echo '</div>';
+                        if(findHTTP($recentes['img_anime'])){
+                            echo '<div class="container-coment">';
                             
-                        echo '</div>';
+                                echo '<div class="container-img-rec-anime">';
+                                    echo '<img src="' . $recentes['img_anime'] . '">';
+                                echo '</div>';
+
+                                echo '<div class="content-coment-name">';
+                                    echo '<h4 class="name-coment">' . $recentes['nome'] . '</h4>';
+                                    echo '<p class="coment">' . $recentes['descricao'] . '</p>';
+                                echo '</div>';
+                                
+                            echo '</div>';
+                        }else{
+                            echo '<div class="container-coment">';
+                            
+                                echo '<div class="container-img-rec-anime">';
+                                    echo '<img src="../../' . $recentes['img_anime'] . '">';
+                                echo '</div>';
+
+                                echo '<div class="content-coment-name">';
+                                    echo '<h4 class="name-coment">' . $recentes['nome'] . '</h4>';
+                                    echo '<p class="coment">' . $recentes['descricao'] . '</p>';
+                                echo '</div>';
+                                
+                            echo '</div>';
+                        }
                     }
                     ?>
 
@@ -240,6 +257,15 @@ $x = rand(0, 99);
             </section>
 
         </main>
+        <footer class="container-footer">
+
+            <p class="footer-des">Esse site é um projeto de TCC e não tem fins lucrativos (ainda).</p>
+
+            <p class="footer-email">E-mail para contato: <br><a href="#">contato.animematch@gmail.com</a></p>
+
+            <p class="footer-copy">&copy; Anime Match</p>
+
+        </footer>
 
     </div>
 

@@ -39,14 +39,14 @@ if (mysqli_num_rows($select) == 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../CSS/style-total/Total-menu.css?<?php echo $x; ?>">
-    <link rel="stylesheet" href="../../CSS/style-total/Total-main.css?<?php echo $x; ?>">
-    <link rel="stylesheet" href="../../CSS/style-total/Total-media.css?<?php echo $x; ?>">
+    <link rel="stylesheet" href="../../CSS/style-total/Total-menu.css">
+    <link rel="stylesheet" href="../../CSS/style-total/Total-main.css">
+    <link rel="stylesheet" href="../../CSS/style-total/Total-media.css">
 
-    <link rel="stylesheet" href="../../CSS/style-perfilAnime/main.css?<?php echo $x; ?>">
-    <link rel="stylesheet" href="../../CSS/style-perfilAnime/comentario.css?<?php echo $x; ?>">
-    <link rel="stylesheet" href="../../CSS/style-perfilAnime/medias.css?<?php echo $x; ?>">
-    <link rel="stylesheet" href="../../CSS/style-perfilAnime/estrelas.css?<?php echo $x; ?>">
+    <link rel="stylesheet" href="../../CSS/style-perfilAnime/main.css?">
+    <link rel="stylesheet" href="../../CSS/style-perfilAnime/comentario.css">
+    <link rel="stylesheet" href="../../CSS/style-perfilAnime/medias.css">
+    <link rel="stylesheet" href="../../CSS/style-perfilAnime/estrelas.css">
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
@@ -164,8 +164,8 @@ if (mysqli_num_rows($select) == 0) {
                                 <li class="topicos-items"><b>Autor: </b> <?php print $dados_animes['Autor'] ?></li>
                                 <li class="topicos-items"><b>Diretor: </b> <?php print $dados_animes['diretor'] ?></li>
                                 <li class="topicos-items"><b>Estúdio:</b> <?php print $dados_animes['estudio'] ?></li>
-                                <li class="topicos-items"><b>OVAs: </b><?php print $dados_animes['ovas'] ?></li>
-                                <li class="topicos-items"><b>Filmes: </b><?php print $dados_animes['filmes'] ?></li>
+                                <li class="topicos-items"><b>Tipo: </b><?php print $dados_animes['tipo'] ?></li>
+                                <li class="topicos-items"><b>Origem: </b><?php print $dados_animes['origem'] ?></li>
                                 <li class="topicos-items"><b>Classificação: </b><?php print $dados_animes['classificacao'] ?></li>
                             </ul>
                         </div>

@@ -52,7 +52,7 @@ $x = rand(0, 99);
 
                         <div class="mobile-user">
 
-                            <a href="Perfil-user.php"><img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt=""></a>
+                            <a href="./user/Perfil-user.php"><img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt=""></a>
 
                         </div>
 
@@ -93,8 +93,7 @@ $x = rand(0, 99);
 
                 <div class="container-img-user">
 
-                    <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="" class="menu-verifica img-none">
-                    <!-- </?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?> -->
+                    <a href="./user/Perfil-user.php"><img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="" class="menu-verifica img-none"></a>
                     <i class="fas fa-bars icon-none"></i>
                 </div>
 
