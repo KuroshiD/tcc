@@ -47,18 +47,51 @@ if (isset($_POST['logar'])) {
 <html lang="pt-br">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href=".././Imagens/favicon.ico" >
-    <link rel="stylesheet" href="CSS/style-home/cadastro.css">
+    <link rel="stylesheet" href="css/style-home/cadastro.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-    <link rel="stylesheet" href="../CSS/normalize/nomalize.css">
-    
+    <meta name="google-signin-client_id" content="158825657011-8jhq9pdj1q7l6ml0ao2i532n0ip6q8p6.apps.googleusercontent.com">
     <title>Bem-vindo</title>
+    <style>
+        .p_retorno {
+            color: red;
+            font-family: 'Roboto';
+            font-weight: '600';
+            text-align: center;
+        }
 
+        .vazio::-webkit-input-placeholder {
+            color: red;
+            font-weight: bold;
+        }
+
+        #respostaLogin {
+            background: rgba(300, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Roboto';
+            font-weight: bold;
+            color: white
+        }
+
+        #resposta {
+            text-align: center;
+            color: red;
+            font-family: 'Roboto';
+            font-weight: bold;
+        }
+
+        #respostaOk {
+            text-align: center;
+            color: green;
+            font-family: 'Roboto';
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
@@ -84,7 +117,7 @@ if (isset($_POST['logar'])) {
             </form>
         </div>
         <div class="form-container login">
-            <form action="" method="POST">
+            <form action="index.php" method="POST">
                 <div class="entrar-titulos">
                     <h1 id="teste">Faça seu login</h1>
                 </div>
@@ -112,35 +145,202 @@ if (isset($_POST['logar'])) {
     </div>
 
     <script>
-        
-    </script>
+        $(document).ready(function() {
+            $('#sigName').focusout(function() {
+                if ($(this).val() == '') {
+                    $("#sigName").css("border", "1.5px solid red");
+                    $("#sigName").attr("placeholder", "Informe o nome");
+                    $("#sigName").addClass("vazio");
+                } else {
+                    $("#sigName").css("border", "none");
+                    $("#sigName").attr("placeholder", "Name");
+                    $("#sigName").removeClass("vazio");
+                }
+            })
 
-    <script>
-        function onSignIn(googleUser) {
-            var profile = googleUser.getBasicProfile();
-            var userId = profile.getId(); // Do not send to your backend! Use an ID token instead.
-            var userName = profile.getName();
-            var userPic = profile.getImageUrl();
-            var userEmail = profile.getEmail(); // This is null if the 'email' scope is not present.
-            var userToken = googleUser.getAuthResponse().id_token;
-            if (userName != '') {
-                var dados = {
-                    userId: userId,
-                    userName: userName,
-                    userPic: userPic,
-                    userEmail: userEmail
+            $('#sigDate').focusout(function() {
+                if ($(this).val() == '') {
+                    $("#sigDate").css({
+                        "border": "1.5px solid red",
+                        "color": "red",
+                        "font-weight": "bold"
+                    });
+                } else {
+                    $("#sigDate").css({
+                        "border": "none",
+                        "color": "black",
+                        "font-weight": "normal"
+                    });
+                }
+            })
+
+            $('#sigEmail').focusout(function() {
+                var email = $(this).val();
+
+                function validaEmail(email) {
+                    var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+                    return filtro.test(email);
                 }
 
-                $.post('src/processos/googleSignIn.php', dados, function(retorna) {
-                    if (retorna == 'Essa conta não existe!') {
-                        document.getElementById("respostaLogin").innerHTML = retorna;
+                if (email != '') {
+                    $("#sigEmail").css("border", "none");
+                    $("#sigEmail").attr("placeholder", "Name");
+                    $("#sigEmail").removeClass("vazio");
+
+                    if (validaEmail(email)) {
+                        $.ajax({
+                            url: './src/processos/verifica_email.php',
+                            method: 'POST',
+                            data: {
+                                email: email
+                            },
+                            success: function(result) {
+                                if (result != '') {
+                                    $('#resposta').fadeIn().html(result);
+                                    $("#sigEmail").css("border", "1.5px solid red");
+                                } else {
+                                    $('#resposta').fadeIn().html('');
+                                    $("#sigEmail").css("border", "none");
+                                }
+                            }
+                        })
                     } else {
-                        window.location.href = retorna;
+                        alert('Email inválido!');
+                        $("#sigEmail").css("border", "1.5px solid red");
                     }
-                });
-            }
-        }
+
+                } else {
+                    $("#sigEmail").css("border", "1.5px solid red");
+                    $("#sigEmail").attr("placeholder", "Informe o email");
+                    $("#sigEmail").addClass("vazio");
+                }
+            })
+
+            $('#sigPass').focusout(function() {
+                if ($(this).val() == '') {
+                    $("#sigPass").css("border", "1.5px solid red");
+                    $("#sigPass").attr("placeholder", "Informe a senha");
+                    $("#sigPass").addClass("vazio");
+                } else {
+                    $("#sigPass").css("border", "none");
+                    $("#sigPass").attr("placeholder", "Password");
+                    $("#sigPass").removeClass("vazio");
+                }
+            })
+
+            $('#sigCPass').focusout(function() {
+                if ($(this).val() == '') {
+                    $("#sigCPass").css("border", "1.5px solid red");
+                    $("#sigCPass").attr("placeholder", "Confirme a senha");
+                    $("#sigCPass").addClass("vazio");
+                } else {
+                    $("#sigCPass").css("border", "none");
+                    $("#sigCPass").attr("placeholder", "Confirm password");
+                    $("#sigCPass").removeClass("vazio");
+                }
+            })
+
+            $('#btnCad').click(function() {
+                var nome = $('#sigName').val();
+                var email = $("#sigEmail").val();
+                var senha = $("#sigPass").val();
+                var rtsenha = $("#sigCPass").val();
+                var nascimento = $("#sigDate").val();
+
+                if (nome == '' || email == '' || senha == '' || rtsenha == '' || nascimento == '') {
+                    if ($("#sigName").val() == '') {
+                        $("#sigName").css("border", "1.5px solid red");
+                        $("#sigName").attr("placeholder", "Informe o nome");
+                        $("#sigName").addClass("vazio");
+                    } else {
+                        $("#sigName").css("border", "1.5px solid white");
+                        $("#sigName").attr("placeholder", "Name");
+                        $("#sigName").removeClass("vazio");
+                    }
+
+                    if ($("#sigDate").val() == '') {
+                        $("#sigDate").css({
+                            "border": "1.5px solid red",
+                            "color": "red",
+                            "font-weight": "bold"
+                        });
+                    } else {
+                        $("#sigDate").css({
+                            "border": "none",
+                            "color": "black",
+                            "font-weight": "normal"
+                        });
+                    }
+
+                    if ($("#sigEmail").val() == '') {
+                        $("#sigEmail").css("border", "1.5px solid red");
+                        $("#sigEmail").attr("placeholder", "Informe o email");
+                        $("#sigEmail").addClass("vazio");
+                    } else {
+                        $("#sigEmail").css("border", "1.5px solid white");
+                        $("#sigEmail").attr("placeholder", "Email");
+                        $("#sigEmail").removeClass("vazio");
+                    }
+
+                    if ($("#sigPass").val() == '') {
+                        $("#sigPass").css("border", "1.5px solid red");
+                        $("#sigPass").attr("placeholder", "Informe a senha");
+                        $("#sigPass").addClass("vazio");
+                    } else {
+                        $("#sigPass").css("border", "1.5px solid white");
+                        $("#sigPass").attr("placeholder", "Password");
+                        $("#sigPass").removeClass("vazio");
+                    }
+
+                    if ($("#sigCPass").val() == '') {
+                        $("#sigCPass").css("border", "1.5px solid red");
+                        $("#sigCPass").attr("placeholder", "Confirme a senha");
+                        $("#sigCPass").addClass("vazio");
+                    } else {
+                        $("#sigCPass").css("border", "1.5px solid white");
+                        $("#sigCPass").attr("placeholder", "Confirm password");
+                        $("#sigCPass").removeClass("vazio");
+                    }
+
+                    $('#resposta').html('Preencha todos os campos!');
+                }
+
+                if (senha != '' && rtsenha != '' && senha != rtsenha) {
+                    $('#resposta').html('As senhas não correspondem!');
+                }
+
+                $.ajax({
+                    url: './src/processos/processaCad.php',
+                    method: 'POST',
+                    data: {
+                        nome: nome,
+                        nascimento: nascimento,
+                        email: email,
+                        senha: senha,
+                        rtsenha: rtsenha
+                    },
+                    success: function(result) {
+                        if (result != '') {
+                            if (result == 'Sua conta foi criada :)') {
+                                $('#form-cad').trigger('reset');
+                                $("#respostaOk").html(result);
+                                setTimeout(function() {
+                                    $('#respostaOk').fadeOut('Slow');
+                                }, 3000);
+                            } else {
+                                $('#resposta').fadeIn().html(result);
+                                setTimeout(function() {
+                                    $('#resposta').fadeOut('Slow');
+                                }, 3000);
+                            }
+                        }
+                    }
+                })
+            })
+        })
     </script>
+
+   
 
     <script>
         const linkLogin = document.getElementById('login');
