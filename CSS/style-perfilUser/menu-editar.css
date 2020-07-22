@@ -1,114 +1,109 @@
-.container-menu-editar{
-    position: absolute;
-    top: 75px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    width: 90%;
-    height: 430px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border-radius: 20px;
-    background-color:rgba(0, 0, 0, .96);
+.interface{
+    height: 100vh;
 }
 
-.active-menu-none{
-    display: none;
-}
-
-.icon-sair{
-    position: absolute;
-    top: 2px;
-    left: 5px;
-    font-size: 18pt;
-    padding: 5px 8px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 2;
+.container-header .link-voltar{
+    font-size: 14pt;
+    padding: 7px;
     color: #fff;
+    text-decoration: none;
 }
 
-.form-menu-editar{
-    position: relative;
-    width: 90%;
+.link-voltar .arrow-voltar-perfil{
+    margin-right: 8px;
+}
+.cor-user{
+    height: 25px;
+    margin-top: 10px;
+}
+.content-editar .input .cor{
+    height: 30px;
+}
+/*header*/
+
+/*main*/
+
+.interface .container-main{
+    top: 0;
+    padding-bottom: 0px;
+    height: 100vh;
+}
+
+.container-main .form-container{
+    width: 100%;
     height: 100%;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    padding-top: 40px;
 }
 
-.titulo-editar{
+.form-container .titulo-form{
+    font-size: 16pt;
     text-align: center;
-    font-size: 18pt;
-    color: #fff;
+    color: rgb(255, 255, 255);
 }
 
-.content-editar{
-    justify-self: center;
-    width: 200px;
-    height: 100%;
+.form-container .container-campos{
+    width: 90%;
 }
 
-
-label{
+.form-container .container-campos .titulo-campo, .content-editar .titulo-campo{
     display: block;
     margin-bottom: 5px;
-    font-size: 12.5pt;
-    color: #fff;
+    color: rgb(255, 255, 255);
 }
 
-.item-nome{
-    width: 190px;
-    padding-left: 5px;
-    padding-right: 5px;
-    font-size: 11pt;
-    border-radius: 3px;
-    border: none;
-}
-
-.items-editar{
+.form-container .container-campos .campo-input{
     width: 100%;
     height: 30px;
-}
-.content-descricao{
-    grid-column: 1/3;
-    justify-self: center;
-    resize: vertical;
+    padding-left: 5px;
+    border-radius: 3px;
+    border: 1px solid grey;
 }
 
-
-.btn-salvar{
-    width: 150px;
+.form-container .container-campos .campo-select{
+    width: 100%;
     height: 30px;
-    text-align: center;
-    font-size: 13pt;
-    letter-spacing: 1px;
-    background-color: indigo;
-    border-radius: 50px;
-    border: none;
-    color: #fff;
-    justify-self: center;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 1px solid grey;
+    padding: 5px 10px 5px 0px;
+    
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+
+    background-image: url('../../Imagens/users/arrow-down.webp');
+    background-repeat: no-repeat;
+    background-position: right; 
+    background-size: contain;;
 }
 
-@media screen and (min-width: 700px){
-    .container-menu-editar{
-        height: 500px;
-    }
-    .icon-sair{
-        top: 10px;
-        left: 13px;
-    }
-    .form-menu-editar{
-        grid-template-columns: repeat(2, 50%);
-    }
-    .titulo-editar{
-        grid-column: 1/3;
-    }
-    .content-nome{
-        width: 300px;
-        grid-column: 1/3;
-    }
-    .btn-salvar{
-        grid-column: 1/3;
+.form-container .btn-salvar{
+    width: 150px;
+    height: 35px;
+    border: none;
+    letter-spacing: 1px;
+    font-size: 12pt;
+    cursor: pointer;
+    margin-bottom: 15px;
+    border-radius: 35px;
+    background-color: indigo;
+    color: rgb(255, 255, 255);
+}
+
+/*classes para reutilização*/
+
+.between-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/*classes*/
+
+@media screen and (min-width: 935px){
+    .form-container .container-campos{
+        width: 600px;
     }
 }
+

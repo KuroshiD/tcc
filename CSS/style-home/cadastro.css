@@ -8,7 +8,8 @@
 .container {
     height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
     background-color: rgba(10, 10, 10, 1);
 }
@@ -18,10 +19,6 @@
     width: 384px;
     height: 500px;
     border-radius: 20px;
-    background-color: rgba(20, 20, 20, 1);
-    -webkit-box-shadow: 0px 0px 15px 6px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 0px 15px 6px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 0px 15px 6px rgba(0, 0, 0, 0.75);
 }
 
 .form-container form {
@@ -32,11 +29,7 @@
     justify-content: space-evenly;
 }
 
-.container .login-container {
-    display: none;
-}
-
-.container .cadastro-container {
+.tudo-none{
     display: none;
 }
 
@@ -45,14 +38,27 @@
 
 
 
-.entrar-titulos {
+.titulos {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    color: #fff;
-    height: 120px;
+    height: 150px;
     padding: 5px;
+}
+
+.titulos h1{
+    color: rgb(255, 255, 255);
+}
+
+.container-img{
+    width: 80px;
+    height: 80px;
+}
+
+.container-img img{
+    width: 100%;
+    height: 100%;
 }
 
 .letra span{
@@ -74,6 +80,8 @@
     border: none;
     border-radius: 4px;
     outline: none;
+    background-color: rgb(255, 255, 255);
+    opacity: 0;
 }
 
 .senha-esqueceu {
@@ -81,14 +89,15 @@
     text-decoration: none;
     color: rgb(196, 196, 196)
 }
-
+#btn-cad{
+    outline: none;
+}
+#sig-in{
+    outline: none;
+}
 .btn-link {
-    height: 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
+    align-self: center;
+    margin-top: 20px;
 }
 
 .form-button {
@@ -111,6 +120,7 @@
 .cell-link a {
     text-decoration: none;
     color: rgb(0, 47, 255);
+    cursor: pointer;
 }
 
 
@@ -118,16 +128,6 @@
 
 
 /*style do cadastro*/
-
-.cad-titulo {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #fff;
-    text-align: center;
-}
-
-.cad-titulo h1 {
-    margin-bottom: 5px;
-}
 
 .campos-cad {
     height: 250px;
@@ -137,46 +137,7 @@
     align-items: center;
 }
 
-/*inicio do style de não sei*/
-
-.p_retorno {
-    color: red;
-    font-weight: '600';
-    text-align: center;
-}
-
-.vazio::-webkit-input-placeholder {
-    color: red;
-    font-weight: bold;
-}
-
-.respostaLogin {
-    color: white;
-}
-
-#resposta {
-    text-align: center;
-    color: red;
-}
-
-#respostaOk {
-    text-align: center;
-    color: green;
-}
-
-.texto{
-    background: rgba(255, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-weight: bold;
-}
-
-/*fim do style que não sei*/
-
 /*Inicio erros*/
-
 .p_retorno {
     color: red;
     font-family: 'Roboto';
@@ -190,13 +151,11 @@
 }
 
 #respostaLogin {
-    background: rgba(300, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Roboto';
     font-weight: bold;
-    color: white
 }
 
 #resposta {
@@ -217,6 +176,58 @@
 
 /*Fim do cadastro*/
 
+/*Animações*/
+
+.anima-left{
+    position: relative;
+    left: -50%;
+    animation: anima-left 0.7s ease-in-out forwards;
+}
+
+.anima-right{
+    position: relative;
+    right: -50%;
+    animation: anima-right 0.7s ease-in-out forwards;
+}
+
+.delay-cad:nth-child(1){
+    animation-delay: 0.1s;
+}
+.delay-cad:nth-child(2){
+    animation-delay: 0.2s;
+}
+.delay-cad:nth-child(3){
+    animation-delay: 0.3s;
+}
+.delay-cad:nth-child(4){
+    animation-delay: 0.4s;
+}
+
+@keyframes anima-right{
+    0%{
+        right: -50%;
+        opacity: 0;
+    }
+    100%{
+        right: 0px;
+        opacity: 1;
+    }
+}
+
+@keyframes anima-left{
+    0%{
+        left: -50%;
+        opacity: 0;
+    }
+    100%{
+        left: 0px;
+        opacity: 1;
+    }
+}
+
+
+
+/*Fim animações*/
 
 /*Mobeli*/
 

@@ -55,62 +55,27 @@ if (isset($_POST['logar'])) {
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     <meta name="google-signin-client_id" content="158825657011-8jhq9pdj1q7l6ml0ao2i532n0ip6q8p6.apps.googleusercontent.com">
     <title>Bem-vindo</title>
-    <style>
-        .p_retorno {
-            color: red;
-            font-family: 'Roboto';
-            font-weight: '600';
-            text-align: center;
-        }
-
-        .vazio::-webkit-input-placeholder {
-            color: red;
-            font-weight: bold;
-        }
-
-        #respostaLogin {
-            background: rgba(300, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Roboto';
-            font-weight: bold;
-            color: white
-        }
-
-        #resposta {
-            text-align: center;
-            color: red;
-            font-family: 'Roboto';
-            font-weight: bold;
-        }
-
-        #respostaOk {
-            text-align: center;
-            color: green;
-            font-family: 'Roboto';
-            font-weight: bold;
-        }
-    </style>
 </head>
 
 <body>
     <div class="container" id="container">
-        <div class="form-container cadastro-container cadastro">
+        <div class="form-container cadastro tudo-none">
             <form id="form-cad">
-                <div class="cad-titulo ">
+                <div class="titulos">
                     <h1>Crie sua Conta</h1>
+                    <div class="container-img">
+                        <img src="./Imagens/LogoPequena.png" alt="Logotipo do site">
+                    </div>
                 </div>
                 <div class="campos-cad">
-                    <input type="text" id="sigName" name="nome" placeholder="Name" class="campos" />
-                    <input type="date" id="sigDate" name="nascimento" class="campos" />
-                    <input type="email" id="sigEmail" name="email" placeholder="Email" class="campos" />
-                    <input type="password" id="sigPass" name="senha" placeholder="Password" class="campos" />
-                    <input type="password" id="sigCPass" name="rtsenha" placeholder="Confirm password" class="campos" />
+                    <input type="text" id="sigName" name="nome" placeholder="Name" class="campos anima-left" />
+                    <input type="date" id="sigDate" name="nascimento" class="campos delay-cad anima-right" />
+                    <input type="email" id="sigEmail" name="email" placeholder="Email" class="campos delay-cad anima-left" />
+                    <input type="password" id="sigPass" name="senha" placeholder="Password" class="campos delay-cad anima-right" />
+                    <input type="password" id="sigCPass" name="rtsenha" placeholder="Confirm password" class="campos delay-cad anima-left" />
                 </div>
                 <div class="btn-link">
                     <button type="button" name="cadastrar" class="form-button" id="btnCad">Inscrever-se</button>
-                    <p class="cell-link">Já tem conta? <a href="" id="login">Entrar aqui</a>.</p>
                 </div>
                 <div id="resposta"></div>
                 <div id="respostaOk"></div>
@@ -118,243 +83,38 @@ if (isset($_POST['logar'])) {
         </div>
         <div class="form-container login">
             <form action="index.php" method="POST">
-                <div class="entrar-titulos">
-                    <h1 id="teste">Faça seu login</h1>
+                <div class="titulos">
+                    <h1>Faça seu login</h1>
+                    <div class="container-img">
+                        <img src="./Imagens/LogoPequena.png" alt="Logotipo do site">
+                    </div>
                 </div>
                 <div class="campos-log">
-                    <input type="email" id="logEmail" name="email" placeholder="Email" class="campos" required />
-                    <input type="password" id="logPass" name="senha" placeholder="Password" class="campos" required />
+                    <input type="email" id="logEmail" name="email" placeholder="Email" class="campos anima-left" required />
+                    <input type="password" id="logPass" name="senha" placeholder="Password" class="campos delay-log anima-right" required />
                     <a href="#" class="senha-esqueceu">Esqueceu sua senha?</a>
                 </div>
                 <div class="btn-link">
                     <button id="signIN" name="logar" type="submit" class="form-button">Entrar</button>
-                    <p class="cell-link">Ainda não tem conta? <a href="#" id="cadastro">Cadastre-se agora</a>.</p>
                 </div>
-                <p class="p_retorno">
-                    <div id="respostaLogin"></div>
-                    <?php
-                    if (!empty($saidas)) {
-                        foreach ($saidas as $saida) {
-                            echo $saida;
+                <div id="respostaLogin">
+                    <p class="p_retorno">
+                        <?php
+                        if (!empty($saidas)) {
+                            foreach ($saidas as $saida) {
+                                echo $saida;
+                            }
                         }
-                    }
-                    ?>
-                </p>
+                        ?>
+                    </p>
+                </div>
             </form>
         </div>
+        <p class="cell-link p-log">Ainda não tem conta? <a href="#" id="cadastro">Cadastre-se agora</a>.</p>
+        <p class="cell-link p-cad tudo-none">Já tem conta? <a href="#" id="login">Entrar aqui</a>.</p>
     </div>
+    <script src="./Js/cadastro/cadastrar.js"></script>
+    <script src="./Js/cadastro/transition.js"></script>
+</body>
 
-    <script>
-        $(document).ready(function() {
-            $('#sigName').focusout(function() {
-                if ($(this).val() == '') {
-                    $("#sigName").css("border", "1.5px solid red");
-                    $("#sigName").attr("placeholder", "Informe o nome");
-                    $("#sigName").addClass("vazio");
-                } else {
-                    $("#sigName").css("border", "none");
-                    $("#sigName").attr("placeholder", "Name");
-                    $("#sigName").removeClass("vazio");
-                }
-            })
-
-            $('#sigDate').focusout(function() {
-                if ($(this).val() == '') {
-                    $("#sigDate").css({
-                        "border": "1.5px solid red",
-                        "color": "red",
-                        "font-weight": "bold"
-                    });
-                } else {
-                    $("#sigDate").css({
-                        "border": "none",
-                        "color": "black",
-                        "font-weight": "normal"
-                    });
-                }
-            })
-
-            $('#sigEmail').focusout(function() {
-                var email = $(this).val();
-
-                function validaEmail(email) {
-                    var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-                    return filtro.test(email);
-                }
-
-                if (email != '') {
-                    $("#sigEmail").css("border", "none");
-                    $("#sigEmail").attr("placeholder", "Name");
-                    $("#sigEmail").removeClass("vazio");
-
-                    if (validaEmail(email)) {
-                        $.ajax({
-                            url: './src/processos/verifica_email.php',
-                            method: 'POST',
-                            data: {
-                                email: email
-                            },
-                            success: function(result) {
-                                if (result != '') {
-                                    $('#resposta').fadeIn().html(result);
-                                    $("#sigEmail").css("border", "1.5px solid red");
-                                } else {
-                                    $('#resposta').fadeIn().html('');
-                                    $("#sigEmail").css("border", "none");
-                                }
-                            }
-                        })
-                    } else {
-                        alert('Email inválido!');
-                        $("#sigEmail").css("border", "1.5px solid red");
-                    }
-
-                } else {
-                    $("#sigEmail").css("border", "1.5px solid red");
-                    $("#sigEmail").attr("placeholder", "Informe o email");
-                    $("#sigEmail").addClass("vazio");
-                }
-            })
-
-            $('#sigPass').focusout(function() {
-                if ($(this).val() == '') {
-                    $("#sigPass").css("border", "1.5px solid red");
-                    $("#sigPass").attr("placeholder", "Informe a senha");
-                    $("#sigPass").addClass("vazio");
-                } else {
-                    $("#sigPass").css("border", "none");
-                    $("#sigPass").attr("placeholder", "Password");
-                    $("#sigPass").removeClass("vazio");
-                }
-            })
-
-            $('#sigCPass').focusout(function() {
-                if ($(this).val() == '') {
-                    $("#sigCPass").css("border", "1.5px solid red");
-                    $("#sigCPass").attr("placeholder", "Confirme a senha");
-                    $("#sigCPass").addClass("vazio");
-                } else {
-                    $("#sigCPass").css("border", "none");
-                    $("#sigCPass").attr("placeholder", "Confirm password");
-                    $("#sigCPass").removeClass("vazio");
-                }
-            })
-
-            $('#btnCad').click(function() {
-                var nome = $('#sigName').val();
-                var email = $("#sigEmail").val();
-                var senha = $("#sigPass").val();
-                var rtsenha = $("#sigCPass").val();
-                var nascimento = $("#sigDate").val();
-
-                if (nome == '' || email == '' || senha == '' || rtsenha == '' || nascimento == '') {
-                    if ($("#sigName").val() == '') {
-                        $("#sigName").css("border", "1.5px solid red");
-                        $("#sigName").attr("placeholder", "Informe o nome");
-                        $("#sigName").addClass("vazio");
-                    } else {
-                        $("#sigName").css("border", "1.5px solid white");
-                        $("#sigName").attr("placeholder", "Name");
-                        $("#sigName").removeClass("vazio");
-                    }
-
-                    if ($("#sigDate").val() == '') {
-                        $("#sigDate").css({
-                            "border": "1.5px solid red",
-                            "color": "red",
-                            "font-weight": "bold"
-                        });
-                    } else {
-                        $("#sigDate").css({
-                            "border": "none",
-                            "color": "black",
-                            "font-weight": "normal"
-                        });
-                    }
-
-                    if ($("#sigEmail").val() == '') {
-                        $("#sigEmail").css("border", "1.5px solid red");
-                        $("#sigEmail").attr("placeholder", "Informe o email");
-                        $("#sigEmail").addClass("vazio");
-                    } else {
-                        $("#sigEmail").css("border", "1.5px solid white");
-                        $("#sigEmail").attr("placeholder", "Email");
-                        $("#sigEmail").removeClass("vazio");
-                    }
-
-                    if ($("#sigPass").val() == '') {
-                        $("#sigPass").css("border", "1.5px solid red");
-                        $("#sigPass").attr("placeholder", "Informe a senha");
-                        $("#sigPass").addClass("vazio");
-                    } else {
-                        $("#sigPass").css("border", "1.5px solid white");
-                        $("#sigPass").attr("placeholder", "Password");
-                        $("#sigPass").removeClass("vazio");
-                    }
-
-                    if ($("#sigCPass").val() == '') {
-                        $("#sigCPass").css("border", "1.5px solid red");
-                        $("#sigCPass").attr("placeholder", "Confirme a senha");
-                        $("#sigCPass").addClass("vazio");
-                    } else {
-                        $("#sigCPass").css("border", "1.5px solid white");
-                        $("#sigCPass").attr("placeholder", "Confirm password");
-                        $("#sigCPass").removeClass("vazio");
-                    }
-
-                    $('#resposta').html('Preencha todos os campos!');
-                }
-
-                if (senha != '' && rtsenha != '' && senha != rtsenha) {
-                    $('#resposta').html('As senhas não correspondem!');
-                }
-
-                $.ajax({
-                    url: './src/processos/processaCad.php',
-                    method: 'POST',
-                    data: {
-                        nome: nome,
-                        nascimento: nascimento,
-                        email: email,
-                        senha: senha,
-                        rtsenha: rtsenha
-                    },
-                    success: function(result) {
-                        if (result != '') {
-                            if (result == 'Sua conta foi criada :)') {
-                                $('#form-cad').trigger('reset');
-                                $("#respostaOk").html(result);
-                                setTimeout(function() {
-                                    $('#respostaOk').fadeOut('Slow');
-                                }, 3000);
-                            } else {
-                                $('#resposta').fadeIn().html(result);
-                                setTimeout(function() {
-                                    $('#resposta').fadeOut('Slow');
-                                }, 3000);
-                            }
-                        }
-                    }
-                })
-            })
-        })
-    </script>
-
-   
-
-    <script>
-        const linkLogin = document.getElementById('login');
-        const linkCadastro = document.getElementById('cadastro');
-        const formCad = document.querySelector('.cadastro');
-        const fromLog = document.querySelector('.login');
-
-        linkCadastro.addEventListener('click', () => {
-            formCad.classList.remove("cadastro-container");
-            fromLog.classList.add("login-container")
-        });
-
-        linkLogin.addEventListener('click', () => {
-            formCad.classList.add("cadastro-container");
-            fromLog.classList.remove("login-container")
-        });
-    </script>
+</html>

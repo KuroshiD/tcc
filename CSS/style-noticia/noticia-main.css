@@ -2,13 +2,13 @@
 
 .container-avd-recentes{
     width: 100%;
-    margin-top: 15px;
-    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .titulo-recentes{
+    margin-top: 20px;
     margin-left: 15px;
-    margin-bottom: 10px;
 }
 
 .titulo-recentes .ttl-rec{
@@ -20,47 +20,54 @@
 
 .container-avd-recentes .container-coment{
     position: relative;
-    width: 90%;
-    height: 80px;
-    margin: auto;
+    width: 300px;
+    height: 250px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 10px;
     background-color: rgb(20, 20, 20);
     display: flex;
+    flex-direction: column;
     align-items: center;
     margin-bottom: 15px;
+    cursor: pointer;
 }
 
 .container-coment .container-img-rec-anime{
-    margin-left: 5px;
     margin-right: 5px;
-    width: 200px;
-    height: 70px;
+    width: 100%;
+    height: 100%;
 }
 
 .container-coment .container-img-rec-anime img{
     width: 100%;
-    height: 70px;
+    height: 100%;
     object-fit: cover;
     object-position: center;
     border-radius: 5px;
 }
 
 .content-coment-name{
-    height: 70px;
+    width: 100%;
 }
 
-.name-coment{
-    color: #fff;
-    font-size: 10pt;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 4px;
+.title-news{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #FFFF;
 }
 
-.coment{
-    position: relative;
-    width: 95%;
-    color: #fff;
-    text-align: justify;
-    font-size: 7pt;
-    font-family: Arial, Helvetica, sans-serif;
+.horario{
+    color: rgb(82, 80, 80);
 }
+
+@media screen and (min-width: 935px){
+    .container-avd-recentes .container-coment{
+        width: 270px;
+    }
+}
+
+
+

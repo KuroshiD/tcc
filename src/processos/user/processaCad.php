@@ -7,14 +7,14 @@ $email = security($_POST['email']);
 $senha = security($_POST['senha']);
 $rtsenha = security($_POST['rtsenha']);
 $nascimento = security($_POST['nascimento']);
-
+$sorte = rand(1, 1000000);
 if ($senha == $rtsenha && !empty($nome) && !empty($email) && !empty($senha) && !empty($rtsenha)) {
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $existeConta = mysqli_query($con, "SELECT email FROM tb_usuario WHERE email = '$email'");
 
         if (mysqli_num_rows($existeConta) == 0) {
             $senhaSegura = password_hash($senha, PASSWORD_DEFAULT);
-            $cadastra = mysqli_query($con, "INSERT INTO tb_usuario (nome, email, senha, nascimento) VALUES ('$nome', '$email', '$senhaSegura', '$nascimento')");
+            $cadastra = mysqli_query($con, "INSERT INTO tb_usuario (nome, email, senha, nascimento, sorte) VALUES ('$nome', '$email', '$senhaSegura', '$nascimento', '$sorte')");
             echo 'Sua conta foi criada :)';
         } else {
             echo 'Essa conta já existe!';

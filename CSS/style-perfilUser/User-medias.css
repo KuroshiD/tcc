@@ -25,23 +25,29 @@
 
 @media screen and (min-width: 935px){
 
+    .interface .container-main{
+        top: 0px;
+        padding-top: 40px;
+        padding-bottom: 10px;
+    }
+
     /*Inicio da seção de imagem de capa e perfil */
     .main-capa-peril .container-capa{
         position: relative;
         width: 100%;
-        height: 220px;
+        height: 320px;
     }
 
     .main-capa-peril .container-capa img{
         width: 100%;
-        height: 220px;
+        height: 320px;
         object-fit: cover;
         object-position: center;
     }
 
     .main-capa-peril .container-perfil{
-        width: 120px;
-        height: 120px;
+        width: 125px;
+        height: 125px;
     }
     /*Fim da seção de imagem de capa e perfil*/
 
@@ -104,11 +110,13 @@
 
     /*Inicio da stylização da seção de atividades */
 
-    .titulo-recentes{
+    .content-recentes .titulo-recentes{
         position: relative;
-        width: 90%;
-        margin: auto;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
         margin-bottom: 1rem;
+        padding-left: 0rem;
     }
 
     .titulo-recentes .ttl-rec{

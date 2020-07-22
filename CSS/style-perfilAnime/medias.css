@@ -24,3 +24,9 @@
     }
 }
 
+@media screen and (min-width: 935px){
+    .interface .container-main{
+        position: relative;
+        height: 100%;
+    }
+}

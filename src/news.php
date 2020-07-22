@@ -52,7 +52,7 @@ $x = rand(0, 99);
 
                         <div class="mobile-user">
 
-                            <a href="./user/Perfil-user.php"><img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt=""></a>
+                            <a href="user/Perfil-user.php"><img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt=""></a>
 
                         </div>
 
@@ -78,11 +78,15 @@ $x = rand(0, 99);
                             </li>
 
                             <li class="list-items">
-                                <a href="news.php" class="link-items">noticias</a>
+                                <a href="./news.php" class="link-items">noticias</a>
+                            </li>
+
+                            <li class="list-items">
+                                <a href="./sobre.php" class="link-items">sobre</a>
                             </li>
 
                             <li class="list-items sair-mobile">
-                                <a href="processos/logout.php" class="link-items">sair</a>
+                                <a href="./processos/user/logout.php" class="link-items">sair</a>
                             </li>
 
                         </ul>
@@ -93,11 +97,17 @@ $x = rand(0, 99);
 
                 <div class="container-img-user">
 
-                    <a href="./user/Perfil-user.php"><img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="" class="menu-verifica img-none"></a>
+                    <img src="<?php echo '../' . $dados['img_perfil'] . '?x = ' . $x; ?>" alt="" class="img img-none">
+                    <div class="menuzinho-hover hover-efeito">
+                        <span class="triangulo"></span>
+                        <a href="./user/Perfil-user.php">perfil</a>
+                        <a href="./processos/user/logout.php">sair</a>
+                    </div>
                     <i class="fas fa-bars icon-none"></i>
                 </div>
 
             </div>
+
 
         </header>
 
@@ -112,92 +122,131 @@ $x = rand(0, 99);
 
             </div>
 
+            <div class="titulo-recentes">
+                <h2 class="ttl-rec">Noticias Recentes</h2>
+            </div>
+
             <section class="container-avd-recentes">
 
-                <div class="content-recentes">
 
-                    <div class="titulo-recentes">
-                        <h2 class="ttl-rec">Noticias Recentes</h2>
+                <div class="container-coment">
+
+                    <div class="container-img-rec-anime">
+                        <img src="../Imagens/koji.jpg">
                     </div>
 
-                    <div class="container-coment">
-                        <div class="container-img-rec-anime">
-                            <img src="../Imagens/dragonBall.jpg">
-                        </div>
-
-                        <div class="content-coment-name">
-                            <h4 class="name-coment">Dragon Ball Z</h4>
-                            <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
-                        </div>
-
-                    </div>
-
-                    <div class="container-coment">
-
-                        <div class="container-img-rec-anime">
-                            <img src="../Imagens/cavalheiros.png">
-                        </div>
-
-                        <div class="content-coment-name">
-                            <h4 class="name-coment">Dragon Ball Z</h4>
-                            <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
-                        </div>
-
-                    </div>
-
-                    <div class="container-coment">
-
-                        <div class="container-img-rec-anime">
-                            <img src="../Imagens/hunter_X_hunter.jpg">
-                        </div>
-
-                        <div class="content-coment-name">
-                            <h4 class="name-coment">Dragon Ball Z</h4>
-                            <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
-                        </div>
-
-                    </div>
-
-                    <div class="container-coment">
-
-                        <div class="container-img-rec-anime">
-                            <img src="../Imagens/naruto.jpg">
-                        </div>
-
-                        <div class="content-coment-name">
-                            <h4 class="name-coment">Dragon Ball Z</h4>
-                            <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
-                        </div>
-
-                    </div>
-
-                    <div class="container-coment">
-
-                        <div class="container-img-rec-anime">
-                            <img src="../Imagens/bleach.jpg">
-                        </div>
-
-                        <div class="content-coment-name">
-                            <h4 class="name-coment">Dragon Ball Z</h4>
-                            <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
-                        </div>
-
-                    </div>
-
-                    <div class="container-coment">
-
-                        <div class="container-img-rec-anime">
-                            <img src="../Imagens/cavalheiros.png">
-                        </div>
-
-                        <div class="content-coment-name">
-                            <h4 class="name-coment">Dragon Ball Z</h4>
-                            <p class="coment">As aventuras de um poderoso guerreiro chamado Goku, seu filho Gohan e seus aliados, que se esforçam para defender a Terra das ameaças.</p>
-                        </div>
-
+                    <div class="content-coment-name">
+                        <h4 class="title-news">Boruto: Koji Kashin utiliza o Modo Sábio de Jiraiya no mangá</h4>
+                        <p class="horario">21 de julho de 2020</p>
                     </div>
 
                 </div>
+
+                <div class="container-coment">
+
+                    <div class="container-img-rec-anime">
+                        <img src="../Imagens/server/Capa-Primeiras-impreso-v2-520x245.jpg">
+                    </div>
+
+                    <div class="content-coment-name">
+                        <h4 class="title-news">Primeiras Impressões – Temporada de Julho 2020</h4>
+                        <p class="horario">10 de julho de 2020</p>
+                    </div>
+
+                </div>
+
+                <div class="container-coment">
+
+                    <div class="container-img-rec-anime">
+                        <img src="../Imagens/server/mangamaisvendid.jpg">
+                    </div>
+
+                    <div class="content-coment-name">
+                        <h4 class="title-news">Mangás mais Vendidos (Julho 06 – Julho 12)</h4>
+                        <p class="horario">20 de julho de 2020</p>
+                    </div>
+
+                </div>
+
+                <div class="container-coment">
+
+                    <div class="container-img-rec-anime">
+                        <img src="../Imagens/server/81LJKM-TooL-tile-520x245.jpg">
+                    </div>
+
+                    <div class="content-coment-name">
+                        <h4 class="title-news">Mangás e Novels a metade do preço! – Dicas de Compra IntoxiAnime</h4>
+                        <p class="horario">21 de julho de 2020</p>
+                    </div>
+
+                </div>
+
+                <div class="container-coment">
+
+                    <div class="container-img-rec-anime">
+                        <img src="../Imagens/server/trailerrezero.jpg">
+                    </div>
+
+                    <div class="content-coment-name">
+                        <h4 class="title-news">Trailer do episódio 28 de Re:Zero foca em nova bruxa e personagens</h4>
+                        <p class="horario">20 de julho de 2020</p>
+                    </div>
+
+                </div>
+
+                <div class="container-coment">
+
+                    <div class="container-img-rec-anime">
+                        <img src="../Imagens/server/decadance.jpg">
+                    </div>
+
+                    <div class="content-coment-name">
+                        <h4 class="title-news">Deca-Dence tem Plot Twist completamente inesperado no 2º episódio!</h4>
+                        <p class="horario">19 de julho de 2020</p>
+                    </div>
+
+                </div>
+
+                <div class="container-coment">
+
+                    <div class="container-img-rec-anime">
+                        <img src="../Imagens/server/oshino.jpg">
+                    </div>
+
+                    <div class="content-coment-name">
+                        <h4 class="title-news">Oshi no Ko – Novo mangá dos autores de Kaguya-sama e Kuzo no Honkai ganha comercial de lançamento</h4>
+                        <p class="horario">19 de julho de 2020</p>
+                    </div>
+
+                </div>
+
+                <div class="container-coment">
+
+                    <div class="container-img-rec-anime">
+                        <a href="https://www.intoxianime.com/2020/07/anime-de-acao-e-romance-com-bruxa-e-cavaleiro-ganha-trailer-estendido-com-ed/" target="_blank"><img src="../Imagens/server/romance.jpg"></a>
+                    </div>
+
+                    <div class="content-coment-name">
+                        <h4 class="title-news">Anime de ação e romance com bruxa e cavaleiro ganha trailer estendido com ED</h4>
+                        <p class="horario">15 de julho de 2020</p>
+                    </div>
+
+                </div>
+                
+                <div class="container-coment">
+
+                    <div class="container-img-rec-anime">
+                        <img src="../Imagens/server/thegod.jpg">
+                    </div>
+
+                    <div class="content-coment-name">
+                        <h4 class="title-news">The God of HighSchool #01 a #02 – Alguém pediu boas lutas? | Impressões Semanais</h4>
+                        <p class="horario">15 de julho de 2020</p>
+                    </div>
+
+                </div>
+
+                
 
             </section>
 
@@ -205,11 +254,11 @@ $x = rand(0, 99);
 
         <footer class="container-footer">
 
-            <p class="footer-des">Esse site é um projeto de TCC e não tem fins lucrativos (ainda).</p>
+            <p class="footer-p footer-des">Esse site é um projeto de TCC e não tem fins lucrativos (ainda).</p>
 
-            <p class="footer-email">E-mail para contato: <br><a href="#">contato.animematch@gmail.com</a></p>
+            <p class="footer-p footer-email">E-mail para contato: <br>contato.animematch@gmail.com</p>
 
-            <p class="footer-copy">&copy; Anime Match</p>
+            <p class="footer-p footer-copy">&copy; Anime Match</p>
 
         </footer>
 

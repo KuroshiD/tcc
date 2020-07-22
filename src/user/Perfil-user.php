@@ -2,8 +2,8 @@
 require_once('../banco/conexao.php');
 require_once '../../vendor/autoload.php';
 require_once('../banco/includes/findhttp.php');
-
 session_start();
+
 
 if (!isset($_SESSION['logado'])) {
     header("Location: ../../index.php");
@@ -15,7 +15,13 @@ $sql = mysqli_query($con, "SELECT * FROM tb_usuario WHERE id = '$id'");
 $dados = mysqli_fetch_array($sql);
 
 $x = rand(0, 99);
+
+$R = $dados['corr'];
+$G = $dados['corg'];
+$B = $dados['corb'];
+$RGB = "RGB($R, $G, $B)"
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -25,15 +31,16 @@ $x = rand(0, 99);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../CSS/style-total/Total-menu.css">
     <link rel="stylesheet" href="../../CSS/style-total/Total-main.css">
     <link rel="stylesheet" href="../../CSS/style-total/Total-media.css">
-    <link rel="icon" href="../../Imagens/favicon.ico">
+
     <link rel="stylesheet" href="../../CSS/style-perfilUser/header-menu.css">
     <link rel="stylesheet" href="../../CSS/style-perfilUser/User-main.css">
-    <link rel="stylesheet" href="../../CSS/style-perfilUser/menu-editar.css">
     <link rel="stylesheet" href="../../CSS/style-perfilUser/User-medias.css">
+
     <link rel="stylesheet" href="../../CSS/normalize/nomalize.css">
+    <link rel="icon" href="../../Imagens/favicon.ico">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
 
@@ -44,72 +51,6 @@ $x = rand(0, 99);
 <body>
 
     <div class="interface">
-
-
-
-        <div class="container-menu-editar active-menu-none">
-            <!--active-menu-none-->
-
-            <i class="fas fa-times icon-sair"></i>
-
-            <form class="form-menu-editar" method="POST" action="../processos/user/updatePerfil.php">
-                <h1 class="titulo-editar">Editar seu perfil</h1>
-
-
-                <div class="content-editar content-nome">
-                    <label for="">Nome: </label>
-                    <input type="text" class="items-editar item-nome" name="nome" value="<?php print $dados['nome'] ?>">
-                </div>
-
-                <div class="content-editar content-classe">
-                    <label for="">Classe:</label>
-                    <select name="class" id="" class="items-editar">
-                        <option value="<?php print $dados['classe']; ?>" selected disabled><?php print $dados['classe'] ?></option>
-                        <option value="Adventurer">Adventurer</option>
-                        <option value="Arqueiro">Arqueiro</option>
-                        <option value="Bardo">Bardo</option>
-                        <option value="Berseker">Berseker</option>
-                        <option value="Druida">Druida</option>
-                        <option value="Guerreiro">Guerreiro</option>
-                        <option value="Ladino">Ladino</option>
-                        <option value="Mago">Mago</option>
-                        <option value="Necromante">Necromante</option>
-                        <option value="Berseker">Berseker</option>
-                        <option value="Bardo">Bardo</option>
-                        <option value="loli">Loli</option>
-                    </select>
-                </div>
-
-                <div class="content-editar content-raca">
-                    <label for="raca">Raça:</label>
-                    <select name="raca" id="" class="items-editar">
-                        <option value="<?php print $dados['raca']; ?>" selected disabled><?php print $dados['raca'] ?></option>
-                        <option value="Angels">Angel</option>
-                        <option value="Anao">Anão</option>
-                        <option value="Demons">demon</option>
-                        <option value="Elfo">Elfo</option>
-                        <option value="Humano">Humano</option>
-                        <option value="Ogro">Ogro</option>
-                        <option value="Demi-human">Demi-human</option>
-                    </select>
-                </div>
-                <div class="content-editar content-classe">
-                    <label for="">Anime favorito: </label>
-                    <input type="text" class="items-editar item-nome" name="animefav" value="<?php print $dados['animefav'] ?>">
-                </div>
-                <div class="content-editar content-raca">
-                    <label for="">Personagem Favorito: </label>
-                    <input type="text" class="items-editar item-nome" name="personagem" value="<?php print $dados['personagem'] ?>">
-                </div>
-                <div class="content-editar content-descricao">
-                    <label for="">Descricao: </label>
-                    <input type="text" class="items-editar item-nome" name="descricao" value="<?php print $dados['descricao'] ?>" maxlength="255"></input>
-                </div>
-                <button class="btn-salvar">Salvar</button>
-
-            </form>
-
-        </div>
 
         <header class="container-header">
 
@@ -187,7 +128,7 @@ $x = rand(0, 99);
                 <div class="content-nome-btn">
                     <h1 class="name-do-user"><?php echo $dados['nome']; ?></h1>
                     <div class="container-btn">
-                        <input type="button" name="editar-btn" id="bttn-editar" class="btn-editar" value="Editar">
+                        <input type="button" name="editar-btn" id="bttn-editar" class="btn-editar cor" value="Editar">
                     </div>
                 </div>
 
@@ -201,71 +142,299 @@ $x = rand(0, 99);
 
             </section>
 
-            <div class="main-btns-interacoes">
+            <div class="main-btns-interacoes abas">
 
-                <button type="button" id="" class="btns-interacoes btn-atvddR active">Atividade recentes</button>
-                <button type="button" id="" class="btns-interacoes btn-assistindo">Assistindo</button>
-                <button type="button" id="" class="btns-interacoes btn-assistidos">Assistidos</button>
-                <button type="button" id="" class="btns-interacoes btn-dropados">Dropados</button>
-                <button type="button" id="" class="btns-interacoes btn-favorito">Favorito</button>
+                <a href="#aba_1" class="btns-interacoes active">Atividade recentes</a>
+                <a href="#aba_2" class="btns-interacoes">Assistindo</a>
+                <a href="#aba_3" class="btns-interacoes">Assistidos</a>
+                <a href="#aba_4" class="btns-interacoes">Dropados</a>
+                <a href="#aba_5" class="btns-interacoes">Favorito</a>
 
             </div>
 
-            <section class="container-avd-recentes">
+            <section class="container-avd-recentes abas">
 
-                <div class="content-recentes">
+                <div id="aba_1" class="content-abas aba">
 
                     <div class="titulo-recentes">
                         <h2 class="ttl-rec">Atividades Recentes</h2>
                     </div>
 
                     <?php
-                    $buscaRecentes = mysqli_query($con, "SELECT * FROM recentes WHERE id = $id ORDER BY data_publicacao DESC");
-                    while ($recentes = mysqli_fetch_array($buscaRecentes)) {
-                        if(findHTTP($recentes['img_anime'])){
-                            echo '<div class="container-coment">';
-                            
+                    $buscaRecentes = mysqli_query($con, "SELECT * FROM recentes WHERE id_user = $id ORDER BY data_publicacao DESC limit 5");
+                    if (mysqli_num_rows($buscaRecentes) > 0) {
+                        while ($recentes = mysqli_fetch_array($buscaRecentes)) {
+                            if (findHTTP($recentes['img_anime'])) {
+                                echo '<div class="container-coment cor">';
+
                                 echo '<div class="container-img-rec-anime">';
-                                    echo '<img src="' . $recentes['img_anime'] . '">';
+                                echo '<img src="' . $recentes['img_anime'] . '" class="img-click" id="'.$recentes['id_comentario'].'">';
+                                echo '</div>';
+                                echo '<div class="content-coment-name">';
+                                echo '<h4 class="name-coment">' . $recentes['nome_anime'] . '</h4>';
+                                echo '<p class="coment leiamais">' . $recentes['descricao_anime'] . '</p>';
+                                echo '</div>';
+
+                                echo '</div>';
+                            } else {
+                                echo '<div class="container-coment cor">';
+
+                                echo '<div class="container-img-rec-anime">';
+                                echo '<img src="../../' . $recentes['img_anime'] . '" class="img-click" id="'.$recentes['id_comentario'].'">';
                                 echo '</div>';
 
                                 echo '<div class="content-coment-name">';
-                                    echo '<h4 class="name-coment">' . $recentes['nome'] . '</h4>';
-                                    echo '<p class="coment">' . $recentes['descricao'] . '</p>';
-                                echo '</div>';
-                                
-                            echo '</div>';
-                        }else{
-                            echo '<div class="container-coment">';
-                            
-                                echo '<div class="container-img-rec-anime">';
-                                    echo '<img src="../../' . $recentes['img_anime'] . '">';
+                                echo '<h4 class="name-coment">' . $recentes['nome_anime'] . '</h4>';
+                                echo '<p class="coment leiamais">' . $recentes['descricao_anime'] . '</p>';
                                 echo '</div>';
 
-                                echo '<div class="content-coment-name">';
-                                    echo '<h4 class="name-coment">' . $recentes['nome'] . '</h4>';
-                                    echo '<p class="coment">' . $recentes['descricao'] . '</p>';
                                 echo '</div>';
-                                
-                            echo '</div>';
+                            }
                         }
+                    } else {
+                        echo '<div class="nenhum-recomendado">';
+                        echo    '<img src="../../Imagens/naoAdicionado.gif" alt="Gif de nenhum comentário.">';
+                        echo    '<span class="nao-fez-nada-ainda">Você anida não fez nenhum comentário.</span>';
+                        echo'</div>';
                     }
                     ?>
 
                 </div>
 
+                <div id="aba_2" class="content-abas aba">
+                    <div class="titulo-recentes">
+                        <h2 class="ttl-rec">Assistindo</h2>
+                    </div>
+
+                    <?php
+                    $buscaAssitindos = mysqli_query($con, "SELECT 
+                        *
+                    FROM
+                        tb_assistindo ass
+                    INNER JOIN
+                        tb_anime ani
+                    ON
+                        ass.id_anime = ani.id_anime
+                    WHERE 
+                        id_user = $id
+                ");
+                    if(mysqli_num_rows($buscaAssitindos)){
+                        while ($Assistindo = mysqli_fetch_array($buscaAssitindos)) {
+                            if (findHTTP($Assistindo['img_anime'])) {
+                                echo '<div class="container-coment cor">';
+
+                                echo '<div class="container-img-rec-anime">';
+                                echo '<img src="' . $Assistindo['img_anime'] . '">';
+                                echo '</div>';
+
+                                echo '<div class="content-coment-name">';
+                                echo '<h4 class="name-coment">' . $Assistindo['nome'] . '</h4>';
+                                echo '<p class="coment leiamais">' . $Assistindo['descricao'] . '</p>';
+                                echo '</div>';
+
+                                echo '</div>';
+                            } else {
+                                echo '<div class="container-coment cor">';
+
+                                echo '<div class="container-img-rec-anime">';
+                                echo '<img src="../../' . $Assistindo['img_anime'] . '">';
+                                echo '</div>';
+
+                                echo '<div class="content-coment-name">';
+                                echo '<h4 class="name-coment">' . $Assistindo['nome'] . '</h4>';
+                                echo '<p class="coment leiamais">' . $Assistindo['descricao'] . '</p>';
+                                echo '</div>';
+
+                                echo '</div>';
+                            }
+                        }
+                    }else{
+
+                        echo '<div class="nenhum-recomendado">';
+                        echo    '<img src="../../Imagens/naoAdicionado.gif" alt="Gif de nenhum comentário.">';
+                        echo    '<span class="nao-fez-nada-ainda">Você anida não adicionou nenhum nenhum anime no assistindo.</span>';
+                        echo'</div>';
+                        
+                    }
+                    ?>
+                </div>
+
+                <div id="aba_3" class="content-abas aba">
+                    <div class="titulo-recentes">
+                        <h2 class="ttl-rec">Assistidos</h2>
+                    </div>
+
+                    <?php
+                    $buscaAssistidos = mysqli_query($con, "SELECT 
+                        *
+                    FROM
+                        tb_assistidos ass
+                    INNER JOIN
+                        tb_anime ani
+                    ON
+                        ass.id_anime = ani.id_anime
+                    WHERE 
+                        id_user = $id
+                    ");
+                    if (mysqli_num_rows($buscaAssistidos) > 0) {
+                        while ($Assistidos = mysqli_fetch_array($buscaAssistidos)) {
+                            if (findHTTP($Assistidos['img_anime'])) {
+                                echo '<div class="container-coment cor">';
+
+                                echo '<div class="container-img-rec-anime">';
+                                echo '<img src="' . $Assistidos['img_anime'] . '">';
+                                echo '</div>';
+
+                                echo '<div class="content-coment-name">';
+                                echo '<h4 class="name-coment">' . $Assistidos['nome'] . '</h4>';
+                                echo '<p class="coment leiamais">' . $Assistidos['descricao'] . '</p>';
+                                echo '</div>';
+
+                                echo '</div>';
+                            } else {
+                                echo '<div class="container-coment cor">';
+
+                                echo '<div class="container-img-rec-anime">';
+                                echo '<img src="../../' . $Assistidos['img_anime'] . '">';
+                                echo '</div>';
+
+                                echo '<div class="content-coment-name">';
+                                echo '<h4 class="name-coment">' . $Assistidos['nome'] . '</h4>';
+                                echo '<p class="coment leiamais">' . $Assistidos['descricao'] . '</p>';
+                                echo '</div>';
+
+                                echo '</div>';
+                            }
+                        }
+                    } else {
+
+                        echo '<div class="nenhum-recomendado">';
+                        echo    '<img src="../../Imagens/naoAdicionado.gif" alt="Gif de nenhum comentário.">';
+                        echo    '<span class="nao-fez-nada-ainda">Você anida não adicionou nenhum anime para assistidos.</span>';
+                        echo'</div>';
+                        
+                    }
+                    ?>
+                </div>
+
+                <div id="aba_4" class="content-abas aba">
+                    <div class="titulo-recentes">
+                        <h2 class="ttl-rec">Dropados</h2>
+                    </div>
+
+                    <?php
+                    $buscaDropados = mysqli_query($con, "SELECT 
+                        *
+                    FROM
+                        tb_dropados ass
+                    INNER JOIN
+                        tb_anime ani
+                    ON
+                        ass.id_anime = ani.id_anime
+                    WHERE 
+                        id_user = $id
+                ");
+                    if(mysqli_num_rows($buscaDropados)){
+                        while ($Dropados = mysqli_fetch_array($buscaDropados)) {
+                            if (findHTTP($Dropados['img_anime'])) {
+                                echo '<div class="container-coment cor">';
+
+                                echo '<div class="container-img-rec-anime">';
+                                echo '<img src="' . $Dropados['img_anime'] . '">';
+                                echo '</div>';
+
+                                echo '<div class="content-coment-name">';
+                                echo '<h4 class="name-coment">' . $Dropados['nome'] . '</h4>';
+                                echo '<p class="coment leiamais">' . $Dropados['descricao'] . '</p>';
+                                echo '</div>';
+
+                                echo '</div>';
+                            } else {
+                                echo '<div class="container-coment cor">';
+
+                                echo '<div class="container-img-rec-anime">';
+                                echo '<img src="../../' . $Dropados['img_anime'] . '">';
+                                echo '</div>';
+
+                                echo '<div class="content-coment-name">';
+                                echo '<h4 class="name-coment">' . $Dropados['nome'] . '</h4>';
+                                echo '<p class="coment leiamais">' . $Dropados['descricao'] . '</p>';
+                                echo '</div>';
+
+                                echo '</div>';
+                            }
+                        }
+                    }else{
+
+                        echo '<div class="nenhum-recomendado">';
+                        echo    '<img src="../../Imagens/comentario.gif" alt="Gif de nenhum comentário.">';
+                        echo    '<span class="nao-fez-nada-ainda">Você anida não adicionou nenhum anime para dropados.</span>';
+                        echo'</div>';
+                        
+                    }
+                    ?>
+                </div>
+                <div id="aba_5" class="content-abas aba">
+                    <div class="titulo-recentes">
+                        <h2 class="ttl-rec">Favoritos</h2>
+                    </div>
+
+                    <?php
+                    $buscaFavoritos = mysqli_query($con, "SELECT 
+                        *
+                    FROM
+                        tb_favoritos ass
+                    INNER JOIN
+                        tb_anime ani
+                    ON
+                        ass.id_anime = ani.id_anime
+                    WHERE 
+                        id_user = $id
+                ");
+                    if(mysqli_num_rows($buscaFavoritos)){
+                        while ($Favoritos = mysqli_fetch_array($buscaFavoritos)) {
+                            if (findHTTP($Favoritos['img_anime'])) {
+                                echo '<div class="container-coment cor">';
+
+                                echo '<div class="container-img-rec-anime">';
+                                echo '<img src="' . $Favoritos['img_anime'] . '">';
+                                echo '</div>';
+
+                                echo '<div class="content-coment-name">';
+                                echo '<h4 class="name-coment">' . $Favoritos['nome'] . '</h4>';
+                                echo '<p class="coment leiamais">' . $Favoritos['descricao'] . '</p>';
+                                echo '</div>';
+
+                                echo '</div>';
+                            } else {
+                                echo '<div class="container-coment cor">';
+
+                                echo '<div class="container-img-rec-anime">';
+                                echo '<img src="../../' . $Favoritos['img_anime'] . '">';
+                                echo '</div>';
+
+                                echo '<div class="content-coment-name">';
+                                echo '<h4 class="name-coment">' . $Favoritos['nome'] . '</h4>';
+                                echo '<p class="coment leiamais">' . $Favoritos['descricao'] . '</p>';
+                                echo '</div>';
+
+                                echo '</div>';
+                            }
+                        }
+                    }else{
+
+                        echo '<div class="nenhum-recomendado">';
+                        echo    '<img src="../../Imagens/favorito.gif" alt="Gif de nenhum comentário.">';
+                        echo    '<span class="nao-fez-nada-ainda">Você anida não adicionou nenhum anime aos favoritos.</span>';
+                        echo'</div>';
+                        
+                    }
+                    ?>
+                </div>
+
             </section>
 
         </main>
-        <footer class="container-footer">
-
-            <p class="footer-des">Esse site é um projeto de TCC e não tem fins lucrativos (ainda).</p>
-
-            <p class="footer-email">E-mail para contato: <br><a href="#">contato.animematch@gmail.com</a></p>
-
-            <p class="footer-copy">&copy; Anime Match</p>
-
-        </footer>
 
     </div>
 
@@ -307,12 +476,15 @@ $x = rand(0, 99);
                     })
                 }
             })
+            $('.cor').css('background', '<?php echo $RGB ?>')
+            $('.btns-interacoes').css('border-bottom-color', '<?php echo $RGB ?>')
         });
     </script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="../../Js/Buttons-Perfil-User/btn-editar.js"></script>
     <script src="../../Js/Buttons-Perfil-User/btns.js"></script>
-
+    <script src="../../Js/comentario/user-coment.js"></script>
+    <script src="../../Js/tela/tela.js"></script>
 </body>
 
 </html>
